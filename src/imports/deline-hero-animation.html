@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Line — Animated Hero Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#141210; --bg-2:#1C1813; --ink:#ECE6DA; --ink-dim:#9A9087;
+    --gold:#C6A875; --line:rgba(236,230,218,0.14);
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:radial-gradient(120% 90% at 78% 18%, #1b1813 0%, var(--bg) 55%),var(--bg);
+    color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;align-items:center;overflow-x:hidden;
+  }
+  .hero{width:min(1180px,92vw);margin:0 auto;padding:64px 0;display:grid;
+    grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center}
+
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:12px;opacity:0}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);opacity:.7}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,68px);
+    line-height:1.02;letter-spacing:-0.01em;margin:22px 0 26px}
+  h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
+  h1 .line > span{display:block;transform:translateY(116%)}
+  h1 em{font-style:italic;color:var(--gold)}
+  .sub{color:var(--ink-dim);font-size:clamp(15px,1.15vw,17px);line-height:1.6;max-width:46ch;opacity:0}
+  .stats{display:flex;gap:0;margin:34px 0 36px;opacity:0}
+  .stat{padding-right:30px;margin-right:30px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat .num{font-family:var(--serif);font-size:30px;line-height:1;color:var(--ink)}
+  .stat .num span{color:var(--gold)}
+  .stat .lab{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-top:9px;max-width:13ch}
+  .cta{display:flex;gap:14px;opacity:0}
+  .btn{font-family:var(--sans);font-size:13px;letter-spacing:.06em;padding:14px 26px;border-radius:6px;
+    cursor:pointer;border:1px solid transparent;text-decoration:none;display:inline-block;
+    transition:transform .25s ease,background .25s ease,border-color .25s ease}
+  .btn-primary{background:var(--gold);color:#191512;font-weight:500}
+  .btn-primary:hover{transform:translateY(-2px);background:#d4b988}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:rgba(236,230,218,0.32)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--ink)}
+
+  .stage{position:relative;aspect-ratio:1/1;width:100%}
+  .stage svg{width:100%;height:100%;display:block;overflow:visible}
+  #guides{opacity:0}
+  #guides .g{stroke:var(--line);stroke-width:1;fill:none}
+  #guides .gd{stroke:var(--gold);stroke-width:1;fill:none;opacity:.5;stroke-dasharray:1;stroke-dashoffset:1}
+  #guides text{fill:var(--gold);opacity:.55;font-family:var(--sans);font-size:9px;letter-spacing:.12em}
+  #lines path{fill:none;stroke:var(--gold);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1;stroke-dashoffset:1}
+  #built{clip-path:inset(100% 0 0 0)}
+  #built .uph{fill:url(#uph);stroke:rgba(198,168,117,.40);stroke-width:1;stroke-linejoin:round}
+  #built .wood{fill:url(#wood);stroke:rgba(198,168,117,.35);stroke-width:.8;stroke-linejoin:round}
+  #built .woodline{fill:none;stroke:#6a5639;stroke-width:4;stroke-linecap:round}
+  #built .seam{fill:none;stroke:rgba(18,14,10,.55);stroke-width:1.3}
+  .stage .caption{position:absolute;left:0;bottom:-6px;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-dim);opacity:0}
+  .stage .caption b{color:var(--gold);font-weight:400}
+
+  .play .eyebrow{animation:fade .7s ease .15s forwards}
+  .play h1 .line > span{animation:rise .9s cubic-bezier(.19,.7,.2,1) forwards}
+  .play h1 .l1 > span{animation-delay:.28s}
+  .play h1 .l2 > span{animation-delay:.46s}
+  .play h1 .l3 > span{animation-delay:.64s}
+  .play .sub{animation:fadeUp .8s ease 1.05s forwards}
+  .play .stats{animation:fadeUp .8s ease 1.5s forwards}
+  .play .cta{animation:fadeUp .8s ease 1.95s forwards}
+
+  .play #guides{animation:fade .7s ease .25s forwards}
+  .play #guides .gd{animation:draw 1.2s ease .35s forwards}
+  .play #lines .s-legBack{animation:draw 1.0s ease .45s forwards}
+  .play #lines .s-legFront{animation:draw 1.0s ease .58s forwards}
+  .play #lines .s-apron{animation:draw 1.0s ease .78s forwards}
+  .play #lines .s-armPost{animation:draw .8s ease .98s forwards}
+  .play #lines .s-arm{animation:draw 1.0s ease 1.12s forwards}
+  .play #lines .s-seat{animation:draw 1.15s ease 1.30s forwards}
+  .play #lines .s-seatSeam{animation:draw .6s ease 1.66s forwards}
+  .play #lines .s-back{animation:draw 1.1s ease 1.82s forwards}
+  .play #lines .s-backFrame{animation:draw .7s ease 2.12s forwards}
+  .play #lines .s-backSeam{animation:draw .55s ease 2.28s forwards}
+  .play #built{animation:wipe 1.05s cubic-bezier(.4,0,.2,1) 2.70s forwards}
+  .play #lines{animation:dim .8s ease 3.15s forwards}
+  .play .caption{animation:fade .9s ease 3.40s forwards}
+  .play .stage svg{animation:float 7s ease-in-out 4.2s infinite alternate}
+
+  @keyframes fade{to{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes rise{to{transform:translateY(0)}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes wipe{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes dim{from{opacity:1}to{opacity:.3}}
+  @keyframes float{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+
+  .replay{position:fixed;right:22px;bottom:20px;z-index:5;background:rgba(28,24,19,0.8);
+    backdrop-filter:blur(6px);color:var(--ink-dim);border:1px solid var(--line);
+    font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    padding:10px 16px;border-radius:30px;cursor:pointer;transition:color .2s,border-color .2s}
+  .replay:hover{color:var(--gold);border-color:var(--gold)}
+
+  @media (max-width:840px){
+    .hero{grid-template-columns:1fr;gap:20px}
+    .stage{max-width:380px;margin-top:8px}
+    .stat{padding-right:20px;margin-right:20px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .eyebrow,.sub,.stats,.cta,#guides,.caption{opacity:1!important;animation:none!important;transform:none!important}
+    h1 .line > span{transform:none!important;animation:none!important}
+    #guides .gd,#lines path{stroke-dashoffset:0!important;animation:none!important}
+    #lines{opacity:.3!important}
+    #built{clip-path:inset(0 0 0 0)!important;animation:none!important}
+    .stage svg{animation:none!important}
+  }
+</style>
+</head>
+<body>
+  <main class="hero" id="hero">
+    <div class="content">
+      <div class="eyebrow">Furniture Design &amp; Sourcing</div>
+      <h1>
+        <span class="line l1"><span>Furniture,</span></span>
+        <span class="line l2"><span><em>drawn</em> in your studio.</span></span>
+        <span class="line l3"><span><em>Built</em> on ours.</span></span>
+      </h1>
+      <p class="sub">We bridge the gap between high-end architectural concepts and complex overseas manufacturing — from intimate luxury residences to large-scale hospitality projects.</p>
+      <div class="stats">
+        <div class="stat"><div class="num" data-target="15">0<span>+</span></div><div class="lab">Years China Logistics</div></div>
+        <div class="stat"><div class="num" data-target="20">0<span>+</span></div><div class="lab">Years Design Experience</div></div>
+        <div class="stat"><div class="num" data-target="150">0<span>+</span></div><div class="lab">Clients from 20 Countries</div></div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">See our work</a>
+        <a class="btn btn-ghost" href="#">Start your project</a>
+      </div>
+    </div>
+
+    <div class="stage">
+      <svg viewBox="0 0 480 470" aria-label="A mid-century lounge chair being drawn as a sketch and then built into a solid form">
+        <defs>
+          <linearGradient id="uph" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a3026"/><stop offset="1" stop-color="#201a14"/>
+          </linearGradient>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6a5639"/><stop offset="1" stop-color="#43361f"/>
+          </linearGradient>
+        </defs>
+
+        <g id="guides">
+          <path class="g" d="M80 420 L410 420"/>
+          <path class="gd" pathLength="1" d="M400 100 L400 420 M392 100 L408 100 M392 420 L408 420"/>
+          <text x="405" y="265">H</text>
+          <path class="gd" pathLength="1" d="M124 434 L334 434 M124 428 L124 440 M334 428 L334 440"/>
+          <text x="224" y="449">W</text>
+        </g>
+
+        <g id="built">
+          <path class="woodline" d="M331 117 L306 254"/>
+          <path class="uph"  d="M266 254 L290 113 Q298 100 314 100 Q332 102 328 120 L304 254 Z"/>
+          <path class="seam" d="M268 253 Q289 261 302 252"/>
+          <path class="wood" d="M292 314 L302 314 L334 420 L324 420 Z"/>
+          <path class="wood" d="M150 300 L300 300 Q307 300 307 307 L307 314 L150 314 Q146 314 146 307 Z"/>
+          <path class="woodline" d="M152 230 L154 300"/>
+          <path class="woodline" d="M310 223 Q221 217 152 230"/>
+          <path class="uph"  d="M150 254 L296 254 Q308 254 308 266 L308 284 Q308 296 296 296 L150 296 Q138 296 138 284 L138 266 Q138 256 150 254 Z"/>
+          <path class="seam" d="M140 282 Q220 286 306 282"/>
+          <path class="wood" d="M150 314 L160 314 L132 420 L122 420 Z"/>
+        </g>
+
+        <g id="lines">
+          <path class="s-legBack"  pathLength="1" d="M292 314 L302 314 L334 420 L324 420 Z"/>
+          <path class="s-legFront" pathLength="1" d="M150 314 L160 314 L132 420 L122 420 Z"/>
+          <path class="s-apron"    pathLength="1" d="M150 300 L300 300 Q307 300 307 307 L307 314 L150 314 Q146 314 146 307 Z"/>
+          <path class="s-armPost"  pathLength="1" d="M152 230 L154 300"/>
+          <path class="s-arm"      pathLength="1" d="M310 223 Q221 217 152 230"/>
+          <path class="s-seat"     pathLength="1" d="M150 254 L296 254 Q308 254 308 266 L308 284 Q308 296 296 296 L150 296 Q138 296 138 284 L138 266 Q138 256 150 254 Z"/>
+          <path class="s-seatSeam" pathLength="1" d="M140 282 Q220 286 306 282"/>
+          <path class="s-back"     pathLength="1" d="M266 254 L290 113 Q298 100 314 100 Q332 102 328 120 L304 254 Z"/>
+          <path class="s-backFrame" pathLength="1" d="M331 117 L306 254"/>
+          <path class="s-backSeam" pathLength="1" d="M268 253 Q289 261 302 252"/>
+        </g>
+      </svg>
+      <div class="caption"><b>Drawn</b> &nbsp;→&nbsp; Built</div>
+    </div>
+  </main>
+
+  <button class="replay" id="replay">Replay</button>
+<script>
+  const hero=document.getElementById('hero');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(){document.querySelectorAll('.num').forEach(el=>{const t=+el.dataset.target,s=performance.now(),d=1300;
+    function tick(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3);el.firstChild.textContent=Math.round(e*t);if(p<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);});}
+  function run(){hero.classList.remove('play');void hero.offsetWidth;hero.classList.add('play');
+    if(reduce){document.querySelectorAll('.num').forEach(el=>el.firstChild.textContent=el.dataset.target);}else{setTimeout(countUp,1500);}}
+  window.addEventListener('load',run);
+  document.getElementById('replay').addEventListener('click',run);
+</script>
+</body>
+</html>

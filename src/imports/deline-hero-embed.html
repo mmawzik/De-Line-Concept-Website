@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Line — Hero Animation Embed</title>
+<style>
+  /* Self-contained, transparent background. Drop into a Figma Make custom-code /
+     HTML embed block, or host this file and place it in an <iframe>. */
+  html,body{margin:0;height:100%;background:transparent}
+  .dl-embed{width:100%;max-width:560px;margin:0 auto;position:relative;
+    font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+  .dl-embed .stage{position:relative;aspect-ratio:1/1;width:100%}
+  .dl-embed svg{width:100%;height:100%;display:block;overflow:visible}
+
+  .dl-embed #guides{opacity:0}
+  .dl-embed #guides .g{stroke:rgba(236,230,218,0.14);stroke-width:1;fill:none}
+  .dl-embed #guides .gd{stroke:#C6A875;stroke-width:1;fill:none;opacity:.5;stroke-dasharray:1;stroke-dashoffset:1}
+  .dl-embed #guides text{fill:#C6A875;opacity:.55;font-size:9px;letter-spacing:.12em}
+  .dl-embed #lines path{fill:none;stroke:#C6A875;stroke-width:1.7;stroke-linecap:round;
+    stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+  .dl-embed #built{clip-path:inset(100% 0 0 0)}
+  .dl-embed #built .uph{fill:url(#uph);stroke:rgba(198,168,117,.40);stroke-width:1;stroke-linejoin:round}
+  .dl-embed #built .wood{fill:url(#wood);stroke:rgba(198,168,117,.35);stroke-width:.8;stroke-linejoin:round}
+  .dl-embed #built .woodline{fill:none;stroke:#6a5639;stroke-width:4;stroke-linecap:round}
+  .dl-embed #built .seam{fill:none;stroke:rgba(18,14,10,.55);stroke-width:1.3}
+  .dl-embed .caption{position:absolute;left:0;bottom:-4px;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:#9A9087;opacity:0}
+  .dl-embed .caption b{color:#C6A875;font-weight:400}
+
+  .dl-embed.play #guides{animation:dlfade .7s ease .15s forwards}
+  .dl-embed.play #guides .gd{animation:dldraw 1.2s ease .25s forwards}
+  .dl-embed.play #lines .s-legBack{animation:dldraw 1.0s ease .35s forwards}
+  .dl-embed.play #lines .s-legFront{animation:dldraw 1.0s ease .48s forwards}
+  .dl-embed.play #lines .s-apron{animation:dldraw 1.0s ease .68s forwards}
+  .dl-embed.play #lines .s-armPost{animation:dldraw .8s ease .88s forwards}
+  .dl-embed.play #lines .s-arm{animation:dldraw 1.0s ease 1.02s forwards}
+  .dl-embed.play #lines .s-seat{animation:dldraw 1.15s ease 1.20s forwards}
+  .dl-embed.play #lines .s-seatSeam{animation:dldraw .6s ease 1.56s forwards}
+  .dl-embed.play #lines .s-back{animation:dldraw 1.1s ease 1.72s forwards}
+  .dl-embed.play #lines .s-backFrame{animation:dldraw .7s ease 2.02s forwards}
+  .dl-embed.play #lines .s-backSeam{animation:dldraw .55s ease 2.18s forwards}
+  .dl-embed.play #built{animation:dlwipe 1.05s cubic-bezier(.4,0,.2,1) 2.60s forwards}
+  .dl-embed.play #lines{animation:dldim .8s ease 3.05s forwards}
+  .dl-embed.play .caption{animation:dlfade .9s ease 3.30s forwards}
+  .dl-embed.play svg{animation:dlfloat 7s ease-in-out 4.1s infinite alternate}
+
+  @keyframes dlfade{to{opacity:1}}
+  @keyframes dldraw{to{stroke-dashoffset:0}}
+  @keyframes dlwipe{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes dldim{from{opacity:1}to{opacity:.3}}
+  @keyframes dlfloat{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+
+  @media (prefers-reduced-motion:reduce){
+    .dl-embed #guides,.dl-embed .caption{opacity:1!important;animation:none!important}
+    .dl-embed #guides .gd,.dl-embed #lines path{stroke-dashoffset:0!important;animation:none!important}
+    .dl-embed #lines{opacity:.3!important}
+    .dl-embed #built{clip-path:inset(0 0 0 0)!important;animation:none!important}
+    .dl-embed svg{animation:none!important}
+  }
+</style>
+</head>
+<body>
+  <div class="dl-embed" id="dlEmbed">
+    <div class="stage">
+      <svg viewBox="0 0 480 470" aria-label="A mid-century lounge chair being drawn as a sketch and then built into a solid form">
+        <defs>
+          <linearGradient id="uph" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a3026"/><stop offset="1" stop-color="#201a14"/>
+          </linearGradient>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6a5639"/><stop offset="1" stop-color="#43361f"/>
+          </linearGradient>
+        </defs>
+        <g id="guides">
+          <path class="g" d="M80 420 L410 420"/>
+          <path class="gd" pathLength="1" d="M400 100 L400 420 M392 100 L408 100 M392 420 L408 420"/>
+          <text x="405" y="265">H</text>
+          <path class="gd" pathLength="1" d="M124 434 L334 434 M124 428 L124 440 M334 428 L334 440"/>
+          <text x="224" y="449">W</text>
+        </g>
+        <g id="built">
+          <path class="woodline" d="M331 117 L306 254"/>
+          <path class="uph"  d="M266 254 L290 113 Q298 100 314 100 Q332 102 328 120 L304 254 Z"/>
+          <path class="seam" d="M268 253 Q289 261 302 252"/>
+          <path class="wood" d="M292 314 L302 314 L334 420 L324 420 Z"/>
+          <path class="wood" d="M150 300 L300 300 Q307 300 307 307 L307 314 L150 314 Q146 314 146 307 Z"/>
+          <path class="woodline" d="M152 230 L154 300"/>
+          <path class="woodline" d="M310 223 Q221 217 152 230"/>
+          <path class="uph"  d="M150 254 L296 254 Q308 254 308 266 L308 284 Q308 296 296 296 L150 296 Q138 296 138 284 L138 266 Q138 256 150 254 Z"/>
+          <path class="seam" d="M140 282 Q220 286 306 282"/>
+          <path class="wood" d="M150 314 L160 314 L132 420 L122 420 Z"/>
+        </g>
+        <g id="lines">
+          <path class="s-legBack"  pathLength="1" d="M292 314 L302 314 L334 420 L324 420 Z"/>
+          <path class="s-legFront" pathLength="1" d="M150 314 L160 314 L132 420 L122 420 Z"/>
+          <path class="s-apron"    pathLength="1" d="M150 300 L300 300 Q307 300 307 307 L307 314 L150 314 Q146 314 146 307 Z"/>
+          <path class="s-armPost"  pathLength="1" d="M152 230 L154 300"/>
+          <path class="s-arm"      pathLength="1" d="M310 223 Q221 217 152 230"/>
+          <path class="s-seat"     pathLength="1" d="M150 254 L296 254 Q308 254 308 266 L308 284 Q308 296 296 296 L150 296 Q138 296 138 284 L138 266 Q138 256 150 254 Z"/>
+          <path class="s-seatSeam" pathLength="1" d="M140 282 Q220 286 306 282"/>
+          <path class="s-back"     pathLength="1" d="M266 254 L290 113 Q298 100 314 100 Q332 102 328 120 L304 254 Z"/>
+          <path class="s-backFrame" pathLength="1" d="M331 117 L306 254"/>
+          <path class="s-backSeam" pathLength="1" d="M268 253 Q289 261 302 252"/>
+        </g>
+      </svg>
+      <div class="caption"><b>Drawn</b> &nbsp;&#8594;&nbsp; Built</div>
+    </div>
+  </div>
+<script>
+  (function(){
+    var el=document.getElementById('dlEmbed');
+    function play(){el.classList.remove('play');void el.offsetWidth;el.classList.add('play');}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){play();}});},{threshold:.4});
+      io.observe(el);
+    } else { window.addEventListener('load',play); }
+  })();
+</script>
+</body>
+</html>

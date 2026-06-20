@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>De Line — Sofa Point Editor</title>
+<style>
+  :root {
+    --bg: #14110e;
+    --panel: #1d1813;
+    --line: #3a3026;
+    --text: #efe7da;
+    --muted: #9a8d79;
+    --gold: #c9a25e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    min-height: 100vh;
+  }
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    min-width: 0;
+  }
+  h1 {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 4px 0 12px;
+    font-weight: 600;
+  }
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    align-items: center;
+    font-size: 12px;
+  }
+  .toolbar label { color: var(--muted); display: flex; gap: 5px; align-items: center; cursor: pointer; }
+  button {
+    font-family: inherit;
+    font-size: 12px;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--line);
+    padding: 6px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--gold); color: var(--gold); }
+  svg#canvas {
+    background:
+      linear-gradient(transparent 19px, #241d15 20px) 0 0 / 20px 20px,
+      linear-gradient(90deg, transparent 19px, #241d15 20px) 0 0 / 20px 20px,
+      var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    width: min(640px, 92vw);
+    height: auto;
+    touch-action: none;
+  }
+  .piece { fill: rgba(201,162,94,0.10); stroke: var(--gold); stroke-width: 1; }
+  .piece.dim { fill: rgba(201,162,94,0.04); stroke: rgba(201,162,94,0.35); }
+  .piece.seam { fill: none; stroke: #d8b87a; stroke-dasharray: 4 3; }
+  .ground { stroke: #5a4a32; stroke-width: 1.5; }
+  .ctrl-link { stroke: rgba(154,141,121,0.5); stroke-width: 0.75; stroke-dasharray: 2 2; }
+  .handle { cursor: grab; }
+  .handle:active { cursor: grabbing; }
+  .anchor { fill: #c9a25e; stroke: #14110e; stroke-width: 1; }
+  .control { fill: #1d1813; stroke: #9a8d79; stroke-width: 1.25; }
+  .handle.sel .anchor, .handle.sel .control { fill: #ff8a5c; stroke: #fff; }
+  .hit { fill: transparent; }
+  .readout {
+    position: fixed; pointer-events: none; background: #000c;
+    border: 1px solid var(--gold); color: var(--gold);
+    padding: 2px 6px; border-radius: 4px; font-size: 11px;
+    transform: translate(-50%, -160%); white-space: nowrap; display: none;
+  }
+  .side {
+    width: 420px;
+    max-width: 42vw;
+    background: var(--panel);
+    border-left: 1px solid var(--line);
+    padding: 16px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .side h2 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+  textarea {
+    width: 100%;
+    background: #100d0a;
+    color: #d6cbb6;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 8px;
+    resize: vertical;
+  }
+  .hint { color: var(--muted); font-size: 11px; line-height: 1.6; }
+  .hint b { color: var(--text); }
+  .swatch { display:inline-block; width:9px; height:9px; border-radius:50%; vertical-align:middle; margin-right:3px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <h1>Sofa Point Editor</h1>
+    <div class="toolbar">
+      <label><input type="checkbox" id="showCtrl" checked /> curve handles</label>
+      <label><input type="checkbox" id="snap" checked /> snap to grid (int)</label>
+      <button id="isolate">isolate selected part</button>
+      <button id="reset">reset to original</button>
+    </div>
+    <svg id="canvas" viewBox="40 70 420 410" xmlns="http://www.w3.org/2000/svg"></svg>
+    <p class="hint" style="margin-top:12px;max-width:640px">
+      <span class="swatch" style="background:#c9a25e"></span>anchor point (on the line) &nbsp;
+      <span class="swatch" style="background:#1d1813;border:1px solid #9a8d79"></span>curve control point (pulls the bend).
+      Drag any dot. The output on the right updates live — copy it and hand it back.
+    </p>
+  </div>
+  <aside class="side">
+    <h2>built array (paste into hero.tsx)</h2>
+    <textarea id="outBuilt" rows="11" readonly></textarea>
+    <button id="copyBuilt">copy built</button>
+    <h2>lines array</h2>
+    <textarea id="outLines" rows="10" readonly></textarea>
+    <button id="copyLines">copy lines</button>
+    <h2>just the part you selected</h2>
+    <textarea id="outOne" rows="2" readonly></textarea>
+    <p class="hint">Tip: click a part's points to select it; its name + path show above, and you can tell me “move the left arm to …”.</p>
+  </aside>
+
+  <div class="readout" id="readout"></div>
+
+<script>
+// ---- original sofa parts (built), each with a stable id + class ----
+const ORIGINAL = [
+  { id: "back",    cls: "uph",  d: "M180 304 L180 176 Q180 152 204 152 L326 152 Q350 152 350 176 L350 304 Z" },
+  { id: "base",    cls: "uph",  d: "M148 344 L380 344 L380 388 Q380 400 366 400 L162 400 Q148 400 148 388 Z" },
+  { id: "cushion", cls: "uph",  d: "M204 344 L204 314 Q204 300 220 298 Q264 290 308 298 Q324 300 324 314 L324 344 Z" },
+  { id: "seam",    cls: "seam", d: "M206 342 L322 342" },
+  { id: "armL",    cls: "uph",  d: "M148 344 L148 250 Q148 212 178 212 Q204 212 204 246 L204 344 Z" },
+  { id: "armR",    cls: "uph",  d: "M380 344 L380 250 Q380 212 350 212 Q324 212 324 246 L324 344 Z" },
+  { id: "legL",    cls: "wood", d: "M188 400 L204 400 L202 420 L190 420 Z" },
+  { id: "legR",    cls: "wood", d: "M324 400 L340 400 L338 420 L326 420 Z" },
+];
+// build order (for `built`) and lines order (for `lines`) by id:
+const BUILT_ORDER = ["back","base","cushion","seam","armL","armR","legL","legR"];
+const LINES_ORDER = ["legL","legR","base","armL","armR","cushion","back"];
+const NICE = { back:"back panel", base:"base/seat block", cushion:"seat cushion", seam:"cushion seam",
+               armL:"left arm", armR:"right arm", legL:"left leg", legR:"right leg" };
+
+// ---- tiny SVG-path parser: supports M L Q Z (absolute) ----
+// returns segments: [{cmd, pts:[{x,y}...]}], where for Q pts=[control,end]
+function parsePath(d) {
+  const toks = d.match(/[MLQZ]|-?\d+(?:\.\d+)?/g);
+  const segs = [];
+  let i = 0;
+  while (i < toks.length) {
+    const c = toks[i++];
+    if (c === "Z") { segs.push({ cmd: "Z", pts: [] }); }
+    else if (c === "M" || c === "L") {
+      segs.push({ cmd: c, pts: [{ x: +toks[i++], y: +toks[i++] }] });
+    } else if (c === "Q") {
+      segs.push({ cmd: c, pts: [{ x: +toks[i++], y: +toks[i++] }, { x: +toks[i++], y: +toks[i++] }] });
+    }
+  }
+  return segs;
+}
+function segsToPath(segs) {
+  return segs.map(s => {
+    if (s.cmd === "Z") return "Z";
+    const nums = s.pts.map(p => `${p.x} ${p.y}`).join(" ");
+    return `${s.cmd}${nums}`;
+  }).join(" ");
+}
+
+const SVGNS = "http://www.w3.org/2000/svg";
+const canvas = document.getElementById("canvas");
+const readout = document.getElementById("readout");
+let parts = []; // working state: {id, cls, segs}
+let selectedId = null;
+let isolated = false;
+
+function load(fromOriginal) {
+  parts = ORIGINAL.map(p => ({ id: p.id, cls: p.cls, segs: parsePath(p.d) }));
+  selectedId = null;
+  render();
+}
+
+// every draggable point flattened: {partIdx, segIdx, ptIdx, kind:'anchor'|'control'}
+function eachPoint(cb) {
+  parts.forEach((part, pi) => {
+    part.segs.forEach((seg, si) => {
+      if (seg.cmd === "Z") return;
+      seg.pts.forEach((pt, pti) => {
+        const kind = (seg.cmd === "Q" && pti === 0) ? "control" : "anchor";
+        cb(pt, { partIdx: pi, segIdx: si, ptIdx: pti, kind });
+      });
+    });
+  });
+}
+
+function render() {
+  canvas.innerHTML = "";
+  // ground reference line at y=420
+  const ground = document.createElementNS(SVGNS, "line");
+  ground.setAttribute("x1", 80); ground.setAttribute("y1", 420);
+  ground.setAttribute("x2", 420); ground.setAttribute("y2", 420);
+  ground.setAttribute("class", "ground");
+  canvas.appendChild(ground);
+
+  const showCtrl = document.getElementById("showCtrl").checked;
+
+  // paths
+  parts.forEach(part => {
+    if (isolated && part.id !== selectedId) return;
+    const path = document.createElementNS(SVGNS, "path");
+    let klass = "piece";
+    if (part.cls === "seam") klass += " seam";
+    if (selectedId && part.id !== selectedId) klass += " dim";
+    path.setAttribute("class", klass);
+    path.setAttribute("d", segsToPath(part.segs));
+    canvas.appendChild(path);
+  });
+
+  // control-handle link lines
+  if (showCtrl) {
+    parts.forEach((part, pi) => {
+      if (isolated && part.id !== selectedId) return;
+      part.segs.forEach((seg, si) => {
+        if (seg.cmd !== "Q") return;
+        const ctrl = seg.pts[0], end = seg.pts[1];
+        // previous anchor = end point of previous non-Z segment
+        let prev = null;
+        for (let k = si - 1; k >= 0; k--) {
+          if (part.segs[k].cmd !== "Z") { prev = part.segs[k].pts[part.segs[k].pts.length - 1]; break; }
+        }
+        [[prev, ctrl], [ctrl, end]].forEach(([a, b]) => {
+          if (!a || !b) return;
+          const l = document.createElementNS(SVGNS, "line");
+          l.setAttribute("x1", a.x); l.setAttribute("y1", a.y);
+          l.setAttribute("x2", b.x); l.setAttribute("y2", b.y);
+          l.setAttribute("class", "ctrl-link");
+          canvas.appendChild(l);
+        });
+      });
+    });
+  }
+
+  // handles
+  eachPoint((pt, info) => {
+    if (isolated && parts[info.partIdx].id !== selectedId) return;
+    if (info.kind === "control" && !showCtrl) return;
+    const g = document.createElementNS(SVGNS, "g");
+    g.setAttribute("class", "handle" + (parts[info.partIdx].id === selectedId ? " sel" : ""));
+
+    const hit = document.createElementNS(SVGNS, "circle");
+    hit.setAttribute("cx", pt.x); hit.setAttribute("cy", pt.y); hit.setAttribute("r", 9);
+    hit.setAttribute("class", "hit");
+    g.appendChild(hit);
+
+    const dot = document.createElementNS(SVGNS, info.kind === "control" ? "rect" : "circle");
+    if (info.kind === "control") {
+      dot.setAttribute("x", pt.x - 3.2); dot.setAttribute("y", pt.y - 3.2);
+      dot.setAttribute("width", 6.4); dot.setAttribute("height", 6.4);
+      dot.setAttribute("class", "control");
+    } else {
+      dot.setAttribute("cx", pt.x); dot.setAttribute("cy", pt.y); dot.setAttribute("r", 4);
+      dot.setAttribute("class", "anchor");
+    }
+    g.appendChild(dot);
+    g.__info = info;
+    canvas.appendChild(g);
+  });
+
+  updateOutputs();
+}
+
+// ---- dragging ----
+let dragging = null;
+function clientToSvg(evt) {
+  const ctm = canvas.getScreenCTM().inverse();
+  const p = canvas.createSVGPoint();
+  p.x = evt.clientX; p.y = evt.clientY;
+  return p.matrixTransform(ctm);
+}
+canvas.addEventListener("pointerdown", (e) => {
+  const g = e.target.closest(".handle");
+  if (!g) return;
+  dragging = g.__info;
+  selectedId = parts[dragging.partIdx].id;
+  canvas.setPointerCapture(e.pointerId);
+  render();
+  e.preventDefault();
+});
+canvas.addEventListener("pointermove", (e) => {
+  if (!dragging) return;
+  const loc = clientToSvg(e);
+  const snap = document.getElementById("snap").checked;
+  let x = loc.x, y = loc.y;
+  if (snap) { x = Math.round(x); y = Math.round(y); }
+  else { x = Math.round(x * 10) / 10; y = Math.round(y * 10) / 10; }
+  const pt = parts[dragging.partIdx].segs[dragging.segIdx].pts[dragging.ptIdx];
+  pt.x = x; pt.y = y;
+  render();
+  readout.style.display = "block";
+  readout.style.left = e.clientX + "px";
+  readout.style.top = e.clientY + "px";
+  readout.textContent = `${x}, ${y}`;
+});
+function endDrag(e) {
+  if (!dragging) return;
+  dragging = null;
+  readout.style.display = "none";
+  if (e && e.pointerId != null) { try { canvas.releasePointerCapture(e.pointerId); } catch (_) {} }
+}
+canvas.addEventListener("pointerup", endDrag);
+canvas.addEventListener("pointercancel", endDrag);
+
+// ---- outputs ----
+function byId(id) { return parts.find(p => p.id === id); }
+function dOf(id) { return segsToPath(byId(id).segs); }
+
+function updateOutputs() {
+  const built = BUILT_ORDER.map(id => {
+    const p = byId(id);
+    return `      { cls: "${p.cls}", d: "${segsToPath(p.segs)}" },`;
+  }).join("\n");
+  document.getElementById("outBuilt").value = "built: [\n" + built + "\n    ],";
+
+  const lines = LINES_ORDER.map(id => `      "${dOf(id)}",`).join("\n");
+  document.getElementById("outLines").value = "lines: [\n" + lines + "\n    ],";
+
+  const one = document.getElementById("outOne");
+  if (selectedId) one.value = `${NICE[selectedId]}: ${dOf(selectedId)}`;
+  else one.value = "(drag or click a part to select it)";
+}
+
+// ---- buttons ----
+document.getElementById("reset").onclick = () => { isolated = false; load(true); };
+document.getElementById("showCtrl").onchange = render;
+document.getElementById("isolate").onclick = () => {
+  if (!selectedId) { alert("Select a part first (click one of its points)."); return; }
+  isolated = !isolated;
+  document.getElementById("isolate").textContent = isolated ? "show all parts" : "isolate selected part";
+  render();
+};
+function copy(el) {
+  el.select(); document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+}
+document.getElementById("copyBuilt").onclick = () => copy(document.getElementById("outBuilt"));
+document.getElementById("copyLines").onclick = () => copy(document.getElementById("outLines"));
+
+load(true);
+</script>
+</body>
+</html>

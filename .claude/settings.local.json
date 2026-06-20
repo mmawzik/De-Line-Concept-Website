@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/guanhzhou/.claude/**)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill/contents/\")",
+      "Bash(curl -sfL \"https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/main/package.json\")"
+    ]
+  }
+}
