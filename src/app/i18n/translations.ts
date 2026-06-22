@@ -29,7 +29,7 @@ const en = {
       { a: "", em: "Drawn", b: " in your studio." },
       { a: "", em: "Built", b: " on ours." },
     ],
-    sub: "We take your design and make it real — bridging finished concepts and complex overseas manufacturing through our own pool of trusted, long-standing factories. For premium and upper-mid-segment projects of any scale, from private residences and offices to hospitality and large commercial developments.",
+    sub: "You bring the design — we make it real. Built to spec by our trusted factory network, inspected at every stage, delivered ready to install. For premium interiors of every scale, residential to commercial.",
     stats: [
       { target: 16, label: "Years China sourcing" },
       { target: 20, label: "Years furniture expertise" },
@@ -47,20 +47,20 @@ const en = {
     lead: "You bring the design — we make it real. From our base in Guangzhou and Foshan, with fifteen years of partnerships across China’s leading workshops and a trusted network we keep growing, we manage every step from the right factory to a finished, premium project at your door.",
     cards: [
       {
-        title: "Your design, built by the right factory",
-        body: "We don’t design furniture — we take yours and make it real. We translate your drawings into manufacturable specs, then choose the right workshop from our trusted, ever-growing network and produce it exactly to specification.",
+        title: "Built to your design",
+        body: "We don’t design — we make your design real. Your drawings become factory-ready specs, placed with the right workshop in our vetted network and built exactly to spec.",
       },
       {
-        title: "Choose your materials, your way",
-        body: "Before production we run a design tour on your terms: remotely, with real samples — finishes, fabrics, timber, hardware — shipped to your studio, or in person, hosted through our Guangzhou and Foshan showrooms to see, touch, and choose what you envisioned, then customize from there.",
+        title: "Chosen with you",
+        body: "Approve every finish before production. We ship real samples — fabric, timber, hardware — to your studio, or host you in our Guangzhou and Foshan showrooms to choose in person.",
       },
       {
-        title: "Checked at every stage, locked to spec",
-        body: "Every dimension and finish is locked on engineering drawings before tooling. Material, mid-production, and pre-shipment inspections catch defects on the factory floor — rejected at our cost, not yours — with photographic reports the day it happens.",
+        title: "Locked to spec",
+        body: "Every dimension is locked on engineering drawings before tooling. We inspect at material, mid-production, and pre-shipment — defects rejected at our cost, with photo reports the same day.",
       },
       {
-        title: "Delivered as one premium project",
-        body: "A single bilingual lead owns it from first sketch to final delivery. We orchestrate everything shipping needs — consolidation, customs, documentation — through trusted logistics partners; we’re not a freight company. Our focus is the finished project: high-end, premium, complete.",
+        title: "Delivered as one",
+        body: "One bilingual lead owns your project from first drawing to final delivery. We prepare every export document and coordinate freight through trusted partners — so it lands as one finished, premium project.",
       },
     ],
     hqLabel: "Guangzhou HQ",
@@ -71,12 +71,14 @@ const en = {
   journey: {
     eyebrow: "Your design to delivery",
     heading: "Every project follows one line.",
-    lead: "You bring the design — from there, one team owns every stage and shows you each one, from the factory floor to a sealed crate on the water.",
+    lead: "You bring the design — from there, one team owns every stage and shows you each one, from the first drawing to the piece installed and signed off.",
     stages: [
-      { label: "Build", desc: "Made to your spec" },
-      { label: "Inspect", desc: "Multi-point QA" },
-      { label: "Crate", desc: "Export-grade crating" },
-      { label: "Deliver", desc: "Consolidated shipping" },
+      { label: "Brief & quote", desc: "Your brief, drawn to spec and priced" },
+      { label: "Design tour", desc: "Approve finishes in our showroom, or by photo and samples sent" },
+      { label: "Build", desc: "Sample approved, then produced to spec" },
+      { label: "Inspect", desc: "Multi-point QC — photos, approve or reject" },
+      { label: "Export", desc: "Crated, wood-certified, every document prepared" },
+      { label: "Deliver", desc: "Shipped by our partners, installed, signed off" },
     ],
   },
 
@@ -258,7 +260,7 @@ const ru: typeof en = {
       { a: "", em: "Нарисована", b: " в вашей студии." },
       { a: "", em: "Воплощена", b: " нами в Китае." },
     ],
-    sub: "Мы берём ваш дизайн и воплощаем его — соединяя готовые концепции и сложное зарубежное производство через наш собственный пул проверенных фабрик, с которыми мы работаем годами. Для проектов премиум- и верхнего среднего сегмента любого масштаба: от частных резиденций и офисов до гостиниц и крупных коммерческих объектов.",
+    sub: "Вы приносите дизайн — мы воплощаем его. Производим точно по спецификации на нашей сети проверенных фабрик, контролируем на каждом этапе, доставляем готовым к установке. Для премиальных интерьеров любого масштаба — от жилых до коммерческих.",
     stats: [
       { target: 16, label: "Лет закупок в Китае" },
       { target: 20, label: "Лет экспертизы в мебели" },
@@ -276,20 +278,20 @@ const ru: typeof en = {
     lead: "Вы приносите дизайн — мы воплощаем его. С базой в Гуанчжоу и Фошане, пятнадцатью годами партнёрства с ведущими фабриками Китая и проверенной сетью, которую мы постоянно расширяем, мы ведём каждый шаг — от подбора нужной фабрики до готового премиального проекта у вашего порога.",
     cards: [
       {
-        title: "Ваш дизайн — на правильной фабрике",
-        body: "Мы не проектируем мебель — мы берём ваш дизайн и воплощаем его. Переводим ваши чертежи в производимые спецификации, выбираем нужный цех из нашей проверенной, постоянно растущей сети и изготавливаем точно по спецификации.",
+        title: "Изготовлено по вашему дизайну",
+        body: "Мы не проектируем — мы воплощаем ваш дизайн. Ваши чертежи становятся производственными спецификациями, попадают в нужный цех нашей проверенной сети и изготавливаются точно по спецификации.",
       },
       {
-        title: "Выбор материалов на ваших условиях",
-        body: "Перед производством мы проводим дизайн-тур в удобном вам формате: удалённо, с отправкой реальных образцов — отделок, тканей, древесины, фурнитуры — к вам, или лично, принимая вас в наших шоурумах в Гуанчжоу и Фошане, чтобы увидеть, потрогать и выбрать задуманное, а затем кастомизировать.",
+        title: "Выбрано вместе с вами",
+        body: "Утвердите каждую отделку до производства. Мы отправим реальные образцы — ткань, древесину, фурнитуру — к вам в студию или примем вас в шоурумах в Гуанчжоу и Фошане, чтобы выбрать лично.",
       },
       {
-        title: "Контроль на каждом этапе, фиксация спецификации",
-        body: "Каждый размер и отделка фиксируются на инженерных чертежах до начала оснастки. Проверки материалов, в процессе и перед отгрузкой отбраковывают дефекты прямо в цехе — за наш счёт, а не за ваш — с фотоотчётами в тот же день.",
+        title: "Точно по спецификации",
+        body: "Каждый размер зафиксирован на инженерных чертежах до начала оснастки. Контроль материалов, в процессе и перед отгрузкой — дефекты отбраковываются за наш счёт, с фотоотчётами в тот же день.",
       },
       {
-        title: "Доставка как единый премиальный проект",
-        body: "Единый двуязычный руководитель ведёт проект от первого эскиза до финальной доставки. Мы организуем всё, что нужно для отгрузки — консолидацию, таможню, документацию — через проверенных логистических партнёров; мы не транспортная компания. Наш фокус — готовый проект: премиальный, высокого класса, под ключ.",
+        title: "Доставлено единым проектом",
+        body: "Единый двуязычный руководитель ведёт проект от первого чертежа до финальной доставки. Мы готовим все экспортные документы и координируем перевозку через проверенных партнёров — чтобы проект прибыл завершённым и премиальным.",
       },
     ],
     hqLabel: "Главный офис · Гуанчжоу",
@@ -300,12 +302,14 @@ const ru: typeof en = {
   journey: {
     eyebrow: "От вашего дизайна до доставки",
     heading: "Каждый проект идёт по одной линии.",
-    lead: "Вы приносите дизайн — а дальше все этапы ведёт одна команда, и каждый из них вы видите: от цеха до запечатанного ящика в порту.",
+    lead: "Вы приносите дизайн — а дальше все этапы ведёт одна команда, и каждый из них вы видите: от первого чертежа до установленного и принятого изделия.",
     stages: [
-      { label: "Производство", desc: "Изготовление по вашей спецификации" },
-      { label: "Контроль", desc: "Многоступенчатый контроль" },
-      { label: "Упаковка", desc: "Экспортная упаковка в ящики" },
-      { label: "Доставка", desc: "Консолидированная отгрузка" },
+      { label: "Бриф и смета", desc: "Ваши требования — в чертежи и цену" },
+      { label: "Дизайн-тур", desc: "Утвердите отделку в шоуруме или по фото и образцам" },
+      { label: "Производство", desc: "Образец утверждён, изготовлено по спецификации" },
+      { label: "Контроль", desc: "Многоэтапный контроль — фото, приём или отказ" },
+      { label: "Экспорт", desc: "Упаковка, фитосертификат, все документы готовы" },
+      { label: "Доставка", desc: "Отгрузка партнёрами, монтаж и приёмка" },
     ],
   },
 
