@@ -26,8 +26,8 @@ const en = {
     eyebrow: "Furniture sourcing & manufacturing",
     title: [
       { a: "Furniture,", em: "", b: "" },
-      { a: "", em: "Drawn", b: " in your studio." },
-      { a: "", em: "Built", b: " on ours." },
+      { a: "", em: "Designed", b: " by you," },
+      { a: "", em: "Delivered", b: " by us." },
     ],
     sub: "You bring the design — we make it real. Built to spec by our trusted factory network, inspected at every stage, delivered ready to install. For premium interiors of every scale, residential to commercial.",
     stats: [
@@ -42,30 +42,30 @@ const en = {
   },
 
   foshan: {
-    eyebrow: "Presence · Guangzhou + Foshan",
+    eyebrow: "Presence · Foshan",
     heading: "Inside China’s furniture corridor.",
-    lead: "You bring the design — we make it real. From our base in Guangzhou and Foshan, with fifteen years of partnerships across China’s leading workshops and a trusted network we keep growing, we manage every step from the right factory to a finished, premium project at your door.",
+    lead: "You provide the design; we deliver the finished product. Based in Foshan — the heart of China’s furniture industry — with fifteen years of partnerships across the region’s leading workshops and a vetted network we continue to expand, we manage every stage from selecting the right factory to delivering a complete, premium project to your door.",
     cards: [
       {
-        title: "Built to your design",
-        body: "We don’t design — we make your design real. Your drawings become factory-ready specs, placed with the right workshop in our vetted network and built exactly to spec.",
+        title: "Manufactured to your design",
+        body: "We manufacture; we do not design. Your drawings are translated into production-ready specifications and assigned to the appropriate workshop within our vetted network, where each piece is built to exact tolerances.",
       },
       {
-        title: "Chosen with you",
-        body: "Approve every finish before production. We ship real samples — fabric, timber, hardware — to your studio, or host you in our Guangzhou and Foshan showrooms to choose in person.",
+        title: "Confirmed before production",
+        body: "Every material and finish is confirmed before production begins. We deliver physical samples — fabric, timber, and hardware — to your studio, or receive you at our Foshan showroom to make each selection in person.",
       },
       {
-        title: "Locked to spec",
-        body: "Every dimension is locked on engineering drawings before tooling. We inspect at material, mid-production, and pre-shipment — defects rejected at our cost, with photo reports the same day.",
+        title: "Inspected to specification",
+        body: "Each dimension is fixed on engineering drawings before tooling. We inspect at the material, mid-production, and pre-shipment stages; any defect is rejected at our expense and recorded in same-day photographic reports.",
       },
       {
-        title: "Delivered as one",
-        body: "One bilingual lead owns your project from first drawing to final delivery. We prepare every export document and coordinate freight through trusted partners — so it lands as one finished, premium project.",
+        title: "Delivered as one project",
+        body: "A dedicated bilingual lead manages your project from first drawing to final delivery. We prepare the complete export documentation and coordinate freight through established logistics partners, so the work arrives as one finished, premium project.",
       },
     ],
-    hqLabel: "Guangzhou HQ",
-    addressLocal: "广州市海珠区蟠龙新街3号",
-    addressRoman: "No. 3 Panlong New Street, Haizhu District, Guangzhou",
+    hqLabel: "Foshan showroom",
+    addressLocal: "佛山市，广东省",
+    addressRoman: "New showroom — opening soon",
   },
 
   journey: {
@@ -137,7 +137,7 @@ const en = {
       {
         name: "Daniyar Kenzhebekov",
         role: "Chief Operating Officer",
-        location: "Guangzhou HQ",
+        location: "Foshan base",
         summary: "Fifteen years on China’s factory floors — negotiates pricing direct and consolidates every container.",
         previously: "Operations Manager · Kaspi",
         distinctions: ["15 yrs sourcing in China", "Fluent on the factory floor", "Direct volume pricing"],
@@ -164,6 +164,8 @@ const en = {
   social: {
     eyebrow: "What clients say",
     heading: "Trusted by architects, hoteliers, and developers.",
+    prev: "Previous testimonial",
+    next: "Next testimonial",
     testimonials: [
       {
         quote: "De Line is the only China-side partner where the piece that arrives matches the piece we drew. The QA reports are why.",
@@ -192,7 +194,7 @@ const en = {
     heading: "Tell us what you’re building.",
     lead: "Share your concept, scope, and timeline. We’ll come back within two business days with a feasibility read and a clear next step.",
     rows: [
-      { label: "Office", primary: "广州市海珠区蟠龙新街3号", secondary: "No. 3 Panlong New Street, Haizhu District, Guangzhou" },
+      { label: "Showroom", primary: "佛山市，广东省", secondary: "New showroom — opening soon" },
       { label: "Workshop", primary: "Foshan, China", secondary: "" },
       { label: "Email", primary: "hello@deline.studio", secondary: "" },
       { label: "WeChat / WhatsApp", primary: "On request", secondary: "" },
@@ -214,17 +216,17 @@ const en = {
 
   footer: {
     brand: "DE LINE CONCEPT",
-    blurb: "Furniture sourcing and manufacturing from Guangzhou. We take your design, translate it into shop drawings the right factories build correctly, run QA, and ship complete projects worldwide.",
+    blurb: "Furniture sourcing and manufacturing from Foshan. We take your design, translate it into shop drawings the right factories build correctly, run QA, and ship complete projects worldwide.",
     columns: [
       {
-        title: "Guangzhou HQ",
-        links: ["广州市海珠区蟠龙新街3号", "No. 3 Panlong New Street, Haizhu District, Guangzhou", "Foshan workshop"],
+        title: "Foshan",
+        links: ["佛山市，广东省", "New showroom — opening soon"],
       },
       { title: "Work", links: ["Presence", "Process", "Portfolio"] },
       { title: "Company", links: ["The team", "Contact", "Privacy Policy", "Terms"] },
     ],
     copyright: "© 2026 De Line Concept. All rights reserved.",
-    locations: "Guangzhou · Foshan · Worldwide",
+    locations: "Foshan · Worldwide",
   },
 
   common: {
@@ -257,8 +259,8 @@ const ru: typeof en = {
     eyebrow: "Закупки и производство мебели",
     title: [
       { a: "Мебель,", em: "", b: "" },
-      { a: "", em: "Нарисована", b: " в вашей студии." },
-      { a: "", em: "Воплощена", b: " нами в Китае." },
+      { a: "", em: "Спроектирована", b: " вами," },
+      { a: "", em: "Воплощена", b: " нами." },
     ],
     sub: "Вы приносите дизайн — мы воплощаем его. Производим точно по спецификации на нашей сети проверенных фабрик, контролируем на каждом этапе, доставляем готовым к установке. Для премиальных интерьеров любого масштаба — от жилых до коммерческих.",
     stats: [
@@ -273,30 +275,30 @@ const ru: typeof en = {
   },
 
   foshan: {
-    eyebrow: "Присутствие · Гуанчжоу + Фошань",
+    eyebrow: "Присутствие · Фошань",
     heading: "Внутри мебельного кластера Китая.",
-    lead: "Вы приносите дизайн — мы воплощаем его. С базой в Гуанчжоу и Фошане, пятнадцатью годами партнёрства с ведущими фабриками Китая и проверенной сетью, которую мы постоянно расширяем, мы ведём каждый шаг — от подбора нужной фабрики до готового премиального проекта у вашего порога.",
+    lead: "Вы предоставляете дизайн — мы поставляем готовое изделие. Базируясь в Фошане — сердце мебельной индустрии Китая, — опираясь на пятнадцать лет партнёрства с ведущими фабриками региона и проверенную сеть, которую мы продолжаем расширять, мы ведём каждый этап от выбора подходящей фабрики до поставки завершённого премиального проекта к вашей двери.",
     cards: [
       {
         title: "Изготовлено по вашему дизайну",
-        body: "Мы не проектируем — мы воплощаем ваш дизайн. Ваши чертежи становятся производственными спецификациями, попадают в нужный цех нашей проверенной сети и изготавливаются точно по спецификации.",
+        body: "Мы производим, а не проектируем. Ваши чертежи переводятся в производственные спецификации и передаются на подходящую фабрику нашей проверенной сети, где каждое изделие изготавливается с точным соблюдением допусков.",
       },
       {
-        title: "Выбрано вместе с вами",
-        body: "Утвердите каждую отделку до производства. Мы отправим реальные образцы — ткань, древесину, фурнитуру — к вам в студию или примем вас в шоурумах в Гуанчжоу и Фошане, чтобы выбрать лично.",
+        title: "Согласовано до производства",
+        body: "Каждый материал и отделка согласуются до начала производства. Мы доставляем физические образцы — ткань, древесину, фурнитуру — в вашу студию или принимаем вас в нашем шоуруме в Фошане для выбора лично.",
       },
       {
-        title: "Точно по спецификации",
-        body: "Каждый размер зафиксирован на инженерных чертежах до начала оснастки. Контроль материалов, в процессе и перед отгрузкой — дефекты отбраковываются за наш счёт, с фотоотчётами в тот же день.",
+        title: "Проверено по спецификации",
+        body: "Каждый размер зафиксирован на инженерных чертежах до начала оснастки. Мы проводим контроль на этапах материалов, производства и перед отгрузкой; любой дефект отбраковывается за наш счёт и фиксируется в фотоотчётах в тот же день.",
       },
       {
-        title: "Доставлено единым проектом",
-        body: "Единый двуязычный руководитель ведёт проект от первого чертежа до финальной доставки. Мы готовим все экспортные документы и координируем перевозку через проверенных партнёров — чтобы проект прибыл завершённым и премиальным.",
+        title: "Поставлено как единый проект",
+        body: "Выделенный двуязычный руководитель ведёт проект от первого чертежа до финальной поставки. Мы готовим полный комплект экспортной документации и координируем перевозку через проверенных логистических партнёров, чтобы работа прибыла как единый завершённый премиальный проект.",
       },
     ],
-    hqLabel: "Главный офис · Гуанчжоу",
-    addressLocal: "广州市海珠区蟠龙新街3号",
-    addressRoman: "No. 3 Panlong New Street, район Хайчжу, Гуанчжоу",
+    hqLabel: "Шоурум в Фошане",
+    addressLocal: "佛山市，广东省",
+    addressRoman: "Новый шоурум — скоро открытие",
   },
 
   journey: {
@@ -368,7 +370,7 @@ const ru: typeof en = {
       {
         name: "Данияр Кенжебеков",
         role: "Операционный директор",
-        location: "Главный офис · Гуанчжоу",
+        location: "База в Фошане",
         summary: "Пятнадцать лет в цехах Китая — договаривается о ценах напрямую и консолидирует каждый контейнер.",
         previously: "Операционный менеджер · Kaspi",
         distinctions: ["15 лет снабжения в Китае", "Свой человек в цехах", "Прямые оптовые цены"],
@@ -395,6 +397,8 @@ const ru: typeof en = {
   social: {
     eyebrow: "Что говорят клиенты",
     heading: "Нам доверяют архитекторы, отельеры и девелоперы.",
+    prev: "Предыдущий отзыв",
+    next: "Следующий отзыв",
     testimonials: [
       {
         quote: "De Line — единственный партнёр со стороны Китая, у которого приходящее изделие совпадает с тем, что мы нарисовали. Причина — отчёты по контролю качества.",
@@ -423,7 +427,7 @@ const ru: typeof en = {
     heading: "Расскажите, что вы создаёте.",
     lead: "Поделитесь концепцией, объёмом и сроками. Мы вернёмся в течение двух рабочих дней с оценкой реализуемости и понятным следующим шагом.",
     rows: [
-      { label: "Офис", primary: "广州市海珠区蟠龙新街3号", secondary: "No. 3 Panlong New Street, район Хайчжу, Гуанчжоу" },
+      { label: "Шоурум", primary: "佛山市，广东省", secondary: "Новый шоурум — скоро открытие" },
       { label: "Производство", primary: "Фошань, Китай", secondary: "" },
       { label: "Эл. почта", primary: "hello@deline.studio", secondary: "" },
       { label: "WeChat / WhatsApp", primary: "По запросу", secondary: "" },
@@ -445,17 +449,17 @@ const ru: typeof en = {
 
   footer: {
     brand: "DE LINE CONCEPT",
-    blurb: "Закупки и производство мебели из Гуанчжоу. Мы берём ваш дизайн, переводим его в чертежи, по которым нужные фабрики изготовят всё правильно, контролируем качество и поставляем проекты под ключ по всему миру.",
+    blurb: "Закупки и производство мебели из Фошаня. Мы берём ваш дизайн, переводим его в чертежи, по которым нужные фабрики изготовят всё правильно, контролируем качество и поставляем проекты под ключ по всему миру.",
     columns: [
       {
-        title: "Главный офис · Гуанчжоу",
-        links: ["广州市海珠区蟠龙新街3号", "No. 3 Panlong New Street, район Хайчжу, Гуанчжоу", "Цех в Фошане"],
+        title: "Фошань",
+        links: ["佛山市，广东省", "Новый шоурум — скоро открытие"],
       },
       { title: "Работы", links: ["Присутствие", "Процесс", "Портфолио"] },
       { title: "Компания", links: ["Команда", "Контакты", "Политика конфиденциальности", "Условия"] },
     ],
     copyright: "© 2026 De Line Concept. Все права защищены.",
-    locations: "Гуанчжоу · Фошань · Весь мир",
+    locations: "Фошань · Весь мир",
   },
 
   common: {

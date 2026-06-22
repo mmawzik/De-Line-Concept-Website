@@ -3,7 +3,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useI18n, useTheme } from "../providers";
 
-const OFFICE_COORDS: [number, number] = [23.0915, 113.3215];
+// Arbitrary placeholder point in central Foshan (Chancheng) until the real showroom address is set.
+const OFFICE_COORDS: [number, number] = [23.0277, 113.1216];
 
 export function OfficeMap() {
   const containerRef = useRef<HTMLDivElement>(null);

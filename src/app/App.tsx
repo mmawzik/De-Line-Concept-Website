@@ -12,7 +12,7 @@ import { Footer } from "./components/footer";
 
 export default function App() {
   useEffect(() => {
-    document.title = "De Line — Custom Furniture Sourcing & Manufacturing | Guangzhou";
+    document.title = "De Line — Custom Furniture Sourcing & Manufacturing | Foshan";
   }, []);
 
   return (
