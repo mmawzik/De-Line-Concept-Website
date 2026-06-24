@@ -74,7 +74,7 @@ const corridorCss = `
 
 /* China map locator (line-art, draws in on scroll) */
 .dl-china{display:flex;justify-content:center}
-.dl-china svg{width:clamp(190px,22vw,260px);height:auto;overflow:visible}
+.dl-china svg{width:clamp(260px,30vw,420px);height:auto;overflow:visible}
 .dl-china-land path{
   fill:none;stroke:var(--deline-gold);stroke-width:1.1;vector-effect:non-scaling-stroke;
   stroke-linejoin:round;stroke-linecap:round;opacity:.45;

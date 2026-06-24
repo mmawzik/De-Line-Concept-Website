@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Container, Eyebrow, Lead, SectionHeading } from "./brand";
+import { Container, Lead, SectionHeading } from "./brand";
 import { useT } from "../providers";
 
 /* Inline chevron — centers crisply in the round nav buttons, unlike the
@@ -45,7 +45,6 @@ export function SocialProof() {
           onMouseLeave={() => setPaused(false)}
         >
           <div className="dl-social-left dl-stack" style={{ gap: 16 }}>
-            <Eyebrow>{t.social.eyebrow}</Eyebrow>
             <SectionHeading>{t.social.heading}</SectionHeading>
             <Lead>{t.social.lead}</Lead>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Container, Eyebrow, Lead, SectionHeading, bg2, cardDark, fontDisplay, fontSans, gold, radius, textLight, textLight2 } from "./brand";
+import { Button, Container, Lead, SectionHeading, bg2, cardDark, fontDisplay, fontSans, gold, radius, textLight, textLight2 } from "./brand";
 import { OfficeMap } from "./office-map";
 import { useT } from "../providers";
 
@@ -27,7 +27,6 @@ export function Contact() {
         <style>{contactCss}</style>
         <div className="dl-split" style={{ ["--split" as string]: "0.85fr 1fr" }}>
           <div className="dl-stack" style={{ gap: 14 }}>
-            <Eyebrow>{t.contact.eyebrow}</Eyebrow>
             <SectionHeading>{t.contact.heading}</SectionHeading>
             <Lead>{t.contact.lead}</Lead>
             <div className="dl-contact-rows" style={{ marginTop: 16 }}>

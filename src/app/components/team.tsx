@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Eyebrow, Lead, SectionHeading } from "./brand";
+import { Container, Lead, SectionHeading } from "./brand";
 import { useT } from "../providers";
 
 /* "The Index" — an editorial roster. The left column is a numbered masthead
@@ -17,7 +17,6 @@ export function Team() {
         <style>{indexCss}</style>
 
         <div className="dl-stack" style={{ maxWidth: 720, marginBottom: "clamp(36px,4vw,56px)", gap: 16 }}>
-          <Eyebrow>{t.team.eyebrow}</Eyebrow>
           <SectionHeading>{t.team.heading}</SectionHeading>
           <Lead>{t.team.lead}</Lead>
         </div>

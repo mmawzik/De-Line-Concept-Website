@@ -47,7 +47,7 @@ const en = {
     locatorLabel: "On the ground in Foshan",
     cityLabel: "Foshan",
     heading: "Inside China’s furniture corridor.",
-    lead: "You provide the design; from Foshan — the heart of China’s furniture industry — we deliver the finished project.",
+    lead: "You provide the design. We manufacture and deliver it from Foshan, the heart of China’s furniture industry.",
     cards: [
       {
         title: "Manufactured to your design",
@@ -55,7 +55,7 @@ const en = {
       },
       {
         title: "Confirmed before production",
-        body: "Every material and finish approved up front — by samples sent, or in our Foshan showroom.",
+        body: "Every material and finish approved up front — by samples sent, or at our Foshan factory.",
       },
       {
         title: "Inspected to specification",
@@ -66,7 +66,7 @@ const en = {
         body: "One bilingual lead, full export documentation, freight coordinated — delivered as a single finished project.",
       },
     ],
-    hqLabel: "Foshan showroom",
+    hqLabel: "Foshan factory",
     addressLocal: "佛山市，广东省",
     addressRoman: "New showroom — opening soon",
   },
@@ -74,10 +74,10 @@ const en = {
   journey: {
     eyebrow: "Your design to delivery",
     heading: "Every project follows one line.",
-    lead: "You bring the design — from there, one team owns every stage and shows you each one, from the first drawing to the piece installed and signed off.",
+    lead: "You bring the design — from there, one team works through every stage and shows you each one, from the first drawing to the piece installed and signed off.",
     stages: [
       { label: "Brief and quote", desc: "Your brief, drawn to spec and priced" },
-      { label: "Design tour", desc: "Approve finishes in our showroom, or by photo and samples sent" },
+      { label: "Design tour", desc: "Approve finishes at our factory, or by photo and samples sent" },
       { label: "Build", desc: "Sample approved, then produced to spec" },
       { label: "Inspect", desc: "Multi-point QC — photos, approve or reject" },
       { label: "Export", desc: "Crated, wood-certified, every document prepared" },
@@ -137,7 +137,7 @@ const en = {
   team: {
     eyebrow: "The minds behind De Line",
     heading: "Real people, accountable on the ground.",
-    lead: "The people who actually own your project — on China’s factory floors, in product translation, large-scale contracting, and client management.",
+    lead: "The people personally accountable for your project — on China’s factory floors, in product translation, large-scale contracting, and client management.",
     portraitLabel: "Portrait",
     previousLabel: "Previously",
     members: [
@@ -208,7 +208,7 @@ const en = {
   contact: {
     eyebrow: "Start your project",
     heading: "Tell us what you’re building.",
-    lead: "Share your concept, scope, and timeline. We’ll come back within two business days with a feasibility read and a clear next step.",
+    lead: "Share your concept, scope, and timeline. We’ll come back within three business days with a feasibility read and a clear next step.",
     rows: [
       { label: "Office", primary: "Foshan, China", secondary: "佛山市，广东省" },
       { label: "Email", primary: "hello@deline.studio", secondary: "" },
@@ -226,7 +226,7 @@ const en = {
     privacyPre: "By submitting, you agree to our ",
     privacyLink: "Privacy Policy",
     successTitle: "Thanks — we’ll be in touch.",
-    successBody: "We respond within two business days.",
+    successBody: "We respond within three business days.",
   },
 
   footer: {
@@ -295,7 +295,7 @@ const ru: typeof en = {
     locatorLabel: "Мы работаем в Фошане",
     cityLabel: "Фошань",
     heading: "Внутри мебельного кластера Китая.",
-    lead: "Вы предоставляете дизайн; из Фошаня — сердца мебельной индустрии Китая — мы поставляем готовый проект.",
+    lead: "Вы предоставляете дизайн. Мы производим и доставляем готовый проект из Фошаня — сердца мебельной индустрии Китая.",
     cards: [
       {
         title: "Изготовлено по вашему дизайну",
@@ -303,7 +303,7 @@ const ru: typeof en = {
       },
       {
         title: "Согласовано до производства",
-        body: "Каждый материал и отделка утверждаются заранее — по образцам или в нашем шоуруме в Фошане.",
+        body: "Каждый материал и отделка утверждаются заранее — по образцам или на нашей фабрике в Фошане.",
       },
       {
         title: "Проверено по спецификации",
@@ -314,7 +314,7 @@ const ru: typeof en = {
         body: "Один двуязычный руководитель, полный пакет экспортных документов, координация перевозки — единый завершённый проект.",
       },
     ],
-    hqLabel: "Шоурум в Фошане",
+    hqLabel: "Фабрика в Фошане",
     addressLocal: "佛山市，广东省",
     addressRoman: "Новый шоурум — скоро открытие",
   },
@@ -325,7 +325,7 @@ const ru: typeof en = {
     lead: "Вы приносите дизайн — а дальше все этапы ведёт одна команда, и каждый из них вы видите: от первого чертежа до установленного и принятого изделия.",
     stages: [
       { label: "Бриф и смета", desc: "Ваши требования — в чертежи и цену" },
-      { label: "Дизайн-тур", desc: "Утвердите отделку в шоуруме или по фото и образцам" },
+      { label: "Дизайн-тур", desc: "Утвердите отделку на фабрике или по фото и образцам" },
       { label: "Производство", desc: "Образец утверждён, изготовлено по спецификации" },
       { label: "Контроль", desc: "Многоэтапный контроль — фото, приём или отказ" },
       { label: "Экспорт", desc: "Упаковка, фитосертификат, все документы готовы" },
@@ -385,7 +385,7 @@ const ru: typeof en = {
   team: {
     eyebrow: "Люди за De Line",
     heading: "Реальные люди, отвечающие на местах.",
-    lead: "Люди, которые действительно ведут ваш проект — в цехах Китая, в адаптации дизайна под производство, в крупном подряде и в работе с клиентами.",
+    lead: "Люди, которые несут личную ответственность за ваш проект — в цехах Китая, в адаптации дизайна под производство, в крупном подряде и в работе с клиентами.",
     portraitLabel: "Портрет",
     previousLabel: "Ранее",
     members: [
@@ -456,7 +456,7 @@ const ru: typeof en = {
   contact: {
     eyebrow: "Начать проект",
     heading: "Расскажите, что вы создаёте.",
-    lead: "Поделитесь концепцией, объёмом и сроками. Мы вернёмся в течение двух рабочих дней с оценкой реализуемости и понятным следующим шагом.",
+    lead: "Поделитесь концепцией, объёмом и сроками. Мы вернёмся в течение трёх рабочих дней с оценкой реализуемости и понятным следующим шагом.",
     rows: [
       { label: "Офис", primary: "Фошань, Китай", secondary: "佛山市，广东省" },
       { label: "Эл. почта", primary: "hello@deline.studio", secondary: "" },
@@ -474,7 +474,7 @@ const ru: typeof en = {
     privacyPre: "Отправляя форму, вы соглашаетесь с нашей ",
     privacyLink: "Политикой конфиденциальности",
     successTitle: "Спасибо — мы свяжемся с вами.",
-    successBody: "Отвечаем в течение двух рабочих дней.",
+    successBody: "Отвечаем в течение трёх рабочих дней.",
   },
 
   footer: {

@@ -44,7 +44,13 @@ function Carousel({ images, alt, height }: { images: string[]; alt: string; heig
   };
   return (
     <div className="dl-carousel" style={{ height }}>
-      <img key={i} src={images[i]} alt={alt} className="dl-carousel-img" />
+      <div className="dl-carousel-zoom">
+        <div className="dl-carousel-track" style={{ transform: `translateX(-${i * 100}%)` }}>
+          {images.map((src, idx) => (
+            <img key={idx} src={src} alt={idx === i ? alt : ""} aria-hidden={idx === i ? undefined : true} />
+          ))}
+        </div>
+      </div>
       {images.length > 1 && (
         <>
           <button className="dl-carousel-arrow left" aria-label="Previous image" onClick={(e) => go(e, -1)}>
@@ -195,12 +201,13 @@ const portfolioCss = `
 .dl-portfolio-card:hover .dl-card-title h3{color:var(--deline-gold) !important}
 
 .dl-carousel{position:relative;width:100%;border-radius:${radius};overflow:hidden;background:var(--deline-bg-2)}
-.dl-carousel-img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transform:scale(1.001);transition:transform .8s cubic-bezier(.19,.7,.2,1);
-  animation:dl-carousel-fade .55s cubic-bezier(.19,.7,.2,1);
+.dl-carousel-zoom{width:100%;height:100%;overflow:hidden;transition:transform .6s cubic-bezier(.19,.7,.2,1)}
+.dl-portfolio-card:hover .dl-carousel-zoom{transform:scale(1.05)}
+.dl-carousel-track{
+  display:flex;width:100%;height:100%;
+  transition:transform .42s cubic-bezier(.22,.61,.36,1);
 }
-.dl-portfolio-card:hover .dl-carousel-img{transform:scale(1.05)}
+.dl-carousel-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;display:block}
 .dl-carousel-arrow{
   position:absolute;top:50%;transform:translateY(-50%) scale(.82);width:38px;height:38px;border-radius:999px;
   border:1px solid rgba(255,255,255,0.35);background:rgba(10,12,16,0.45);color:#fff;backdrop-filter:blur(2px);
@@ -227,8 +234,6 @@ const portfolioCss = `
 }
 .dl-portfolio-card:hover .dl-status-pill{border-color:var(--deline-gold);background:color-mix(in srgb, var(--deline-gold) 8%, transparent)}
 
-@keyframes dl-carousel-fade{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:scale(1.001)}}
-
 .dl-modal-overlay{
   position:fixed;inset:0;background:rgba(8,10,14,0.72);z-index:1000;
   display:flex;align-items:center;justify-content:center;padding:24px;
@@ -252,7 +257,8 @@ const portfolioCss = `
 @keyframes dl-modal-in{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
 
 @media (prefers-reduced-motion: reduce){
-  .dl-modal-overlay,.dl-modal,.dl-carousel-img{animation:none}
-  .dl-portfolio-card,.dl-portfolio-card:hover,.dl-portfolio-card:hover .dl-carousel-img{transform:none}
+  .dl-modal-overlay,.dl-modal{animation:none}
+  .dl-carousel-track{transition:none}
+  .dl-portfolio-card,.dl-portfolio-card:hover,.dl-carousel-zoom,.dl-portfolio-card:hover .dl-carousel-zoom{transform:none;transition:none}
 }
 `;
