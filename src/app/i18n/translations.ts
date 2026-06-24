@@ -43,24 +43,27 @@ const en = {
 
   foshan: {
     eyebrow: "Presence · Foshan",
+    dateline: "Foshan · Guangdong · 23.0°N 113.1°E",
+    locatorLabel: "On the ground in Foshan",
+    cityLabel: "Foshan",
     heading: "Inside China’s furniture corridor.",
-    lead: "You provide the design; we deliver the finished product. Based in Foshan — the heart of China’s furniture industry — with fifteen years of partnerships across the region’s leading workshops and a vetted network we continue to expand, we manage every stage from selecting the right factory to delivering a complete, premium project to your door.",
+    lead: "You provide the design; from Foshan — the heart of China’s furniture industry — we deliver the finished project.",
     cards: [
       {
         title: "Manufactured to your design",
-        body: "We manufacture; we do not design. Your drawings are translated into production-ready specifications and assigned to the appropriate workshop within our vetted network, where each piece is built to exact tolerances.",
+        body: "Your drawings, built to exact tolerances by the right workshop in our vetted network.",
       },
       {
         title: "Confirmed before production",
-        body: "Every material and finish is confirmed before production begins. We deliver physical samples — fabric, timber, and hardware — to your studio, or receive you at our Foshan showroom to make each selection in person.",
+        body: "Every material and finish approved up front — by samples sent, or in our Foshan showroom.",
       },
       {
         title: "Inspected to specification",
-        body: "Each dimension is fixed on engineering drawings before tooling. We inspect at the material, mid-production, and pre-shipment stages; any defect is rejected at our expense and recorded in same-day photographic reports.",
+        body: "Checked at material, mid-production, and pre-shipment — defects rejected at our expense, documented same-day.",
       },
       {
         title: "Delivered as one project",
-        body: "A dedicated bilingual lead manages your project from first drawing to final delivery. We prepare the complete export documentation and coordinate freight through established logistics partners, so the work arrives as one finished, premium project.",
+        body: "One bilingual lead, full export documentation, freight coordinated — delivered as a single finished project.",
       },
     ],
     hqLabel: "Foshan showroom",
@@ -73,7 +76,7 @@ const en = {
     heading: "Every project follows one line.",
     lead: "You bring the design — from there, one team owns every stage and shows you each one, from the first drawing to the piece installed and signed off.",
     stages: [
-      { label: "Brief & quote", desc: "Your brief, drawn to spec and priced" },
+      { label: "Brief and quote", desc: "Your brief, drawn to spec and priced" },
       { label: "Design tour", desc: "Approve finishes in our showroom, or by photo and samples sent" },
       { label: "Build", desc: "Sample approved, then produced to spec" },
       { label: "Inspect", desc: "Multi-point QC — photos, approve or reject" },
@@ -85,10 +88,19 @@ const en = {
   portfolio: {
     eyebrow: "Selected work",
     heading: "Portfolio.",
-    lead: "A sample of recent engagements across hospitality, residential, and large-scale projects.",
-    placeholderNote: "Project imagery and final details are being added.",
+    lead: "A sample of recent engagements across hospitality, residential, commercial, and large-scale facility projects.",
+    filters: [
+      { key: "all", label: "All" },
+      { key: "hospitality", label: "Hospitality" },
+      { key: "residential", label: "Residential" },
+      { key: "commercial", label: "Commercial" },
+      { key: "facility", label: "Facility" },
+    ],
+    viewProject: "View project",
+    close: "Close",
     projects: [
       {
+        tag: "hospitality",
         title: "Boutique Hospitality Suite",
         category: "Horeca · 42 rooms",
         status: "In production",
@@ -96,6 +108,7 @@ const en = {
         body: "Custom millwork and seating program for a boutique European hospitality client. Full FF&E coordination across 42 keys.",
       },
       {
+        tag: "residential",
         title: "Private Residence — Riviera",
         category: "Residential",
         status: "Delivered 2025",
@@ -103,6 +116,7 @@ const en = {
         body: "End-to-end bespoke joinery and seating for a private residence. Single-container consolidated delivery.",
       },
       {
+        tag: "commercial",
         title: "Corporate Headquarters — APAC",
         category: "Projects · 8 floors",
         status: "In production",
@@ -110,6 +124,7 @@ const en = {
         body: "Workspace fit-out across eight floors. Volume sourcing with a custom design language and full QA.",
       },
       {
+        tag: "facility",
         title: "Wellness Resort — Aegean",
         category: "Facility",
         status: "Delivered 2025",
@@ -164,6 +179,7 @@ const en = {
   social: {
     eyebrow: "What clients say",
     heading: "Trusted by architects, hoteliers, and developers.",
+    lead: "The real test of a partner is what arrives on site. Here is what our clients found.",
     prev: "Previous testimonial",
     next: "Next testimonial",
     testimonials: [
@@ -194,8 +210,7 @@ const en = {
     heading: "Tell us what you’re building.",
     lead: "Share your concept, scope, and timeline. We’ll come back within two business days with a feasibility read and a clear next step.",
     rows: [
-      { label: "Showroom", primary: "佛山市，广东省", secondary: "New showroom — opening soon" },
-      { label: "Workshop", primary: "Foshan, China", secondary: "" },
+      { label: "Office", primary: "Foshan, China", secondary: "佛山市，广东省" },
       { label: "Email", primary: "hello@deline.studio", secondary: "" },
       { label: "WeChat / WhatsApp", primary: "On request", secondary: "" },
     ],
@@ -276,24 +291,27 @@ const ru: typeof en = {
 
   foshan: {
     eyebrow: "Присутствие · Фошань",
+    dateline: "Фошань · Гуандун · 23.0°N 113.1°E",
+    locatorLabel: "Мы работаем в Фошане",
+    cityLabel: "Фошань",
     heading: "Внутри мебельного кластера Китая.",
-    lead: "Вы предоставляете дизайн — мы поставляем готовое изделие. Базируясь в Фошане — сердце мебельной индустрии Китая, — опираясь на пятнадцать лет партнёрства с ведущими фабриками региона и проверенную сеть, которую мы продолжаем расширять, мы ведём каждый этап от выбора подходящей фабрики до поставки завершённого премиального проекта к вашей двери.",
+    lead: "Вы предоставляете дизайн; из Фошаня — сердца мебельной индустрии Китая — мы поставляем готовый проект.",
     cards: [
       {
         title: "Изготовлено по вашему дизайну",
-        body: "Мы производим, а не проектируем. Ваши чертежи переводятся в производственные спецификации и передаются на подходящую фабрику нашей проверенной сети, где каждое изделие изготавливается с точным соблюдением допусков.",
+        body: "Ваши чертежи — с точным соблюдением допусков, на подходящей фабрике нашей проверенной сети.",
       },
       {
         title: "Согласовано до производства",
-        body: "Каждый материал и отделка согласуются до начала производства. Мы доставляем физические образцы — ткань, древесину, фурнитуру — в вашу студию или принимаем вас в нашем шоуруме в Фошане для выбора лично.",
+        body: "Каждый материал и отделка утверждаются заранее — по образцам или в нашем шоуруме в Фошане.",
       },
       {
         title: "Проверено по спецификации",
-        body: "Каждый размер зафиксирован на инженерных чертежах до начала оснастки. Мы проводим контроль на этапах материалов, производства и перед отгрузкой; любой дефект отбраковывается за наш счёт и фиксируется в фотоотчётах в тот же день.",
+        body: "Контроль на этапах материалов, производства и перед отгрузкой — дефекты за наш счёт, фотоотчёт в тот же день.",
       },
       {
         title: "Поставлено как единый проект",
-        body: "Выделенный двуязычный руководитель ведёт проект от первого чертежа до финальной поставки. Мы готовим полный комплект экспортной документации и координируем перевозку через проверенных логистических партнёров, чтобы работа прибыла как единый завершённый премиальный проект.",
+        body: "Один двуязычный руководитель, полный пакет экспортных документов, координация перевозки — единый завершённый проект.",
       },
     ],
     hqLabel: "Шоурум в Фошане",
@@ -318,10 +336,19 @@ const ru: typeof en = {
   portfolio: {
     eyebrow: "Избранные работы",
     heading: "Портфолио.",
-    lead: "Подборка недавних проектов в сферах гостеприимства, жилья и крупных объектов.",
-    placeholderNote: "Изображения проектов и финальные детали добавляются.",
+    lead: "Подборка недавних проектов в сферах гостеприимства, жилья, коммерции и крупных объектов.",
+    filters: [
+      { key: "all", label: "Все" },
+      { key: "hospitality", label: "Гостеприимство" },
+      { key: "residential", label: "Жильё" },
+      { key: "commercial", label: "Коммерция" },
+      { key: "facility", label: "Объекты" },
+    ],
+    viewProject: "Открыть проект",
+    close: "Закрыть",
     projects: [
       {
+        tag: "hospitality",
         title: "Бутик-отель · номерной фонд",
         category: "Horeca · 42 номера",
         status: "В производстве",
@@ -329,6 +356,7 @@ const ru: typeof en = {
         body: "Программа корпусной мебели и посадочных мест для европейского бутик-отеля. Полная координация FF&E по 42 номерам.",
       },
       {
+        tag: "residential",
         title: "Частная резиденция — Ривьера",
         category: "Жильё",
         status: "Сдан в 2025",
@@ -336,6 +364,7 @@ const ru: typeof en = {
         body: "Столярные изделия и мебель под ключ для частной резиденции. Доставка одним консолидированным контейнером.",
       },
       {
+        tag: "commercial",
         title: "Штаб-квартира — APAC",
         category: "Объекты · 8 этажей",
         status: "В производстве",
@@ -343,6 +372,7 @@ const ru: typeof en = {
         body: "Отделка рабочих пространств на восьми этажах. Серийное снабжение с собственным дизайн-языком и полным контролем качества.",
       },
       {
+        tag: "facility",
         title: "Велнес-курорт — Эгейское море",
         category: "Объект",
         status: "Сдан в 2025",
@@ -397,6 +427,7 @@ const ru: typeof en = {
   social: {
     eyebrow: "Что говорят клиенты",
     heading: "Нам доверяют архитекторы, отельеры и девелоперы.",
+    lead: "Настоящая проверка партнёра — то, что приезжает на объект. Вот что говорят наши клиенты.",
     prev: "Предыдущий отзыв",
     next: "Следующий отзыв",
     testimonials: [
@@ -427,8 +458,7 @@ const ru: typeof en = {
     heading: "Расскажите, что вы создаёте.",
     lead: "Поделитесь концепцией, объёмом и сроками. Мы вернёмся в течение двух рабочих дней с оценкой реализуемости и понятным следующим шагом.",
     rows: [
-      { label: "Шоурум", primary: "佛山市，广东省", secondary: "Новый шоурум — скоро открытие" },
-      { label: "Производство", primary: "Фошань, Китай", secondary: "" },
+      { label: "Офис", primary: "Фошань, Китай", secondary: "佛山市，广东省" },
       { label: "Эл. почта", primary: "hello@deline.studio", secondary: "" },
       { label: "WeChat / WhatsApp", primary: "По запросу", secondary: "" },
     ],

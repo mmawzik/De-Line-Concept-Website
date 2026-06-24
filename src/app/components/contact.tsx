@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Eyebrow, Lead, SectionHeading, bg2, cardDark, fontDisplay, fontSans, gold, radius, textLight, textLight2 } from "./brand";
+import { OfficeMap } from "./office-map";
 import { useT } from "../providers";
 
 type FieldDef = { name: string; label: string; type: string; autoComplete: string };
@@ -23,23 +24,27 @@ export function Contact() {
   return (
     <section id="contact" className="dl-section">
       <Container>
-        <div className="dl-split" style={{ ["--split" as string]: "1fr 1.1fr" }}>
-          <div className="dl-stack" style={{ gap: 16 }}>
+        <style>{contactCss}</style>
+        <div className="dl-split" style={{ ["--split" as string]: "0.85fr 1fr" }}>
+          <div className="dl-stack" style={{ gap: 14 }}>
             <Eyebrow>{t.contact.eyebrow}</Eyebrow>
             <SectionHeading>{t.contact.heading}</SectionHeading>
             <Lead>{t.contact.lead}</Lead>
-            <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 24 }}>
+            <div className="dl-contact-rows" style={{ marginTop: 16 }}>
               {t.contact.rows.map((row) => (
                 <div key={row.label}>
                   <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: gold }}>
                     {row.label}
                   </div>
-                  <div style={{ fontFamily: fontDisplay, fontSize: 18, color: textLight, marginTop: 6 }}>{row.primary}</div>
+                  <div style={{ fontFamily: fontDisplay, fontSize: 17, color: textLight, marginTop: 6 }}>{row.primary}</div>
                   {row.secondary && (
                     <div style={{ fontFamily: fontSans, fontSize: 13, color: textLight2, marginTop: 4 }}>{row.secondary}</div>
                   )}
                 </div>
               ))}
+            </div>
+            <div style={{ marginTop: 6, height: 180, width: "100%" }}>
+              <OfficeMap />
             </div>
           </div>
 
@@ -53,7 +58,7 @@ export function Contact() {
               display: "flex",
               flexDirection: "column",
               gap: 16,
-              alignSelf: "start",
+              alignSelf: "center",
             }}
           >
             <div aria-live="polite">
@@ -102,6 +107,16 @@ export function Contact() {
     </section>
   );
 }
+
+const contactCss = `
+.dl-contact-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 20px}
+@media (max-width:560px){
+  .dl-contact-rows{grid-template-columns:1fr 1fr}
+}
+@media (max-width:380px){
+  .dl-contact-rows{grid-template-columns:1fr}
+}
+`;
 
 const labelStyle: React.CSSProperties = {
   fontFamily: fontSans,

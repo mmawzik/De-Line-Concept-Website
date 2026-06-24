@@ -328,7 +328,7 @@ const heroCss = `
 .deline-hero .eyebrow-rule{display:inline-block;width:28px;height:1px;background:${gold};opacity:.7}
 .deline-hero h1{
   font-family:var(--font-display);font-weight:600;
-  font-size:clamp(36px,5.2vw,64px);line-height:1.05;letter-spacing:-0.01em;
+  font-size:clamp(36px,5.2vw,64px);line-height:1.34;letter-spacing:-0.01em;
   margin:24px 0 26px;color:${textLight};
 }
 .deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}

@@ -9,8 +9,8 @@ const GLYPHS: string[][] = [
   ["M36 30 L60 30 L60 70 L36 70 Z", "M44 26 L52 26 L52 33 L44 33 Z", "M42 44 L54 44", "M42 52 L54 52", "M42 60 L50 60"],
   // Design tour — overlapping material swatches
   ["M30 36 L54 36 L54 60 L30 60 Z", "M42 46 L66 46 L66 70 L42 70 Z"],
-  // Build — side chair
-  ["M41 26 L44 56", "M44 56 L68 56", "M66 56 L68 78", "M46 56 L43 78", "M44 44 L62 50"],
+  // Build — side-view plank chair (tall back board doubling as the back leg, seat board, front leg)
+  ["M34 20 L42 20 L42 80 L34 80 Z", "M34 52 L66 52 L66 60 L34 60 Z", "M58 60 L66 60 L66 80 L58 80 Z"],
   // Inspect — magnifier with a check
   ["M58 46 A14 14 0 1 1 30 46 A14 14 0 1 1 58 46", "M54 56 L70 72", "M37 47 L42 52 L51 40"],
   // Export — wooden shipping crate
