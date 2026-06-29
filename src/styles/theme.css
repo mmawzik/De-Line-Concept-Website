@@ -101,6 +101,91 @@
   --deline-shadow: 0 18px 40px -28px rgba(35, 32, 28, 0.28);
 }
 
+/* ============================================================
+   PALETTE VARIANTS (evaluation switcher)
+   Each overrides the accent + surface tokens on top of the active
+   theme. data-palette is set on <html> alongside data-theme.
+   "current" needs no block — it uses the base values above.
+   ============================================================ */
+
+/* --- A · Warm espresso --- */
+[data-palette="espresso"][data-theme="dark"] {
+  --deline-bg: #1a1613;
+  --deline-bg-2: #14110e;
+  --deline-surface: #251f19;
+  --deline-surface-2: #2d2620;
+  --deline-text: #efe9df;
+  --deline-text-2: #b3a899;
+  --deline-gold: #cca877;
+  --deline-gold-button: #bd9560;
+  --deline-rule: rgba(204, 168, 119, 0.32);
+  --deline-on-gold: #1a1613;
+}
+[data-palette="espresso"][data-theme="light"] {
+  --deline-bg: #f5efe5;
+  --deline-bg-2: #ece4d6;
+  --deline-surface: #fbf8f2;
+  --deline-surface-2: #f6f0e7;
+  --deline-text: #221e19;
+  --deline-text-2: #6b6155;
+  --deline-gold: #936e3c;
+  --deline-gold-button: #a87c44;
+  --deline-rule: rgba(147, 110, 60, 0.4);
+  --deline-on-gold: #f5efe5;
+}
+
+/* --- B · Forest & brass --- */
+[data-palette="forest"][data-theme="dark"] {
+  --deline-bg: #18211d;
+  --deline-bg-2: #121a16;
+  --deline-surface: #202b26;
+  --deline-surface-2: #27332e;
+  --deline-text: #ece9e1;
+  --deline-text-2: #a7afa6;
+  --deline-gold: #c4a25f;
+  --deline-gold-button: #b08f50;
+  --deline-rule: rgba(196, 162, 95, 0.34);
+  --deline-on-gold: #16201c;
+}
+[data-palette="forest"][data-theme="light"] {
+  --deline-bg: #eef1ea;
+  --deline-bg-2: #e3e8df;
+  --deline-surface: #f8faf5;
+  --deline-surface-2: #f1f4ec;
+  --deline-text: #1f2620;
+  --deline-text-2: #5f655b;
+  --deline-gold: #715f30;
+  --deline-gold-button: #87703b;
+  --deline-rule: rgba(113, 95, 48, 0.4);
+  --deline-on-gold: #eef1ea;
+}
+
+/* --- C · Charcoal & champagne --- */
+[data-palette="champagne"][data-theme="dark"] {
+  --deline-bg: #1b1a1c;
+  --deline-bg-2: #161517;
+  --deline-surface: #262528;
+  --deline-surface-2: #2d2c30;
+  --deline-text: #eceae6;
+  --deline-text-2: #b0aeaa;
+  --deline-gold: #cdb78f;
+  --deline-gold-button: #bfa97e;
+  --deline-rule: rgba(205, 183, 143, 0.32);
+  --deline-on-gold: #1b1a1c;
+}
+[data-palette="champagne"][data-theme="light"] {
+  --deline-bg: #f1efeb;
+  --deline-bg-2: #e8e5df;
+  --deline-surface: #faf9f6;
+  --deline-surface-2: #f4f2ed;
+  --deline-text: #211f1c;
+  --deline-text-2: #67635c;
+  --deline-gold: #8a7349;
+  --deline-gold-button: #a08550;
+  --deline-rule: rgba(138, 115, 73, 0.4);
+  --deline-on-gold: #f1efeb;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

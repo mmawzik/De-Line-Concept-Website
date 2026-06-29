@@ -40,9 +40,30 @@ a {
   padding-top: var(--section-y);
   padding-bottom: var(--section-y);
   border-top: 1px solid var(--deline-divider);
+  /* Nav anchors target this element, but its own top padding pushes the
+     heading far below — cancel it out so the scroll lands on the content,
+     not on empty padding. */
+  scroll-margin-top: calc(-1 * var(--section-y));
 }
 .dl-section--flush {
   border-top: none;
+}
+
+/* Client logo lockup (placeholder mark + wordmark) — shared by social-proof variants */
+.dl-logo-lockup { display: flex; align-items: center; gap: 12px; }
+.dl-logo-lockup.v { flex-direction: column; gap: 12px; text-align: center; }
+.dl-logo-mark {
+  width: 42px; height: 42px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--deline-rule); border-radius: var(--deline-radius);
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  color: var(--deline-gold); letter-spacing: 0.02em;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.dl-logo-name {
+  font-family: var(--font-sans); font-weight: 600; font-size: 12.5px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--deline-text-2);
+  white-space: nowrap; transition: color 0.3s ease;
 }
 
 /* ===== Responsive grids ===== */
@@ -144,6 +165,38 @@ input:focus, textarea:focus, select:focus {
 .dl-journey-label { font-family: var(--font-display); font-size: 18px; color: var(--deline-text); }
 .dl-journey-desc { font-family: var(--font-sans); font-size: 12.5px; line-height: 1.45; color: var(--deline-text-2); max-width: 18ch; margin: 0 auto; }
 
+/* Two-row "snake" layout for the main Journey strip (6 steps, 3 per row,
+   second row running right-to-left so the path U-turns instead of cramming
+   six steps into one tiny row). */
+.dl-journey-snake {
+  display: flex; flex-direction: column; gap: 64px;
+  position: relative;
+  /* glyph (104) + half the rail slot (12) — keeps the rail centred on the dots */
+  --rail-top: 116px;
+}
+.dl-journey-snake .dl-journey-row { position: relative; }
+.dl-journey-snake .dl-journey-rail { left: 16.6%; right: 16.6%; }
+.dl-journey-snake .dl-journey-glyph { height: 104px; }
+.dl-journey-snake .dl-journey-glyph svg { width: 100px; height: 100px; }
+.dl-journey-snake .dl-journey-label { font-size: 23px; }
+.dl-journey-snake .dl-journey-desc { font-size: 14.5px; max-width: 24ch; }
+.dl-journey-snake .dl-journey-num { font-size: 12px; }
+
+/* Semicircle "U" turn linking the two rows (drawn from measured dot positions) */
+.dl-journey-arc { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.dl-journey-arc path {
+  fill: none; stroke: var(--deline-gold); stroke-width: 1; opacity: 0.45;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.dl-journey.in .dl-journey-arc path { stroke-dashoffset: 0; }
+
+@media (min-width: 721px) {
+  .dl-journey-row[data-dir="rtl"] .dl-journey-track { flex-direction: row-reverse; }
+  .dl-journey-row[data-dir="rtl"] .dl-journey-rail { transform-origin: right; }
+}
+
 /* Compact variant (hero) */
 .dl-journey.compact { --rail-top: 64px; }
 .dl-journey.compact .dl-journey-glyph { height: 54px; }
@@ -171,6 +224,14 @@ input:focus, textarea:focus, select:focus {
   .dl-journey-glyph svg { width: 48px; height: 48px; }
   .dl-journey-text { margin-top: 0; align-items: flex-start; }
   .dl-journey-desc { margin: 0; max-width: none; }
+  .dl-journey-snake { gap: 4px; }
+  .dl-journey-snake .dl-journey-row + .dl-journey-row { margin-top: 4px; }
+  .dl-journey-snake .dl-journey-rail { top: 26px; bottom: 26px; left: 9px; right: auto; }
+  .dl-journey-snake .dl-journey-glyph { height: auto; width: 52px; }
+  .dl-journey-snake .dl-journey-glyph svg { width: 48px; height: 48px; }
+  .dl-journey-snake .dl-journey-label { font-size: 18px; }
+  .dl-journey-snake .dl-journey-desc { font-size: 12.5px; }
+  .dl-journey-arc { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -178,6 +239,7 @@ input:focus, textarea:focus, select:focus {
   .dl-journey-rail { transform: none !important; transition: none !important; }
   .dl-journey-dot { transform: scale(1) !important; transition: none !important; }
   .dl-journey-text { opacity: 1 !important; animation: none !important; }
+  .dl-journey-arc path { stroke-dashoffset: 0 !important; transition: none !important; }
 }
 
 /* ===== Section heading top rule (the thin gold divider) ===== */
@@ -186,6 +248,14 @@ input:focus, textarea:focus, select:focus {
   height: 1px;
   background: var(--deline-gold);
   opacity: 0.7;
+}
+
+/* Team intro line — keep it on one line on laptop+ widths. The section
+   container caps at 1216px of content regardless of viewport, so the font
+   needs to shrink slightly (not just rely on the vw-based clamp) to
+   actually fit the full sentence without overflowing. */
+@media (min-width: 1200px) {
+  .dl-team-lead { white-space: nowrap; font-size: 16px !important; }
 }
 
 /* ===== Mobile nav ===== */

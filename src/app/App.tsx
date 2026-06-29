@@ -6,7 +6,7 @@ import { Foshan } from "./components/foshan";
 import { Journey } from "./components/journey";
 import { Portfolio } from "./components/portfolio";
 import { Team } from "./components/team";
-import { SocialProof } from "./components/social-proof";
+import { SocialProofMarquee } from "./components/social-proof-marquee";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
 
@@ -25,7 +25,7 @@ export default function App() {
           <Journey />
           <Portfolio />
           <Team />
-          <SocialProof />
+          <SocialProofMarquee />
           <Contact />
         </main>
         <Footer />

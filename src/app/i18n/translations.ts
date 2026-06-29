@@ -55,7 +55,7 @@ const en = {
       },
       {
         title: "Confirmed before production",
-        body: "Every material and finish approved up front — by samples sent, or at our Foshan factory.",
+        body: "Every material and finish approved up front — by samples sent, or at Foshan factory.",
       },
       {
         title: "Inspected to specification",
@@ -137,41 +137,41 @@ const en = {
   team: {
     eyebrow: "The minds behind De Line",
     heading: "Real people, accountable on the ground.",
-    lead: "The people personally accountable for your project — on China’s factory floors, in product translation, large-scale contracting, and client management.",
+    lead: "Personally accountable for your project, from China’s factory floors to client management.",
     portraitLabel: "Portrait",
     previousLabel: "Previously",
     members: [
       {
+        name: "Zulyar Turganov",
+        role: "Chief Executive Officer",
+        location: "China",
+        summary: "Twenty years in China and thirteen in textile manufacturing — in 2018 he founded his own mill, Haining Desire Fabrics.",
+        previously: "MF Co., Ltd",
+        distinctions: ["20 years in China", "Bachelor’s & master’s in China", "International trade & management"],
+      },
+      {
+        name: "Saltanat Umbetalina",
+        role: "Chief Marketing Officer",
+        location: "International bridge",
+        summary: "Co-founder of a studio pairing interior design with direct China sourcing — your single point of contact from concept and design through to procurement.",
+        previously: "Procurement · KSS Pipeline",
+        distinctions: ["8 yrs in procurement", "Strategic marketing & brand", "Interior design & project mgmt"],
+      },
+      {
         name: "Dauren Gazizov",
         role: "Chief Product Officer",
         location: "Foshan workshop",
-        summary: "Turns your design into specs China’s workshops build right — and runs the inspections that hold the quality line.",
-        previously: "Designer · Design.ai",
-        distinctions: ["20 yrs in furniture", "On the floor in Foshan", "Owns multi-point QA"],
+        summary: "Twenty-two years shaping interiors — speaks the language of design and inspects every detail on the factory floor to guarantee client quality.",
+        previously: "Interior Designer · Shanyraq Interior",
+        distinctions: ["22 yrs in interior design", "Master of factory inspection", "Direct factory negotiation"],
       },
       {
-        name: "Daniyar Kenzhebekov",
+        name: "Daniyar Kenzhekhanov",
         role: "Chief Operating Officer",
         location: "Foshan base",
         summary: "Fifteen years on China’s factory floors — negotiates pricing direct and consolidates every container.",
         previously: "Operations Manager · Kaspi",
         distinctions: ["15 yrs sourcing in China", "Fluent on the factory floor", "Direct volume pricing"],
-      },
-      {
-        name: "Zulyar Turganov",
-        role: "Chief Executive Officer",
-        location: "International",
-        summary: "Leads the largest, most complex builds — commercial terms through execution against hard deadlines.",
-        previously: "Project Manager · BI Group",
-        distinctions: ["Large-scale projects", "Multi-party builds", "Commercial structuring"],
-      },
-      {
-        name: "Saltanat",
-        role: "Chief Marketing Officer",
-        location: "International bridge",
-        summary: "Your single point of contact — turns architect and hotelier briefs into technical parameters.",
-        previously: "Manager · Atlanta",
-        distinctions: ["Client risk & transparency", "Architect & hotelier liaison", "Bilingual bridge"],
       },
     ],
   },
@@ -179,7 +179,7 @@ const en = {
   social: {
     eyebrow: "What clients say",
     heading: "Trusted by architects, hoteliers, and developers.",
-    lead: "The real test of a partner is what arrives on site. Here is what our clients found.",
+    lead: "A selection of the studios, hoteliers, and developers we build for.",
     prev: "Previous testimonial",
     next: "Next testimonial",
     testimonials: [
@@ -201,7 +201,7 @@ const en = {
     ],
     clientsLabel: "Selected clients",
     certsLabel: "Certifications & compliance",
-    logos: ["Hospitality Group", "Architectural Studio", "Boutique Collection", "Design Practice", "Developer Group"],
+    logos: ["Hospitality Group", "Architectural Studio", "Boutique Collection", "Design Practice", "Developer Group", "Resort Operator", "Retail Brand", "Property Developer"],
     certs: ["BSCI audited factories", "FSC-certified timber", "EN 1021 fire compliance", "ISO 9001 QA"],
   },
 
@@ -235,7 +235,7 @@ const en = {
     columns: [
       {
         title: "Foshan",
-        links: ["佛山市，广东省", "New showroom — opening soon"],
+        links: ["佛山市，广东省", "New office — opening soon"],
       },
       { title: "Work", links: ["Presence", "Process", "Portfolio"] },
       { title: "Company", links: ["The team", "Contact", "Privacy Policy", "Terms"] },
@@ -303,7 +303,7 @@ const ru: typeof en = {
       },
       {
         title: "Согласовано до производства",
-        body: "Каждый материал и отделка утверждаются заранее — по образцам или на нашей фабрике в Фошане.",
+        body: "Каждый материал и отделка утверждаются заранее — по образцам или на фабрике в Фошане.",
       },
       {
         title: "Проверено по спецификации",
@@ -385,41 +385,41 @@ const ru: typeof en = {
   team: {
     eyebrow: "Люди за De Line",
     heading: "Реальные люди, отвечающие на местах.",
-    lead: "Люди, которые несут личную ответственность за ваш проект — в цехах Китая, в адаптации дизайна под производство, в крупном подряде и в работе с клиентами.",
+    lead: "Лично отвечают за ваш проект — от цехов в Китае до работы с клиентами.",
     portraitLabel: "Портрет",
     previousLabel: "Ранее",
     members: [
       {
+        name: "Зульяр Турганов",
+        role: "Генеральный директор",
+        location: "Китай",
+        summary: "Двадцать лет в Китае и тринадцать — в текстильном производстве. В 2018 году основал собственную фабрику Haining Desire Fabrics.",
+        previously: "MF Co., Ltd",
+        distinctions: ["20 лет в Китае", "Бакалавриат и магистратура в Китае", "Международная торговля и управление"],
+      },
+      {
+        name: "Салтанат Умбеталина",
+        role: "Директор по маркетингу",
+        location: "Международный мост",
+        summary: "Сооснователь студии, объединяющей дизайн интерьера с прямыми поставками из Китая, — ваш единый контакт от концепции и проекта до закупок.",
+        previously: "Закупки · KSS Pipeline",
+        distinctions: ["8 лет в закупках", "Стратегический маркетинг и бренд", "Дизайн интерьера и управление проектами"],
+      },
+      {
         name: "Даурен Газизов",
         role: "Директор по продукту",
         location: "Цех в Фошане",
-        summary: "Превращает ваш дизайн в спецификации, которые китайские цеха исполнят правильно, — и ведёт проверки, удерживающие планку качества.",
-        previously: "Дизайнер · Design.ai",
-        distinctions: ["20 лет в мебели", "На месте в Фошане", "Ведёт контроль качества"],
+        summary: "Двадцать два года в дизайне интерьеров — говорит на языке дизайна и проверяет каждую деталь на производстве, чтобы гарантировать качество для клиента.",
+        previously: "Дизайнер интерьера · Shanyraq Interior",
+        distinctions: ["22 года в дизайне интерьеров", "Мастер контроля на производстве", "Прямые переговоры с фабрикой"],
       },
       {
-        name: "Данияр Кенжебеков",
+        name: "Данияр Кенжеханов",
         role: "Операционный директор",
         location: "База в Фошане",
         summary: "Пятнадцать лет в цехах Китая — договаривается о ценах напрямую и консолидирует каждый контейнер.",
         previously: "Операционный менеджер · Kaspi",
         distinctions: ["15 лет снабжения в Китае", "Свой человек в цехах", "Прямые оптовые цены"],
-      },
-      {
-        name: "Зульяр Турганов",
-        role: "Генеральный директор",
-        location: "Международные проекты",
-        summary: "Ведёт крупнейшие и самые сложные стройки — от коммерческих условий до исполнения в жёсткие сроки.",
-        previously: "Проект-менеджер · BI Group",
-        distinctions: ["Крупные объекты", "Многосторонние стройки", "Коммерческая структура сделки"],
-      },
-      {
-        name: "Салтанат",
-        role: "Директор по маркетингу",
-        location: "Международный мост",
-        summary: "Ваш единый контакт — переводит брифы архитекторов и отельеров в технические параметры.",
-        previously: "Менеджер · Atlanta",
-        distinctions: ["Риски и прозрачность", "Связь с архитекторами и отельерами", "Двуязычный мост"],
       },
     ],
   },
@@ -427,7 +427,7 @@ const ru: typeof en = {
   social: {
     eyebrow: "Что говорят клиенты",
     heading: "Нам доверяют архитекторы, отельеры и девелоперы.",
-    lead: "Настоящая проверка партнёра — то, что приезжает на объект. Вот что говорят наши клиенты.",
+    lead: "Студии, отельеры и девелоперы, для которых мы строим.",
     prev: "Предыдущий отзыв",
     next: "Следующий отзыв",
     testimonials: [
@@ -449,7 +449,7 @@ const ru: typeof en = {
     ],
     clientsLabel: "Избранные клиенты",
     certsLabel: "Сертификаты и соответствие",
-    logos: ["Гостиничная группа", "Архитектурная студия", "Бутик-коллекция", "Дизайн-практика", "Девелоперская группа"],
+    logos: ["Гостиничная группа", "Архитектурная студия", "Бутик-коллекция", "Дизайн-практика", "Девелоперская группа", "Курортный оператор", "Розничный бренд", "Девелопер недвижимости"],
     certs: ["Фабрики с аудитом BSCI", "Древесина с сертификатом FSC", "Пожарный стандарт EN 1021", "Контроль качества ISO 9001"],
   },
 
@@ -483,7 +483,7 @@ const ru: typeof en = {
     columns: [
       {
         title: "Фошань",
-        links: ["佛山市，广东省", "Новый шоурум — скоро открытие"],
+        links: ["佛山市，广东省", "Новый офис — скоро открытие"],
       },
       { title: "Работы", links: ["Присутствие", "Процесс", "Портфолио"] },
       { title: "Компания", links: ["Команда", "Контакты", "Политика конфиденциальности", "Условия"] },

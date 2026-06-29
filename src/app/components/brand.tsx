@@ -47,7 +47,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
-export function SectionHeading({ children }: { children: ReactNode }) {
+export function SectionHeading({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
   return (
     <h2
       style={{
@@ -59,6 +59,7 @@ export function SectionHeading({ children }: { children: ReactNode }) {
         margin: 0,
         maxWidth: "20ch",
         letterSpacing: "-0.01em",
+        ...style,
       }}
     >
       {children}
@@ -66,9 +67,10 @@ export function SectionHeading({ children }: { children: ReactNode }) {
   );
 }
 
-export function Lead({ children }: { children: ReactNode }) {
+export function Lead({ children, className, style }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
     <p
+      className={className}
       style={{
         fontFamily: fontSans,
         fontWeight: 400,
@@ -77,6 +79,7 @@ export function Lead({ children }: { children: ReactNode }) {
         color: textLight2,
         margin: 0,
         maxWidth: "62ch",
+        ...style,
       }}
     >
       {children}

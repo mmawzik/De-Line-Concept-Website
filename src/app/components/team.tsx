@@ -1,174 +1,100 @@
-import { useState } from "react";
-import { Container, Lead, SectionHeading } from "./brand";
+import { Container, ImagePlaceholder, Lead, SectionHeading, fontDisplay, fontSans, gold, radius, rule, textLight, textLight2 } from "./brand";
 import { useT } from "../providers";
 
-/* "The Index" — an editorial roster. The left column is a numbered masthead
-   list of names; hovering / clicking one drives the detail panel on the right.
-   Breaks the uniform card grid used elsewhere on the page. */
+// Portraits, keyed by the member's first name (works across EN/RU since
+// translations.ts keeps first names consistent in both locales).
+const PORTRAITS: Record<string, string> = {
+  Zulyar: "/team/zulyar.png",
+  Зульяр: "/team/zulyar.png",
+  Saltanat: "/team/saltanat.png",
+  Салтанат: "/team/saltanat.png",
+  Dauren: "/team/dauren.png",
+  Даурен: "/team/dauren.png",
+  Daniyar: "/team/daniyar.png",
+  Данияр: "/team/daniyar.png",
+};
+
 export function Team() {
   const t = useT();
-  const members = t.team.members;
-  const [active, setActive] = useState(0);
-  const m = members[active];
-
   return (
     <section id="team" className="dl-section">
       <Container>
-        <style>{indexCss}</style>
-
-        <div className="dl-stack" style={{ maxWidth: 720, marginBottom: "clamp(36px,4vw,56px)", gap: 16 }}>
-          <SectionHeading>{t.team.heading}</SectionHeading>
-          <Lead>{t.team.lead}</Lead>
+        <div className="dl-stack" style={{ maxWidth: "none", marginBottom: 56, gap: 16 }}>
+          <SectionHeading style={{ maxWidth: "none", whiteSpace: "nowrap" }}>{t.team.heading}</SectionHeading>
+          <Lead className="dl-team-lead" style={{ maxWidth: "none" }}>{t.team.lead}</Lead>
         </div>
+        <div className="dl-grid-4">
+          {t.team.members.map((m) => {
+            const firstName = m.name.split(" ")[0];
+            const photo = PORTRAITS[firstName];
+            return (
+            <article key={m.name} className="deline-card" style={{ padding: 28, display: "flex", flexDirection: "column", gap: 18 }}>
+              {photo ? (
+                <img
+                  src={photo}
+                  alt={m.name}
+                  style={{
+                    height: 280,
+                    width: "100%",
+                    objectFit: "cover",
+                    objectPosition: "50% 15%",
+                    borderRadius: radius,
+                    border: `1px solid ${rule}`,
+                  }}
+                />
+              ) : (
+                <ImagePlaceholder height={180} label={t.team.portraitLabel} />
+              )}
+              <div>
+                <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: gold }}>
+                  {m.role}
+                </div>
+                <h3 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 22, color: textLight, margin: "8px 0 0", lineHeight: 1.2 }}>
+                  {m.name}
+                </h3>
+              </div>
 
-        <div className="dl-roster">
-          <ol className="dl-roster-list">
-            {members.map((mem, i) => (
-              <li key={mem.name}>
-                <button
-                  type="button"
-                  className={`dl-roster-item${i === active ? " on" : ""}`}
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
-                  onClick={() => setActive(i)}
-                  aria-pressed={i === active}
-                >
-                  <span className="dl-roster-num">{`0${i + 1}`}</span>
-                  <span className="dl-roster-name-wrap">
-                    <span className="dl-roster-name">{mem.name}</span>
-                    <span className="dl-roster-role">{mem.role}</span>
-                  </span>
-                  <span className="dl-roster-line" aria-hidden="true" />
-                </button>
-              </li>
-            ))}
-          </ol>
+              <p style={{ fontFamily: fontSans, fontSize: 14, lineHeight: 1.55, color: textLight2, margin: 0 }}>
+                {m.summary}
+              </p>
 
-          <div className="dl-roster-detail" key={active}>
-            <div className="dl-roster-portrait">
-              <span>{t.team.portraitLabel}</span>
-            </div>
-            <div className="dl-roster-info">
-              <div className="dl-roster-detail-role">{m.role}</div>
-              <h3 className="dl-roster-detail-name">{m.name}</h3>
-              <p className="dl-roster-summary">{m.summary}</p>
               {m.previously && (
-                <div className="dl-roster-prev">
-                  <span className="dl-roster-prev-label">{t.team.previousLabel}</span>
+                <div style={{ fontFamily: fontSans, fontSize: 13, lineHeight: 1.5, color: textLight2, margin: 0 }}>
+                  <span style={{ fontWeight: 600, fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: gold }}>
+                    {t.team.previousLabel}
+                  </span>
+                  <br />
                   {m.previously}
                 </div>
               )}
-              <div className="dl-roster-tags">
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                 {m.distinctions.map((d) => (
-                  <span key={d} className="dl-roster-tag">{d}</span>
+                  <span
+                    key={d}
+                    style={{
+                      fontFamily: fontSans,
+                      fontWeight: 600,
+                      fontSize: 10,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: gold,
+                      border: "1px solid color-mix(in srgb, var(--deline-gold) 35%, transparent)",
+                      background: "color-mix(in srgb, var(--deline-gold) 8%, transparent)",
+                      padding: "5px 9px",
+                      borderRadius: radius,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {d}
+                  </span>
                 ))}
               </div>
-              <div className="dl-roster-loc">{m.location}</div>
-            </div>
-          </div>
+            </article>
+            );
+          })}
         </div>
       </Container>
     </section>
   );
 }
-
-const indexCss = `
-.dl-roster{
-  display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(28px,4.5vw,72px);
-  align-items:start;
-}
-
-/* numbered masthead list */
-.dl-roster-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--deline-divider)}
-.dl-roster-list li{margin:0}
-.dl-roster-item{
-  width:100%;display:flex;align-items:center;gap:18px;text-align:left;
-  background:none;border:none;border-bottom:1px solid var(--deline-divider);
-  padding:clamp(15px,1.8vw,21px) 2px;cursor:pointer;color:inherit;
-  transition:padding-left .45s cubic-bezier(.19,.7,.2,1);
-}
-.dl-roster-item:focus-visible{outline:none;padding-left:14px}
-.dl-roster-item.on{padding-left:14px}
-.dl-roster-num{
-  font-family:var(--font-display);font-size:14px;color:var(--deline-text-2);
-  font-variant-numeric:tabular-nums;width:22px;flex:none;transition:color .3s ease;
-}
-.dl-roster-item.on .dl-roster-num{color:var(--deline-gold)}
-.dl-roster-name-wrap{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
-.dl-roster-name{
-  font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,28px);
-  line-height:1.12;color:var(--deline-text-2);transition:color .3s ease;
-}
-.dl-roster-item:hover .dl-roster-name{color:var(--deline-text)}
-.dl-roster-item.on .dl-roster-name{color:var(--deline-text)}
-.dl-roster-role{
-  font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--deline-text-2);opacity:.65;transition:color .3s ease,opacity .3s ease;
-}
-.dl-roster-item.on .dl-roster-role{color:var(--deline-gold);opacity:1}
-.dl-roster-line{
-  flex:none;height:1px;width:0;background:var(--deline-gold);align-self:center;
-  transition:width .5s cubic-bezier(.19,.7,.2,1);
-}
-.dl-roster-item.on .dl-roster-line{width:36px}
-
-/* detail panel */
-.dl-roster-detail{
-  display:grid;grid-template-columns:minmax(0,210px) 1fr;gap:clamp(20px,2.6vw,34px);
-  animation:dl-roster-in .5s cubic-bezier(.19,.7,.2,1);
-}
-.dl-roster-portrait{
-  align-self:start;aspect-ratio:3/4;background:var(--deline-bg-2);
-  border:1px solid var(--deline-rule);border-radius:var(--deline-radius);
-  display:flex;align-items:center;justify-content:center;
-}
-.dl-roster-portrait span{
-  font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--deline-gold);
-}
-.dl-roster-info{display:flex;flex-direction:column}
-.dl-roster-detail-role{
-  font-family:var(--font-sans);font-weight:600;font-size:12px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--deline-gold);
-}
-.dl-roster-detail-name{
-  font-family:var(--font-display);font-weight:600;font-size:clamp(24px,2.8vw,32px);
-  line-height:1.14;color:var(--deline-text);margin:8px 0 0;
-}
-.dl-roster-summary{
-  font-family:var(--font-sans);font-size:15px;line-height:1.6;color:var(--deline-text-2);margin:16px 0 0;
-}
-.dl-roster-prev{
-  font-family:var(--font-sans);font-size:13px;line-height:1.5;color:var(--deline-text-2);margin:18px 0 0;
-}
-.dl-roster-prev-label{
-  display:block;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--deline-gold);margin-bottom:4px;
-}
-.dl-roster-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-.dl-roster-tag{
-  font-family:var(--font-sans);font-weight:600;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--deline-gold);border:1px solid color-mix(in srgb, var(--deline-gold) 35%, transparent);
-  background:color-mix(in srgb, var(--deline-gold) 8%, transparent);padding:5px 9px;
-  border-radius:var(--deline-radius);line-height:1.2;
-}
-.dl-roster-loc{
-  margin-top:auto;padding-top:20px;
-  font-family:var(--font-sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--deline-text-2);font-weight:500;
-}
-
-@keyframes dl-roster-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-
-@media (max-width:860px){
-  .dl-roster{grid-template-columns:1fr;gap:36px}
-}
-@media (max-width:520px){
-  .dl-roster-detail{grid-template-columns:1fr}
-  .dl-roster-portrait{aspect-ratio:4/3;max-height:280px}
-}
-@media (prefers-reduced-motion: reduce){
-  .dl-roster-detail{animation:none}
-  .dl-roster-item,.dl-roster-line{transition:none}
-}
-`;

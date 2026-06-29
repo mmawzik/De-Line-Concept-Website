@@ -60,7 +60,7 @@ export function Foshan() {
 const corridorCss = `
 .dl-corridor-hero{
   display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  gap:clamp(24px,4vw,56px);max-width:1080px;margin:0 auto clamp(28px,4vw,44px);
+  gap:clamp(24px,4vw,56px);max-width:1080px;margin:0 auto clamp(16px,2vw,28px);
 }
 .dl-corridor-text{text-align:left}
 .dl-corridor-h{
@@ -74,7 +74,7 @@ const corridorCss = `
 
 /* China map locator (line-art, draws in on scroll) */
 .dl-china{display:flex;justify-content:center}
-.dl-china svg{width:clamp(260px,30vw,420px);height:auto;overflow:visible}
+.dl-china svg{width:clamp(240px,27vw,380px);height:auto;overflow:visible}
 .dl-china-land path{
   fill:none;stroke:var(--deline-gold);stroke-width:1.1;vector-effect:non-scaling-stroke;
   stroke-linejoin:round;stroke-linecap:round;opacity:.45;
@@ -84,17 +84,13 @@ const corridorCss = `
 .dl-china-pin{opacity:0}
 .dl-china.in .dl-china-pin{animation:dl-fade .45s ease .9s forwards}
 .dl-china-pin .dot{fill:var(--deline-gold)}
-.dl-china-pin .ping{fill:none;stroke:var(--deline-gold);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
-.dl-china.in .dl-china-pin .ping{animation:dl-ping 2.8s cubic-bezier(.2,.6,.2,1) infinite 1.2s}
-.dl-china.in .dl-china-pin .ping.ping2{animation-delay:2.6s}
 .dl-china-label{
-  font-family:var(--font-sans);font-size:36px;font-weight:600;letter-spacing:2px;
+  font-family:var(--font-sans);font-size:20px;font-weight:500;letter-spacing:1px;
   text-transform:uppercase;fill:var(--deline-gold);dominant-baseline:middle;
 }
 
 @keyframes dl-china-draw{to{stroke-dashoffset:0}}
 @keyframes dl-fade{to{opacity:1}}
-@keyframes dl-ping{0%{transform:scale(.4);opacity:.55}80%{opacity:0}100%{transform:scale(2.4);opacity:0}}
 
 .dl-corridor-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,20px);

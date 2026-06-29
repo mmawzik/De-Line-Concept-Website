@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Container, Lead, SectionHeading } from "./brand";
 import { useT } from "../providers";
 
@@ -45,30 +45,120 @@ export function JourneyStrip({ compact = false }: { compact?: boolean }) {
     return () => io.disconnect();
   }, []);
 
-  return (
-    <div ref={ref} className={`dl-journey${compact ? " compact" : ""}`}>
-      <div className="dl-journey-rail" aria-hidden="true" />
-      <div className="dl-journey-track">
-        {t.journey.stages.map((s, i) => (
-          <div className="dl-journey-stage" key={s.label} style={{ ["--i" as string]: i }}>
-            <div className="dl-journey-glyph">
-              <svg viewBox="0 0 96 96" role="img" aria-label={s.label}>
-                {GLYPHS[i].map((d, j) => (
-                  <path key={j} d={d} pathLength={1} />
-                ))}
-              </svg>
+  // The "U" turn between the two rows is a real semicircle, drawn as an SVG
+  // arc between the last dot of row 1 and the last dot of row 2. We measure
+  // their live positions so the curve stays a clean half-circle at any width
+  // or text length (and we drop it on the stacked mobile layout).
+  const dotTopRef = useRef<HTMLSpanElement | null>(null);
+  const dotBottomRef = useRef<HTMLSpanElement | null>(null);
+  const [arc, setArc] = useState<{ d: string; w: number; h: number } | null>(null);
+
+  useLayoutEffect(() => {
+    if (compact) return;
+    const measure = () => {
+      const c = ref.current;
+      const a = dotTopRef.current;
+      const b = dotBottomRef.current;
+      if (!c || !a || !b || window.innerWidth <= 720) {
+        setArc(null);
+        return;
+      }
+      const cr = c.getBoundingClientRect();
+      const ar = a.getBoundingClientRect();
+      const br = b.getBoundingClientRect();
+      const x = ar.left + ar.width / 2 - cr.left;
+      const yTop = ar.top + ar.height / 2 - cr.top;
+      const yBottom = br.top + br.height / 2 - cr.top;
+      const r = Math.abs(yBottom - yTop) / 2;
+      setArc({ d: `M ${x} ${yTop} A ${r} ${r} 0 0 1 ${x} ${yBottom}`, w: cr.width, h: cr.height });
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (ref.current) ro.observe(ref.current);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [compact, t]);
+
+  if (compact) {
+    return (
+      <div ref={ref} className="dl-journey compact">
+        <div className="dl-journey-rail" aria-hidden="true" />
+        <div className="dl-journey-track">
+          {t.journey.stages.map((s, i) => (
+            <div className="dl-journey-stage" key={s.label} style={{ ["--i" as string]: i }}>
+              <div className="dl-journey-glyph">
+                <svg viewBox="0 0 96 96" role="img" aria-label={s.label}>
+                  {GLYPHS[i].map((d, j) => (
+                    <path key={j} d={d} pathLength={1} />
+                  ))}
+                </svg>
+              </div>
+              <div className="dl-journey-railslot">
+                <span className="dl-journey-dot" />
+              </div>
+              <div className="dl-journey-text">
+                <div className="dl-journey-num">{`0${i + 1}`}</div>
+                <div className="dl-journey-label">{s.label}</div>
+              </div>
             </div>
-            <div className="dl-journey-railslot">
-              <span className="dl-journey-dot" />
-            </div>
-            <div className="dl-journey-text">
-              <div className="dl-journey-num">{`0${i + 1}`}</div>
-              <div className="dl-journey-label">{s.label}</div>
-              {!compact && <div className="dl-journey-desc">{s.desc}</div>}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+    );
+  }
+
+  // Two rows of three, the second running right-to-left so the path
+  // snakes (a "U") instead of cramming six steps into one tiny row.
+  const rows = [t.journey.stages.slice(0, 3), t.journey.stages.slice(3, 6)];
+
+  return (
+    <div ref={ref} className="dl-journey dl-journey-snake">
+      {arc && (
+        <svg
+          className="dl-journey-arc"
+          width={arc.w}
+          height={arc.h}
+          viewBox={`0 0 ${arc.w} ${arc.h}`}
+          aria-hidden="true"
+        >
+          <path d={arc.d} pathLength={1} />
+        </svg>
+      )}
+      {rows.map((row, rowIndex) => (
+        <div className="dl-journey-row" data-dir={rowIndex === 0 ? "ltr" : "rtl"} key={rowIndex}>
+          <div className="dl-journey-rail" aria-hidden="true" />
+          <div className="dl-journey-track">
+            {row.map((s, j) => {
+              const i = rowIndex * 3 + j;
+              return (
+                <div className="dl-journey-stage" key={s.label} style={{ ["--i" as string]: i }}>
+                  <div className="dl-journey-glyph">
+                    <svg viewBox="0 0 96 96" role="img" aria-label={s.label}>
+                      {GLYPHS[i].map((d, k) => (
+                        <path key={k} d={d} pathLength={1} />
+                      ))}
+                    </svg>
+                  </div>
+                  <div className="dl-journey-railslot">
+                    <span
+                      className="dl-journey-dot"
+                      ref={i === 2 ? dotTopRef : i === 3 ? dotBottomRef : undefined}
+                    />
+                  </div>
+                  <div className="dl-journey-text">
+                    <div className="dl-journey-num">{`0${i + 1}`}</div>
+                    <div className="dl-journey-label">{s.label}</div>
+                    <div className="dl-journey-desc">{s.desc}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -79,7 +169,7 @@ export function Journey() {
     <section id="journey" className="dl-section">
       <Container>
         <div className="dl-stack" style={{ maxWidth: 720, marginBottom: 64, gap: 16 }}>
-          <SectionHeading>{t.journey.heading}</SectionHeading>
+          <SectionHeading style={{ maxWidth: "none", whiteSpace: "nowrap" }}>{t.journey.heading}</SectionHeading>
           <Lead>{t.journey.lead}</Lead>
         </div>
         <JourneyStrip />

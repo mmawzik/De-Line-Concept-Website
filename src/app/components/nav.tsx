@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Container, fontDisplay, fontSans, gold, goldBtn, onGold, radius, textLight } from "./brand";
-import { ThemeToggle, LanguageSwitcher } from "./controls";
+import { ThemeToggle, LanguageSwitcher, PaletteSwitcher } from "./controls";
 import { useT } from "../providers";
 
 export function Nav() {
@@ -72,6 +72,7 @@ export function Nav() {
                 {l.label}
               </a>
             ))}
+            <PaletteSwitcher />
             <LanguageSwitcher />
             <ThemeToggle />
             <a
@@ -153,7 +154,10 @@ export function Nav() {
               </a>
             ))}
           </div>
-          <div style={{ display: "flex", gap: 12, marginTop: 24, alignItems: "center" }}>
+          <div style={{ marginTop: 24 }}>
+            <PaletteSwitcher full />
+          </div>
+          <div style={{ display: "flex", gap: 12, marginTop: 12, alignItems: "center" }}>
             <div style={{ flex: 1 }}>
               <LanguageSwitcher full />
             </div>

@@ -1,9 +1,14 @@
 import { useEffect, useRef } from "react";
 import { CHINA_VIEWBOX, CHINA_TRANSFORM, CHINA_PATHS } from "./china-path";
 
-/* Foshan pin, in the SVG's top-level viewBox (0–1024) space.
-   Pearl River Delta, south-central coast. Tuned against the rendered outline. */
-const FOSHAN = { x: 662, y: 819 };
+/* City pins, in the SVG's top-level viewBox (0–1024) space.
+   Tuned by eye against the rendered outline (not a true geographic projection). */
+const FOSHAN = { x: 760, y: 797 };
+const OTHER_CITIES = [
+  { x: 744, y: 772, label: "Guangzhou", side: "left" as const },
+  { x: 780, y: 833, label: "Hong Kong", side: "right" as const },
+  { x: 730, y: 810, label: "Zhongshan", side: "left" as const },
+];
 
 export function ChinaMap({ label, cityLabel }: { label: string; cityLabel: string }) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -39,11 +44,22 @@ export function ChinaMap({ label, cityLabel }: { label: string; cityLabel: strin
           ))}
         </g>
         <g className="dl-china-pin" transform={`translate(${FOSHAN.x} ${FOSHAN.y})`}>
-          <circle className="ping" r="13" />
-          <circle className="ping ping2" r="13" />
-          <circle className="dot" r="10" />
-          <text className="dl-china-label" x="26" y="13">{cityLabel}</text>
+          <circle className="dot" r="6" />
+          <text className="dl-china-label" x="14" y="4">{cityLabel}</text>
         </g>
+        {OTHER_CITIES.map((c) => (
+          <g key={c.label} className="dl-china-pin" transform={`translate(${c.x} ${c.y})`}>
+            <circle className="dot" r="6" />
+            <text
+              className="dl-china-label"
+              x={c.side === "left" ? -14 : 14}
+              y="4"
+              textAnchor={c.side === "left" ? "end" : "start"}
+            >
+              {c.label}
+            </text>
+          </g>
+        ))}
       </svg>
     </div>
   );
