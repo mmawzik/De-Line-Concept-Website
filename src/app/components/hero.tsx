@@ -241,8 +241,11 @@ export function Hero() {
               ))}
             </div>
             <div className="cta">
-              <a className="btn btn-primary" href="#portfolio">{t.hero.ctaPrimary}</a>
-              <a className="btn btn-ghost" href="#contact">{t.hero.ctaSecondary}</a>
+              <a className="btn btn-primary" href="#contact">{t.hero.ctaSecondary}</a>
+              <a className="btn-text" href="#portfolio">
+                {t.hero.ctaPrimary}
+                <span className="arrow" aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
 
@@ -331,6 +334,9 @@ const heroCss = `
   font-size:clamp(36px,5.2vw,64px);line-height:1.34;letter-spacing:-0.01em;
   margin:24px 0 26px;color:${textLight};
 }
+/* Russian words run longer — shrink the headline a notch so each line
+   (esp. "Спроектирована вами,") stays on a single row like the English. */
+html[lang="ru"] .deline-hero h1{font-size:clamp(32px,4.2vw,52px)}
 .deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 .deline-hero h1 .line > span{display:block;transform:translateY(116%)}
 .deline-hero h1 em{font-style:italic;color:${gold};font-weight:500}
@@ -347,7 +353,7 @@ const heroCss = `
   font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
   color:${textLight2};margin-top:10px;max-width:14ch;line-height:1.45;
 }
-.deline-hero .cta{display:flex;gap:14px;opacity:0;flex-wrap:wrap}
+.deline-hero .cta{display:flex;gap:clamp(18px,2.4vw,30px);opacity:0;flex-wrap:wrap;align-items:center}
 .deline-hero .btn{
   font-family:var(--font-sans);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;
   padding:16px 26px;border-radius:${radius};text-decoration:none;display:inline-block;
@@ -355,8 +361,14 @@ const heroCss = `
 }
 .deline-hero .btn-primary{background:${goldBtn};color:${onGold};border-color:${goldBtn}}
 .deline-hero .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.deline-hero .btn-ghost{background:transparent;color:${textLight};border-color:var(--deline-rule)}
-.deline-hero .btn-ghost:hover{transform:translateY(-2px);border-color:${textLight}}
+.deline-hero .btn-text{
+  font-family:var(--font-sans);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;
+  color:${textLight2};text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  transition:color .25s ease;
+}
+.deline-hero .btn-text:hover{color:${textLight}}
+.deline-hero .btn-text .arrow{color:${gold};transition:transform .25s ease}
+.deline-hero .btn-text:hover .arrow{transform:translateX(4px)}
 
 .deline-hero .stage{position:relative;aspect-ratio:1/1;width:100%}
 .deline-hero .piece-wrap{width:100%;height:100%}

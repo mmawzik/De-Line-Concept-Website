@@ -1,16 +1,20 @@
 import { useEffect, useRef } from "react";
 import { CHINA_VIEWBOX, CHINA_TRANSFORM, CHINA_PATHS } from "./china-path";
 
-/* City pins, in the SVG's top-level viewBox (0–1024) space.
+/* Pins, in the SVG's top-level viewBox (0–1024) space.
    Tuned by eye against the rendered outline (not a true geographic projection). */
-const FOSHAN = { x: 760, y: 797 };
-const OTHER_CITIES = [
-  { x: 744, y: 772, label: "Guangzhou", side: "left" as const },
-  { x: 780, y: 833, label: "Hong Kong", side: "right" as const },
-  { x: 730, y: 810, label: "Zhongshan", side: "left" as const },
-];
+const FOSHAN = { x: 742, y: 812 };
+const ZHONGSHAN = { x: 744, y: 837 };
 
-export function ChinaMap({ label, cityLabel }: { label: string; cityLabel: string }) {
+export function ChinaMap({
+  label,
+  cityLabel,
+  secondaryCityLabel,
+}: {
+  label: string;
+  cityLabel: string;
+  secondaryCityLabel: string;
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -44,22 +48,13 @@ export function ChinaMap({ label, cityLabel }: { label: string; cityLabel: strin
           ))}
         </g>
         <g className="dl-china-pin" transform={`translate(${FOSHAN.x} ${FOSHAN.y})`}>
-          <circle className="dot" r="6" />
-          <text className="dl-china-label" x="14" y="4">{cityLabel}</text>
+          <circle className="dot" r="8" />
+          <text className="dl-china-label" x="16" y="5">{cityLabel}</text>
         </g>
-        {OTHER_CITIES.map((c) => (
-          <g key={c.label} className="dl-china-pin" transform={`translate(${c.x} ${c.y})`}>
-            <circle className="dot" r="6" />
-            <text
-              className="dl-china-label"
-              x={c.side === "left" ? -14 : 14}
-              y="4"
-              textAnchor={c.side === "left" ? "end" : "start"}
-            >
-              {c.label}
-            </text>
-          </g>
-        ))}
+        <g className="dl-china-pin" transform={`translate(${ZHONGSHAN.x} ${ZHONGSHAN.y})`}>
+          <circle className="dot" r="8" />
+          <text className="dl-china-label" x="-16" y="5" textAnchor="end">{secondaryCityLabel}</text>
+        </g>
       </svg>
     </div>
   );

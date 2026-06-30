@@ -40,7 +40,7 @@ export function Foshan() {
             <h2 className="dl-corridor-h">{t.foshan.heading}</h2>
             <p className="dl-corridor-lead">{t.foshan.lead}</p>
           </div>
-          <ChinaMap label={t.foshan.locatorLabel} cityLabel={t.foshan.cityLabel} />
+          <ChinaMap label={t.foshan.locatorLabel} cityLabel={t.foshan.cityLabel} secondaryCityLabel={t.foshan.secondaryCityLabel} />
         </div>
 
         <div ref={ref} className="dl-corridor-grid">
@@ -85,7 +85,7 @@ const corridorCss = `
 .dl-china.in .dl-china-pin{animation:dl-fade .45s ease .9s forwards}
 .dl-china-pin .dot{fill:var(--deline-gold)}
 .dl-china-label{
-  font-family:var(--font-sans);font-size:20px;font-weight:500;letter-spacing:1px;
+  font-family:var(--font-sans);font-size:22px;font-weight:600;letter-spacing:1px;
   text-transform:uppercase;fill:var(--deline-gold);dominant-baseline:middle;
 }
 

@@ -50,7 +50,9 @@ export function Team() {
                   {m.role}
                 </div>
                 <h3 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 22, color: textLight, margin: "8px 0 0", lineHeight: 1.2 }}>
-                  {m.name}
+                  {firstName}
+                  <br />
+                  {m.name.slice(firstName.length).trim()}
                 </h3>
               </div>
 
@@ -59,7 +61,7 @@ export function Team() {
               </p>
 
               {m.previously && (
-                <div style={{ fontFamily: fontSans, fontSize: 13, lineHeight: 1.5, color: textLight2, margin: 0 }}>
+                <div style={{ fontFamily: fontSans, fontSize: 13, lineHeight: 1.5, color: textLight2, margin: 0, marginTop: "auto" }}>
                   <span style={{ fontWeight: 600, fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: gold }}>
                     {t.team.previousLabel}
                   </span>
