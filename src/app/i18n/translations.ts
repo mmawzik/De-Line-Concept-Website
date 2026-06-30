@@ -661,7 +661,7 @@ const zh: typeof en = {
         role: "首席产品官",
         location: "佛山车间",
         summary: "二十二年室内设计经验——既懂设计语言，又能亲临车间把控每个细节，守护客户品质。",
-        previously: "室内设计师 · Shanyraq",
+        previously: "室内设计师 · Shanyraq Interior",
         distinctions: ["22年室内设计", "工厂验收专家", "工厂直接谈判"],
       },
       {
