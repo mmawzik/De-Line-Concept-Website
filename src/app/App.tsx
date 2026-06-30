@@ -22,9 +22,9 @@ export default function App() {
         <main>
           <Hero />
           <Foshan />
+          <Team />
           <Journey />
           <Portfolio />
-          <Team />
           <SocialProofMarquee />
           <Contact />
         </main>
