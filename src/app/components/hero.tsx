@@ -340,6 +340,11 @@ html[lang="ru"] .deline-hero h1{font-size:clamp(32px,4.2vw,52px)}
 .deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 .deline-hero h1 .line > span{display:block;transform:translateY(116%)}
 .deline-hero h1 em{font-style:italic;color:${gold};font-weight:500}
+/* Italics on Cyrillic display serifs read as a faux-slant rather than a true
+   italic cut — keep the gold emphasis but drop the slant for Russian. The same
+   holds for CJK, where a synthetic slant on Chinese glyphs looks broken. */
+html[lang="ru"] .deline-hero h1 em,
+html[lang="zh"] .deline-hero h1 em{font-style:normal}
 .deline-hero .sub{
   font-family:var(--font-sans);color:${textLight2};font-size:clamp(16px,1.5vw,17px);line-height:1.6;
   max-width:52ch;opacity:0;margin:0 0 32px;

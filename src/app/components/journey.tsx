@@ -45,10 +45,11 @@ export function JourneyStrip({ compact = false }: { compact?: boolean }) {
     return () => io.disconnect();
   }, []);
 
-  // The "U" turn between the two rows is a real semicircle, drawn as an SVG
-  // arc between the last dot of row 1 and the last dot of row 2. We measure
-  // their live positions so the curve stays a clean half-circle at any width
-  // or text length (and we drop it on the stacked mobile layout).
+  // The turn between the two rows is drawn as an SVG path between the last
+  // dot of row 1 and the first dot of row 2 — a semicircle on the desktop
+  // "U" layout, or a plain straight bridge on the stacked mobile timeline
+  // (where the rail would otherwise stop dead at the row boundary). We
+  // measure live positions so it stays correct at any width or text length.
   const dotTopRef = useRef<HTMLSpanElement | null>(null);
   const dotBottomRef = useRef<HTMLSpanElement | null>(null);
   const [arc, setArc] = useState<{ d: string; w: number; h: number } | null>(null);
@@ -59,18 +60,21 @@ export function JourneyStrip({ compact = false }: { compact?: boolean }) {
       const c = ref.current;
       const a = dotTopRef.current;
       const b = dotBottomRef.current;
-      if (!c || !a || !b || window.innerWidth <= 720) {
+      if (!c || !a || !b) {
         setArc(null);
         return;
       }
       const cr = c.getBoundingClientRect();
       const ar = a.getBoundingClientRect();
       const br = b.getBoundingClientRect();
+      const mobile = window.innerWidth <= 720;
       const x = ar.left + ar.width / 2 - cr.left;
       const yTop = ar.top + ar.height / 2 - cr.top;
       const yBottom = br.top + br.height / 2 - cr.top;
-      const r = Math.abs(yBottom - yTop) / 2;
-      setArc({ d: `M ${x} ${yTop} A ${r} ${r} 0 0 1 ${x} ${yBottom}`, w: cr.width, h: cr.height });
+      const d = mobile
+        ? `M ${x} ${yTop} L ${x} ${yBottom}`
+        : `M ${x} ${yTop} A ${Math.abs(yBottom - yTop) / 2} ${Math.abs(yBottom - yTop) / 2} 0 0 1 ${x} ${yBottom}`;
+      setArc({ d, w: cr.width, h: cr.height });
     };
     measure();
     const ro = new ResizeObserver(measure);

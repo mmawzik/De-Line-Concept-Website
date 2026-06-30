@@ -20,9 +20,13 @@ function getInitialTheme(): Theme {
 }
 
 function getInitialLang(): Lang {
+  try {
+    const stored = localStorage.getItem(LANG_KEY);
+    if (stored === "ru" || stored === "zh" || stored === "en") return stored;
+  } catch { /* ignore */ }
   if (typeof document !== "undefined") {
-    const stored = document.documentElement.getAttribute("lang");
-    if (stored === "ru") return "ru";
+    const attr = document.documentElement.getAttribute("lang");
+    if (attr === "ru" || attr === "zh") return attr;
   }
   return "en";
 }

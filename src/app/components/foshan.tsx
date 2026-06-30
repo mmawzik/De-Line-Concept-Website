@@ -85,7 +85,7 @@ const corridorCss = `
 .dl-china.in .dl-china-pin{animation:dl-fade .45s ease .9s forwards}
 .dl-china-pin .dot{fill:var(--deline-gold)}
 .dl-china-label{
-  font-family:var(--font-sans);font-size:22px;font-weight:600;letter-spacing:1px;
+  font-family:var(--font-sans);font-size:32px;font-weight:600;letter-spacing:2px;
   text-transform:uppercase;fill:var(--deline-gold);dominant-baseline:middle;
 }
 

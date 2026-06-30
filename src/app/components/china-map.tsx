@@ -49,11 +49,11 @@ export function ChinaMap({
         </g>
         <g className="dl-china-pin" transform={`translate(${FOSHAN.x} ${FOSHAN.y})`}>
           <circle className="dot" r="8" />
-          <text className="dl-china-label" x="16" y="5">{cityLabel}</text>
+          <text className="dl-china-label" x="22" y="6">{cityLabel}</text>
         </g>
         <g className="dl-china-pin" transform={`translate(${ZHONGSHAN.x} ${ZHONGSHAN.y})`}>
           <circle className="dot" r="8" />
-          <text className="dl-china-label" x="-16" y="5" textAnchor="end">{secondaryCityLabel}</text>
+          <text className="dl-china-label" x="-22" y="6" textAnchor="end">{secondaryCityLabel}</text>
         </g>
       </svg>
     </div>

@@ -86,7 +86,7 @@ export function ThemeToggle() {
 /** Segmented EN / RU language switcher. */
 export function LanguageSwitcher({ full = false }: { full?: boolean }) {
   const { lang, setLang, t } = useI18n();
-  const options: Lang[] = ["en", "ru"];
+  const options: Lang[] = ["en", "ru", "zh"];
   return (
     <div
       role="group"

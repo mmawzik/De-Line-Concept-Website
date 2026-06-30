@@ -1,8 +1,8 @@
-export type Lang = "en" | "ru";
+export type Lang = "en" | "ru" | "zh";
 
-/* English is the source of truth for the shape; `ru` must match it. */
+/* English is the source of truth for the shape; `ru` and `zh` must match it. */
 const en = {
-  langName: { en: "EN", ru: "RU" },
+  langName: { en: "EN", ru: "RU", zh: "中文" },
 
   nav: {
     brand: "DE LINE CONCEPT",
@@ -251,7 +251,7 @@ const en = {
 };
 
 const ru: typeof en = {
-  langName: { en: "EN", ru: "RU" },
+  langName: { en: "EN", ru: "RU", zh: "中文" },
 
   nav: {
     brand: "DE LINE CONCEPT",
@@ -396,7 +396,7 @@ const ru: typeof en = {
         role: "Генеральный директор",
         location: "Китай",
         summary: "Двадцать лет в Китае, тринадцать — в текстиле. В 2018 году основал фабрику Haining Desire Fabrics.",
-        previously: "Директор по продажам · MF Co., Ltd",
+        previously: "Директор по продажам · MF Ltd.",
         distinctions: ["20 лет в Китае", "Магистратура в Китае", "Торговля и управление"],
       },
       {
@@ -412,7 +412,7 @@ const ru: typeof en = {
         role: "Директор по продукту",
         location: "Цех в Фошане",
         summary: "22 года в дизайне интерьеров — говорит на языке дизайна и контролирует каждую деталь на производстве ради качества.",
-        previously: "Дизайнер интерьера · Shanyraq Interior",
+        previously: "Дизайнер интерьера · Shanyraq",
         distinctions: ["22 года в дизайне", "Контроль на производстве", "Переговоры с фабрикой"],
       },
       {
@@ -499,5 +499,254 @@ const ru: typeof en = {
   },
 };
 
-export const translations: Record<Lang, typeof en> = { en, ru };
+const zh: typeof en = {
+  langName: { en: "EN", ru: "RU", zh: "中文" },
+
+  nav: {
+    brand: "DE LINE CONCEPT",
+    tagline: "每个项目，都始于 De Line",
+    links: [
+      { label: "据点", href: "#foshan" },
+      { label: "流程", href: "#journey" },
+      { label: "案例", href: "#portfolio" },
+      { label: "团队", href: "#team" },
+      { label: "联系", href: "#contact" },
+    ],
+    cta: "启动项目",
+    openMenu: "打开菜单",
+    closeMenu: "关闭菜单",
+    themeToLight: "切换到浅色主题",
+    themeToDark: "切换到深色主题",
+    language: "语言",
+  },
+
+  hero: {
+    eyebrow: "家具采购与制造",
+    title: [
+      { a: "家具，", em: "", b: "" },
+      { a: "", em: "由您设计", b: "，" },
+      { a: "", em: "由我们交付", b: "。" },
+    ],
+    sub: "您提供设计，我们让它成真。由值得信赖的工厂网络按图施工，每个环节严格质检，交付即可安装。适用于各种规模的高端室内空间——从住宅到商业。",
+    stats: [
+      { target: 16, label: "年中国采购经验" },
+      { target: 20, label: "年家具专业积累" },
+      { target: 150, label: "来自20国的客户" },
+    ],
+    ctaPrimary: "查看案例",
+    ctaSecondary: "启动您的项目",
+    caption: { drawn: "图纸", built: "成品" },
+    pieces: ["休闲椅 — 从图纸到成品", "沙发 — 从图纸到成品", "衣柜 — 从图纸到成品"],
+  },
+
+  foshan: {
+    eyebrow: "据点 · 佛山",
+    dateline: "佛山 · 广东 · 北纬23.0° 东经113.1°",
+    locatorLabel: "扎根佛山，亲临现场",
+    cityLabel: "佛山",
+    secondaryCityLabel: "中山",
+    heading: "深入中国家具产业带。",
+    lead: "您提供设计。我们在中国家具产业的核心——佛山，为您生产并交付。",
+    cards: [
+      {
+        title: "按您的设计制造",
+        body: "您的图纸，由甄选网络中合适的工厂，按精确公差打造。",
+      },
+      {
+        title: "生产前确认",
+        body: "每一种材料与饰面都预先确认——可寄送样品，或亲临佛山工厂。",
+      },
+      {
+        title: "按规格验收",
+        body: "选材、生产中、发货前三道查验——不良由我们承担返工，当天出具记录。",
+      },
+      {
+        title: "作为整体项目交付",
+        body: "一位双语负责人、完整出口单证、统筹货运——作为一个完整项目交付。",
+      },
+    ],
+    hqLabel: "佛山工厂",
+    addressLocal: "佛山市，广东省",
+    addressRoman: "全新展厅 — 即将开业",
+  },
+
+  journey: {
+    eyebrow: "从您的设计到交付",
+    heading: "每个项目，都遵循同一条线。",
+    lead: "您提供设计——之后由同一支团队完成每个阶段，并让您看到每一步，从第一张图纸到成品安装、验收签收。",
+    stages: [
+      { label: "需求与报价", desc: "依据您的需求出图、定规格、给报价" },
+      { label: "设计考察", desc: "在工厂确认饰面，或通过照片与寄样确认" },
+      { label: "生产", desc: "样品确认后，按规格量产" },
+      { label: "质检", desc: "多环节质检——拍照、合格或退回" },
+      { label: "出口", desc: "装箱、木材熏蒸认证、单证齐备" },
+      { label: "交付", desc: "由合作伙伴运输、安装、验收签收" },
+    ],
+  },
+
+  portfolio: {
+    eyebrow: "精选案例",
+    heading: "案例。",
+    lead: "近期在酒店、住宅、商业及大型设施项目中的部分合作。",
+    filters: [
+      { key: "all", label: "全部" },
+      { key: "hospitality", label: "酒店" },
+      { key: "residential", label: "住宅" },
+      { key: "commercial", label: "商业" },
+      { key: "facility", label: "大型设施" },
+    ],
+    viewProject: "查看项目",
+    close: "关闭",
+    projects: [
+      {
+        tag: "hospitality",
+        title: "精品酒店套房",
+        category: "酒店餐饮 · 42间客房",
+        status: "生产中",
+        materials: "意大利仿麂皮、微焊PVD黄铜、阻燃认证",
+        body: "为欧洲精品酒店客户定制木作与座椅方案，统筹42间客房的全套FF&E（家具、固装与设备）。",
+      },
+      {
+        tag: "residential",
+        title: "私人住宅 — 里维埃拉",
+        category: "住宅",
+        status: "2025年交付",
+        materials: "Arabescato大理石、手工胡桃木、定制青铜五金",
+        body: "为私人住宅提供全程定制木作与座椅，单柜拼装交付。",
+      },
+      {
+        tag: "commercial",
+        title: "企业总部 — 亚太",
+        category: "项目 · 8层",
+        status: "生产中",
+        materials: "吸音木皮饰板、功能面料软包、集成走线",
+        body: "八个楼层的办公空间软装，采用统一定制设计语言、批量采购并全程质检。",
+      },
+      {
+        tag: "facility",
+        title: "康养度假村 — 爱琴海",
+        category: "大型设施",
+        status: "2025年交付",
+        materials: "户外级柚木、船用级不锈钢、抗UV面料",
+        body: "为120套客房的康养度假村提供室内外座椅方案，工厂直送港口拼柜。",
+      },
+    ],
+  },
+
+  team: {
+    eyebrow: "De Line 背后的团队",
+    heading: "真实的人，亲临现场，对结果负责。",
+    lead: "从中国的工厂车间到客户管理，亲自为您的项目负责。",
+    portraitLabel: "肖像",
+    previousLabel: "曾任",
+    members: [
+      {
+        name: "Zulyar Turganov",
+        role: "首席执行官",
+        location: "中国",
+        summary: "在中国二十年，其中十三年深耕纺织制造——2018年创办自有工厂 Haining Desire Fabrics。",
+        previously: "销售总监 · MF Co., Ltd",
+        distinctions: ["在华20年", "中国本硕学历", "贸易与管理"],
+      },
+      {
+        name: "Saltanat Umbetalina",
+        role: "首席市场官",
+        location: "国际桥梁",
+        summary: "一家工作室的联合创始人，将室内设计与中国直采结合——从概念到采购，一站对接。",
+        previously: "采购 · KSS Pipeline",
+        distinctions: ["8年采购经验", "战略营销与品牌", "室内设计与项目管理"],
+      },
+      {
+        name: "Dauren Gazizov",
+        role: "首席产品官",
+        location: "佛山车间",
+        summary: "二十二年室内设计经验——既懂设计语言，又能亲临车间把控每个细节，守护客户品质。",
+        previously: "室内设计师 · Shanyraq",
+        distinctions: ["22年室内设计", "工厂验收专家", "工厂直接谈判"],
+      },
+      {
+        name: "Daniyar Kenzhekhanov",
+        role: "首席运营官",
+        location: "佛山基地",
+        summary: "在华13年以上，主导供应商开发、战略采购、定价及工厂谈判，直至交付。",
+        previously: "首席商务官 · Parqour",
+        distinctions: ["在华13年以上", "上海国际MBA", "9年以上运营管理"],
+      },
+    ],
+  },
+
+  social: {
+    eyebrow: "客户评价",
+    heading: "深受建筑师、酒店方与开发商信赖。",
+    lead: "我们服务过的部分工作室、酒店方与开发商。",
+    prev: "上一条评价",
+    next: "下一条评价",
+    testimonials: [
+      {
+        quote: "De Line 是唯一一家送到的成品与我们图纸完全一致的中国合作伙伴。原因就在于他们的质检报告。",
+        author: "建筑设计总监",
+        org: "酒店集团，西欧",
+      },
+      {
+        quote: "三个项目下来，他们从未错过任何节点。仅拼柜一项，每批货就为我们节省一个月。",
+        author: "采购负责人",
+        org: "精品酒店集团，海湾地区",
+      },
+      {
+        quote: "他们把一摞情绪板变成了工厂真正能落地的施工图。这正是关键所在。",
+        author: "室内设计师",
+        org: "私人住宅工作室",
+      },
+    ],
+    clientsLabel: "部分客户",
+    certsLabel: "认证与合规",
+    logos: ["酒店集团", "建筑事务所", "精品系列", "设计事务所", "开发集团", "度假村运营商", "零售品牌", "地产开发商"],
+    certs: ["BSCI审核工厂", "FSC认证木材", "EN 1021阻燃合规", "ISO 9001质量管理"],
+  },
+
+  contact: {
+    eyebrow: "启动您的项目",
+    heading: "告诉我们，您要打造什么。",
+    lead: "分享您的概念、规模与时间安排。我们将在三个工作日内回复，给出可行性评估和清晰的下一步。",
+    rows: [
+      { label: "办公室", primary: "中国佛山", secondary: "佛山市，广东省" },
+      { label: "邮箱", primary: "hello@deline.studio", secondary: "" },
+      { label: "微信 / WhatsApp", primary: "可应需提供", secondary: "" },
+    ],
+    fields: {
+      name: "您的姓名",
+      email: "邮箱",
+      company: "公司 / 工作室",
+      scope: "项目类型（酒店、住宅、大型项目）",
+      message: "介绍一下您的项目",
+    },
+    submit: "发送咨询",
+    sending: "发送中…",
+    privacyPre: "提交即表示您同意我们的",
+    privacyLink: "隐私政策",
+    successTitle: "谢谢 — 我们会尽快联系您。",
+    successBody: "我们将在三个工作日内回复。",
+  },
+
+  footer: {
+    brand: "DE LINE CONCEPT",
+    blurb: "立足佛山的家具采购与制造。我们将您的设计转化为施工图，交由合适的工厂精准生产，全程质检，并将完整项目发往全球。",
+    columns: [
+      {
+        title: "佛山",
+        links: ["佛山市，广东省", "新办公室 — 即将开业"],
+      },
+      { title: "作品", links: ["据点", "流程", "案例"] },
+      { title: "公司", links: ["团队", "联系", "隐私政策", "条款"] },
+    ],
+    copyright: "© 2026 De Line Concept. 版权所有。",
+    locations: "佛山 · 全球",
+  },
+
+  common: {
+    imagePlaceholder: "图片待添加",
+  },
+};
+
+export const translations: Record<Lang, typeof en> = { en, ru, zh };
 export type Dict = typeof en;

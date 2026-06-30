@@ -231,7 +231,6 @@ input:focus, textarea:focus, select:focus {
   .dl-journey-snake .dl-journey-glyph svg { width: 48px; height: 48px; }
   .dl-journey-snake .dl-journey-label { font-size: 18px; }
   .dl-journey-snake .dl-journey-desc { font-size: 12.5px; }
-  .dl-journey-arc { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
