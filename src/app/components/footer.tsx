@@ -1,8 +1,6 @@
 import { Container, fontDisplay, fontSans, textLight, textLight2 } from "./brand";
 import { useT } from "../providers";
 
-const SOCIALS = ["Instagram", "WeChat", "LinkedIn", "WhatsApp"];
-
 export function Footer() {
   const t = useT();
   return (
@@ -41,28 +39,6 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Newsletter row */}
-        <div
-          className="dl-footer-news"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 24,
-            padding: "36px 0",
-            borderBottom: "1px solid var(--deline-divider)",
-          }}
-        >
-          <div style={{ fontFamily: fontDisplay, fontWeight: 700, fontSize: "clamp(20px, 2.6vw, 30px)", letterSpacing: "-0.02em" }}>
-            {t.footer.newsletterTitle}
-          </div>
-          <form className="dl-newsletter" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" aria-label={t.footer.newsletterPlaceholder} placeholder={t.footer.newsletterPlaceholder} />
-            <button type="submit" aria-label={t.footer.newsletterTitle}>→</button>
-          </form>
-        </div>
-
         {/* Monumental wordmark */}
         <h2 className="dl-wordmark" aria-hidden="true" style={{ margin: "clamp(28px, 5vw, 64px) 0 clamp(20px, 3vw, 36px)" }}>
           {t.footer.brand.replace(/\s+CONCEPT$/i, "")}
@@ -81,26 +57,6 @@ export function Footer() {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {SOCIALS.map((s) => (
-              <span
-                key={s}
-                style={{
-                  fontFamily: fontSans,
-                  fontWeight: 600,
-                  fontSize: 10,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: textLight2,
-                  border: "1px solid var(--deline-rule)",
-                  borderRadius: 999,
-                  padding: "6px 14px",
-                }}
-              >
-                {s}
-              </span>
-            ))}
-          </div>
           <div
             style={{
               display: "flex",

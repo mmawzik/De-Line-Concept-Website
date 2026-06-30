@@ -337,7 +337,7 @@ const heroCss = `
 /* Russian words run longer — shrink the headline a notch so each line
    (esp. "Спроектирована вами,") stays on a single row like the English. */
 html[lang="ru"] .deline-hero h1{font-size:clamp(32px,4.2vw,52px)}
-.deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.14em}
+.deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.14em;white-space:nowrap}
 .deline-hero h1 .line > span{display:block;transform:translateY(116%)}
 .deline-hero h1 em{font-style:normal;color:${textLight};font-weight:900}
 /* Italics on Cyrillic display serifs read as a faux-slant rather than a true
