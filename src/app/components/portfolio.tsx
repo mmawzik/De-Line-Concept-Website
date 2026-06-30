@@ -121,7 +121,7 @@ export function Portfolio() {
             <article
               key={p.title}
               className="deline-card dl-portfolio-card"
-              style={{ padding: 36, display: "flex", flexDirection: "column", gap: 20, cursor: "pointer" }}
+              style={{ padding: 0, display: "flex", flexDirection: "column", gap: 18, cursor: "pointer" }}
               onClick={() => setOpenIdx(i)}
               role="button"
               tabIndex={0}

@@ -29,6 +29,12 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+
+        {/* The single pop of colour — floating quick actions (EINAR micro-accent) */}
+        <div className="dl-fab" aria-label="Quick actions">
+          <a href="#contact" aria-label="Contact us" title="Contact us">✦</a>
+          <a href="#top" aria-label="Back to top" title="Back to top">↑</a>
+        </div>
       </div>
     </AppProviders>
   );

@@ -64,8 +64,8 @@ const corridorCss = `
 }
 .dl-corridor-text{text-align:left}
 .dl-corridor-h{
-  font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.8vw,42px);
-  line-height:1.12;letter-spacing:-0.01em;color:var(--deline-text);margin:0;
+  font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.6vw,54px);
+  line-height:1.02;letter-spacing:-0.03em;color:var(--deline-text);margin:0;
 }
 .dl-corridor-lead{
   font-family:var(--font-sans);font-size:clamp(15px,1.4vw,17px);line-height:1.6;
@@ -97,29 +97,27 @@ const corridorCss = `
   max-width:1080px;margin:0 auto;
 }
 .dl-corridor-cell{
-  position:relative;background:var(--deline-surface);
-  border:1px solid var(--deline-divider);border-radius:var(--deline-radius);
-  padding:clamp(20px,2.2vw,28px);
+  position:relative;background:transparent;
+  border:none;border-top:1px solid var(--deline-divider);border-radius:0;
+  padding:clamp(20px,2.2vw,28px) 0 0;
   display:flex;flex-direction:column;gap:10px;
   opacity:0;transform:translateY(22px);
-  transition:border-color .3s ease,box-shadow .3s ease,background-color .3s ease;
+  transition:border-color .3s ease;
 }
 .dl-corridor-grid.in .dl-corridor-cell{
   animation:dl-cell-in .7s cubic-bezier(.19,.7,.2,1) forwards;
   animation-delay:calc(var(--i,0) * .1s);
 }
 .dl-corridor-cell:hover{
-  border-color:color-mix(in srgb, var(--deline-gold) 45%, transparent);
-  background:var(--deline-surface-2);
-  box-shadow:var(--deline-shadow);
+  border-top-color:var(--deline-text);
 }
 .dl-corridor-num{
-  font-family:var(--font-display);font-weight:500;font-size:clamp(22px,2.2vw,28px);
-  line-height:1;color:var(--deline-gold);font-variant-numeric:tabular-nums;
+  font-family:var(--font-display);font-weight:800;font-size:clamp(22px,2.2vw,28px);
+  line-height:1;color:var(--deline-text);font-variant-numeric:tabular-nums;letter-spacing:-0.02em;
 }
 .dl-corridor-cell h3{
-  font-family:var(--font-display);font-weight:600;font-size:clamp(17px,1.7vw,20px);
-  line-height:1.2;color:var(--deline-text);margin:0;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(17px,1.7vw,20px);
+  line-height:1.15;letter-spacing:-0.01em;color:var(--deline-text);margin:0;
 }
 .dl-corridor-cell p{
   font-family:var(--font-sans);font-size:clamp(13px,1.2vw,14px);line-height:1.5;

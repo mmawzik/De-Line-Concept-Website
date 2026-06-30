@@ -173,7 +173,7 @@ export function Journey() {
     <section id="journey" className="dl-section">
       <Container>
         <div className="dl-stack" style={{ maxWidth: 720, marginBottom: 64, gap: 16 }}>
-          <SectionHeading style={{ maxWidth: "none", whiteSpace: "nowrap" }}>{t.journey.heading}</SectionHeading>
+          <SectionHeading style={{ maxWidth: "16ch" }}>{t.journey.heading}</SectionHeading>
           <Lead>{t.journey.lead}</Lead>
         </div>
         <JourneyStrip />

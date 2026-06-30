@@ -52,13 +52,13 @@ export function SectionHeading({ children, style }: { children: ReactNode; style
     <h2
       style={{
         fontFamily: fontDisplay,
-        fontWeight: 600,
-        fontSize: "clamp(30px, 4.4vw, 46px)",
-        lineHeight: 1.12,
+        fontWeight: 800,
+        fontSize: "clamp(34px, 6vw, 72px)",
+        lineHeight: 1.02,
         color: textLight,
         margin: 0,
         maxWidth: "20ch",
-        letterSpacing: "-0.01em",
+        letterSpacing: "-0.03em",
         ...style,
       }}
     >
@@ -92,9 +92,10 @@ export function CardTitle({ children }: { children: ReactNode }) {
     <h3
       style={{
         fontFamily: fontDisplay,
-        fontWeight: 600,
-        fontSize: 22,
-        lineHeight: 1.25,
+        fontWeight: 700,
+        fontSize: 24,
+        lineHeight: 1.12,
+        letterSpacing: "-0.015em",
         color: textLight,
         margin: 0,
       }}
@@ -136,12 +137,12 @@ export function Button({ variant = "primary", children, style, ...rest }: BtnPro
   const base: React.CSSProperties = {
     fontFamily: fontSans,
     fontWeight: 600,
-    fontSize: 13,
-    letterSpacing: "0.1em",
+    fontSize: 12,
+    letterSpacing: "0.12em",
     textTransform: "uppercase",
-    padding: "0 28px",
+    padding: "0 30px",
     height: 52,
-    borderRadius: radius,
+    borderRadius: 999,
     border: "1px solid transparent",
     cursor: "pointer",
     transition: "transform 0.18s ease, opacity 0.15s, background 0.15s, border-color 0.15s",

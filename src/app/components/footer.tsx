@@ -1,11 +1,14 @@
-import { Container, fontDisplay, fontSans, gold, textLight, textLight2 } from "./brand";
+import { Container, fontDisplay, fontSans, textLight, textLight2 } from "./brand";
 import { useT } from "../providers";
+
+const SOCIALS = ["Instagram", "WeChat", "LinkedIn", "WhatsApp"];
 
 export function Footer() {
   const t = useT();
   return (
-    <footer className="dl-themed" style={{ color: textLight, padding: "72px 0 32px", borderTop: "1px solid var(--deline-divider)" }}>
+    <footer className="dl-themed" style={{ color: textLight, padding: "clamp(56px, 8vw, 96px) 0 28px", borderTop: "1px solid var(--deline-divider)" }}>
       <Container>
+        {/* Link columns + blurb */}
         <div
           className="dl-footer-grid"
           style={{
@@ -17,7 +20,7 @@ export function Footer() {
           }}
         >
           <div>
-            <div style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 22, letterSpacing: "0.08em", color: textLight }}>
+            <div style={{ fontFamily: fontDisplay, fontWeight: 800, fontSize: 20, letterSpacing: "0.02em", color: textLight }}>
               {t.footer.brand}
             </div>
             <div style={{ fontFamily: fontSans, fontSize: 14, color: textLight2, lineHeight: 1.6, marginTop: 16, maxWidth: 320 }}>
@@ -26,7 +29,7 @@ export function Footer() {
           </div>
           {t.footer.columns.map((col) => (
             <div key={col.title}>
-              <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: gold, marginBottom: 18 }}>
+              <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: textLight2, marginBottom: 18 }}>
                 {col.title}
               </div>
               {col.links.map((l) => (
@@ -37,22 +40,82 @@ export function Footer() {
             </div>
           ))}
         </div>
+
+        {/* Newsletter row */}
         <div
+          className="dl-footer-news"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 24,
+            padding: "36px 0",
+            borderBottom: "1px solid var(--deline-divider)",
+          }}
+        >
+          <div style={{ fontFamily: fontDisplay, fontWeight: 700, fontSize: "clamp(20px, 2.6vw, 30px)", letterSpacing: "-0.02em" }}>
+            {t.footer.newsletterTitle}
+          </div>
+          <form className="dl-newsletter" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" aria-label={t.footer.newsletterPlaceholder} placeholder={t.footer.newsletterPlaceholder} />
+            <button type="submit" aria-label={t.footer.newsletterTitle}>→</button>
+          </form>
+        </div>
+
+        {/* Monumental wordmark */}
+        <h2 className="dl-wordmark" aria-hidden="true" style={{ margin: "clamp(28px, 5vw, 64px) 0 clamp(20px, 3vw, 36px)" }}>
+          {t.footer.brand.replace(/\s+CONCEPT$/i, "")}
+          <sup>©</sup>
+        </h2>
+
+        {/* Bottom bar — socials + meta */}
+        <div
+          className="dl-footer-bottom"
           style={{
             paddingTop: 24,
             display: "flex",
             flexWrap: "wrap",
-            gap: 12,
+            gap: 16,
+            alignItems: "center",
             justifyContent: "space-between",
-            fontFamily: fontSans,
-            fontSize: 12,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: textLight2,
           }}
         >
-          <div>{t.footer.copyright}</div>
-          <div>{t.footer.locations}</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {SOCIALS.map((s) => (
+              <span
+                key={s}
+                style={{
+                  fontFamily: fontSans,
+                  fontWeight: 600,
+                  fontSize: 10,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: textLight2,
+                  border: "1px solid var(--deline-rule)",
+                  borderRadius: 999,
+                  padding: "6px 14px",
+                }}
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 18,
+              fontFamily: fontSans,
+              fontSize: 12,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: textLight2,
+            }}
+          >
+            <span>{t.footer.copyright}</span>
+            <span>{t.footer.locations}</span>
+          </div>
         </div>
       </Container>
       <style>{`

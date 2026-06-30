@@ -243,6 +243,8 @@ const en = {
     ],
     copyright: "© 2026 De Line Concept. All rights reserved.",
     locations: "Foshan · Worldwide",
+    newsletterTitle: "Subscribe to our newsletter",
+    newsletterPlaceholder: "Email address",
   },
 
   common: {
@@ -492,6 +494,8 @@ const ru: typeof en = {
     ],
     copyright: "© 2026 De Line Concept. Все права защищены.",
     locations: "Фошань · Весь мир",
+    newsletterTitle: "Подпишитесь на рассылку",
+    newsletterPlaceholder: "Электронная почта",
   },
 
   common: {
@@ -741,6 +745,8 @@ const zh: typeof en = {
     ],
     copyright: "© 2026 De Line Concept. 版权所有。",
     locations: "佛山 · 全球",
+    newsletterTitle: "订阅我们的资讯",
+    newsletterPlaceholder: "电子邮箱",
   },
 
   common: {

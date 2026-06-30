@@ -85,12 +85,12 @@ export function Nav() {
                 textTransform: "uppercase",
                 background: goldBtn,
                 color: onGold,
-                padding: "0 20px",
+                padding: "0 22px",
                 height: 44,
                 display: "inline-flex",
                 alignItems: "center",
                 textDecoration: "none",
-                borderRadius: radius,
+                borderRadius: 999,
               }}
             >
               {t.nav.cta}
@@ -180,7 +180,7 @@ export function Nav() {
               alignItems: "center",
               justifyContent: "center",
               textDecoration: "none",
-              borderRadius: radius,
+              borderRadius: 999,
             }}
           >
             {t.nav.cta}

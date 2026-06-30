@@ -5,10 +5,10 @@ import type { Lang } from "../i18n/translations";
 /* Temporary palette evaluation switcher — cycles the accent/surface theme
    so the brand colors can be compared live on the real pages. */
 const PALETTES: { id: Palette; label: string; dot: string }[] = [
-  { id: "current", label: "Slate", dot: "#c6a875" },
-  { id: "espresso", label: "Espresso", dot: "#cca877" },
-  { id: "forest", label: "Forest", dot: "#c4a25f" },
-  { id: "champagne", label: "Champagne", dot: "#cdb78f" },
+  { id: "current", label: "Pure", dot: "#ffffff" },
+  { id: "espresso", label: "Carbon", dot: "#d8d2c8" },
+  { id: "forest", label: "Graphite", dot: "#c7ccce" },
+  { id: "champagne", label: "Slate", dot: "#c3c8d0" },
 ];
 
 export function PaletteSwitcher({ full = false }: { full?: boolean }) {

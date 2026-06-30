@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { Container, gold, goldBtn, onGold, textLight, textLight2, radius } from "./brand";
+import { Container, gold, goldBtn, onGold, textLight, textLight2 } from "./brand";
 import { useT } from "../providers";
 
 /* ---- Furniture pieces, all drawn in the same language:
@@ -330,16 +330,16 @@ const heroCss = `
 }
 .deline-hero .eyebrow-rule{display:inline-block;width:28px;height:1px;background:${gold};opacity:.7}
 .deline-hero h1{
-  font-family:var(--font-display);font-weight:600;
-  font-size:clamp(36px,5.2vw,64px);line-height:1.34;letter-spacing:-0.01em;
-  margin:24px 0 26px;color:${textLight};
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(40px,6.2vw,74px);line-height:1.04;letter-spacing:-0.03em;
+  margin:8px 0 28px;color:${textLight};
 }
 /* Russian words run longer — shrink the headline a notch so each line
    (esp. "Спроектирована вами,") stays on a single row like the English. */
 html[lang="ru"] .deline-hero h1{font-size:clamp(32px,4.2vw,52px)}
-.deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.deline-hero h1 .line{display:block;overflow:hidden;padding-bottom:.14em}
 .deline-hero h1 .line > span{display:block;transform:translateY(116%)}
-.deline-hero h1 em{font-style:italic;color:${gold};font-weight:500}
+.deline-hero h1 em{font-style:normal;color:${textLight};font-weight:900}
 /* Italics on Cyrillic display serifs read as a faux-slant rather than a true
    italic cut — keep the gold emphasis but drop the slant for Russian. The same
    holds for CJK, where a synthetic slant on Chinese glyphs looks broken. */
@@ -352,7 +352,7 @@ html[lang="zh"] .deline-hero h1 em{font-style:normal}
 .deline-hero .stats{display:flex;margin:0 0 32px;opacity:0;align-items:flex-start;flex-wrap:wrap;gap:0}
 .deline-hero .stat{padding-right:0}
 .deline-hero .stat-divider{width:1px;background:var(--deline-divider);margin:0 clamp(16px,2.4vw,28px);align-self:stretch}
-.deline-hero .stat .num{font-family:var(--font-display);font-size:clamp(28px,3.4vw,34px);line-height:1;color:${textLight};font-weight:600}
+.deline-hero .stat .num{font-family:var(--font-display);font-size:clamp(30px,3.6vw,38px);line-height:1;color:${textLight};font-weight:800;letter-spacing:-0.02em}
 .deline-hero .stat .num span{color:${gold}}
 .deline-hero .stat .lab{
   font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
@@ -361,7 +361,7 @@ html[lang="zh"] .deline-hero h1 em{font-style:normal}
 .deline-hero .cta{display:flex;gap:clamp(18px,2.4vw,30px);opacity:0;flex-wrap:wrap;align-items:center}
 .deline-hero .btn{
   font-family:var(--font-sans);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;
-  padding:16px 26px;border-radius:${radius};text-decoration:none;display:inline-block;
+  padding:16px 30px;border-radius:999px;text-decoration:none;display:inline-block;
   border:1px solid transparent;transition:transform .25s ease,background .25s ease,border-color .25s ease;
 }
 .deline-hero .btn-primary{background:${goldBtn};color:${onGold};border-color:${goldBtn}}
@@ -378,7 +378,7 @@ html[lang="zh"] .deline-hero h1 em{font-style:normal}
 .deline-hero .stage{position:relative;aspect-ratio:1/1;width:100%}
 .deline-hero .piece-wrap{width:100%;height:100%}
 .deline-hero .piece-wrap.leaving{animation:dl-out .5s ease forwards}
-.deline-hero .stage svg{width:100%;height:100%;display:block;overflow:visible;animation:dl-float 7s ease-in-out var(--float-delay,4.4s) infinite alternate}
+.deline-hero .stage svg{width:100%;height:100%;display:block;overflow:visible;filter:grayscale(1) contrast(1.05) brightness(1.08);animation:dl-float 7s ease-in-out var(--float-delay,4.4s) infinite alternate}
 .deline-hero #guides{opacity:0;animation:dl-fade .7s ease .2s forwards}
 .deline-hero #guides .g{stroke:var(--deline-divider);stroke-width:1;fill:none}
 .deline-hero #guides .gd{

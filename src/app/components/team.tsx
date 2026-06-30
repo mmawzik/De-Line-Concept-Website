@@ -1,4 +1,4 @@
-import { Container, ImagePlaceholder, Lead, SectionHeading, fontDisplay, fontSans, gold, radius, rule, textLight, textLight2 } from "./brand";
+import { Container, ImagePlaceholder, Lead, SectionHeading, fontDisplay, fontSans, gold, textLight, textLight2 } from "./brand";
 import { useT } from "../providers";
 
 // Portraits, keyed by the member's first name (works across EN/RU since
@@ -20,7 +20,7 @@ export function Team() {
     <section id="team" className="dl-section">
       <Container>
         <div className="dl-stack" style={{ maxWidth: "none", marginBottom: 56, gap: 16 }}>
-          <SectionHeading style={{ maxWidth: "none", whiteSpace: "nowrap" }}>{t.team.heading}</SectionHeading>
+          <SectionHeading style={{ maxWidth: "16ch" }}>{t.team.heading}</SectionHeading>
           <Lead className="dl-team-lead" style={{ maxWidth: "none" }}>{t.team.lead}</Lead>
         </div>
         <div className="dl-grid-4">
@@ -28,32 +28,29 @@ export function Team() {
             const firstName = m.name.split(" ")[0];
             const photo = PORTRAITS[firstName];
             return (
-            <article key={m.name} className="deline-card" style={{ padding: 28, display: "flex", flexDirection: "column", gap: 18 }}>
+            <article key={m.name} className="deline-card" style={{ padding: 0, display: "flex", flexDirection: "column", gap: 16 }}>
               {photo ? (
                 <img
                   src={photo}
                   alt={m.name}
                   style={{
-                    height: 280,
+                    height: 320,
                     width: "100%",
                     objectFit: "cover",
                     objectPosition: "50% 15%",
-                    borderRadius: radius,
-                    border: `1px solid ${rule}`,
+                    borderRadius: 0,
                   }}
                 />
               ) : (
-                <ImagePlaceholder height={180} label={t.team.portraitLabel} />
+                <ImagePlaceholder height={320} label={t.team.portraitLabel} />
               )}
               <div>
-                <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: gold }}>
+                <h3 style={{ fontFamily: fontDisplay, fontWeight: 800, fontSize: 22, color: textLight, margin: 0, lineHeight: 1.05, letterSpacing: "-0.02em" }}>
+                  {firstName} {m.name.slice(firstName.length).trim()}
+                </h3>
+                <div style={{ fontFamily: fontSans, fontWeight: 600, fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: textLight2, marginTop: 8 }}>
                   {m.role}
                 </div>
-                <h3 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 22, color: textLight, margin: "8px 0 0", lineHeight: 1.2 }}>
-                  {firstName}
-                  <br />
-                  {m.name.slice(firstName.length).trim()}
-                </h3>
               </div>
 
               <p style={{ fontFamily: fontSans, fontSize: 14, lineHeight: 1.55, color: textLight2, margin: 0 }}>
@@ -80,11 +77,11 @@ export function Team() {
                       fontSize: 10,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
-                      color: gold,
-                      border: "1px solid color-mix(in srgb, var(--deline-gold) 35%, transparent)",
-                      background: "color-mix(in srgb, var(--deline-gold) 8%, transparent)",
-                      padding: "5px 9px",
-                      borderRadius: radius,
+                      color: textLight2,
+                      border: "1px solid var(--deline-rule)",
+                      background: "transparent",
+                      padding: "5px 11px",
+                      borderRadius: 999,
                       lineHeight: 1.2,
                     }}
                   >

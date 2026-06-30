@@ -91,17 +91,26 @@ a {
   gap: 18px;
 }
 
-/* ===== Cards ===== */
+/* ===== Cards — EINAR: borderless, blends into the canvas ===== */
 .deline-card {
-  background: var(--deline-surface);
-  border: 1px solid var(--deline-divider);
-  border-radius: var(--deline-radius);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.4s ease;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .deline-card:hover {
   transform: translateY(-3px);
-  border-color: var(--deline-rule);
-  box-shadow: var(--deline-shadow);
+}
+
+/* ===== Imagery — unified black-and-white treatment ===== */
+.deline-card img,
+.dl-bw {
+  filter: grayscale(1) contrast(1.04);
+  transition: filter 0.5s ease, transform 0.6s cubic-bezier(.19,.7,.2,1);
+}
+.deline-card:hover img,
+.dl-bw:hover {
+  filter: grayscale(0.82) contrast(1.04) brightness(1.03);
 }
 
 /* ===== Forms ===== */
@@ -284,6 +293,8 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ===== Map theming hooks ===== */
+/* Keep the basemap monochrome to match the editorial palette */
+.leaflet-tile-pane { filter: grayscale(1) contrast(1.02); }
 .deline-tooltip {
   background: var(--deline-surface) !important;
   border: 1px solid var(--deline-rule) !important;
@@ -304,6 +315,96 @@ input:focus, textarea:focus, select:focus {
   font-size: 9px !important;
 }
 .leaflet-control-attribution a { color: var(--deline-gold) !important; }
+
+/* ============================================================
+   EINAR primitives — monumental wordmark, newsletter, widget, pills
+   ============================================================ */
+
+/* Pill — shared outline/solid shape for buttons & links */
+.dl-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 12px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  height: 48px; padding: 0 28px; border-radius: 999px;
+  border: 1px solid var(--deline-rule); background: transparent;
+  color: var(--deline-text); text-decoration: none; cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.dl-pill:hover { background: var(--deline-text); color: var(--deline-bg); border-color: var(--deline-text); }
+.dl-pill--solid { background: var(--deline-gold-button); color: var(--deline-on-gold); border-color: var(--deline-gold-button); }
+.dl-pill--solid:hover { transform: translateY(-2px); background: var(--deline-gold-button); color: var(--deline-on-gold); }
+
+/* Editorial text-arrow link (→) */
+.dl-arrow-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+  color: var(--deline-text); text-decoration: none;
+  transition: color 0.2s ease;
+}
+.dl-arrow-link .dl-arrow { transition: transform 0.25s ease; }
+.dl-arrow-link:hover .dl-arrow { transform: translateX(6px); }
+
+/* Monumental footer wordmark (EINAR-style giant lockup).
+   Single line, clipped to its own box so an intentional edge-bleed never
+   spills into a horizontal page scrollbar. */
+.dl-wordmark {
+  font-family: var(--font-wordmark);
+  font-weight: 900;
+  font-size: clamp(40px, 15vw, 210px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  color: var(--deline-text);
+  margin: 0;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+.dl-wordmark sup {
+  font-family: var(--font-display);
+  font-size: 0.12em;
+  font-weight: 700;
+  vertical-align: top;
+  top: 0.4em;
+  margin-left: 0.04em;
+  letter-spacing: 0;
+}
+
+/* Newsletter inline field (pill with text arrow) */
+.dl-newsletter {
+  display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--deline-rule); border-radius: 999px;
+  padding: 6px 6px 6px 22px; max-width: 380px; width: 100%;
+  transition: border-color 0.2s ease;
+}
+.dl-newsletter:focus-within { border-color: var(--deline-text); }
+.dl-newsletter input {
+  flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+  font-family: var(--font-sans); font-size: 14px; color: var(--deline-text);
+}
+.dl-newsletter input::placeholder { color: var(--deline-text-2); }
+.dl-newsletter button {
+  flex: none; width: 40px; height: 40px; border-radius: 999px; border: none; cursor: pointer;
+  background: var(--deline-gold-button); color: var(--deline-on-gold);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 18px;
+  transition: transform 0.2s ease;
+}
+.dl-newsletter button:hover { transform: translateX(2px); }
+
+/* Floating micro-accent widget — the single pop of colour on the page */
+.dl-fab {
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 200; display: flex; flex-direction: column; gap: 2px;
+}
+.dl-fab a {
+  width: 38px; height: 44px; display: flex; align-items: center; justify-content: center;
+  background: var(--deline-accent); color: var(--deline-accent-ink);
+  text-decoration: none; transition: filter 0.2s ease, width 0.2s ease;
+}
+.dl-fab a:first-child { border-radius: 6px 0 0 0; }
+.dl-fab a:last-child { border-radius: 0 0 0 6px; }
+.dl-fab a:hover { filter: brightness(1.12); }
+@media (max-width: 600px) { .dl-fab { display: none; } }
 
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {

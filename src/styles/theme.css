@@ -9,29 +9,34 @@
 
 :root {
   /* Brand constants (theme-independent) */
-  --deline-on-gold: #161b22;        /* dark ink that sits on a gold fill */
-  --deline-radius: 8px;
+  --deline-on-gold: #000000;        /* ink that sits on a white "fill" */
+  --deline-radius: 2px;             /* crisp, near-square editorial corners */
 
-  /* Type */
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  /* The only pop of colour — the tiny floating widget (EINAR pink). */
+  --deline-accent: #ff3b53;
+  --deline-accent-ink: #ffffff;
+
+  /* Type — heavy geometric grotesque for display, Inter for body */
+  --font-display: "Archivo", "Helvetica Neue", system-ui, sans-serif;
+  --font-wordmark: "Archivo Expanded", "Archivo", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Fluid spacing rhythm (8pt based) */
-  --section-y: clamp(76px, 11vw, 144px);
-  --gutter: clamp(20px, 5vw, 32px);
+  /* Fluid spacing rhythm (8pt based) — generous EINAR breathing room */
+  --section-y: clamp(84px, 12vw, 168px);
+  --gutter: clamp(20px, 5vw, 40px);
 
-  /* ---- Default (dark) theme values ---- */
-  --deline-bg: #161b22;             /* page background */
-  --deline-bg-2: #131820;           /* deeper background (inputs, insets) */
-  --deline-surface: #1f2630;        /* card surface */
-  --deline-surface-2: #232b36;      /* raised / hover surface */
-  --deline-text: #ece8e0;           /* primary text */
-  --deline-text-2: #b5aea3;         /* secondary text */
-  --deline-gold: #c6a875;           /* accent — contrast-safe on bg */
-  --deline-gold-button: #b8956a;    /* gold button fill */
-  --deline-divider: rgba(236, 232, 224, 0.12);
-  --deline-rule: rgba(198, 168, 117, 0.32);
-  --deline-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
+  /* ---- Default (dark) theme values — EINAR monochrome ---- */
+  --deline-bg: #000000;             /* true black page background */
+  --deline-bg-2: #0a0a0a;           /* deeper background (inputs, insets) */
+  --deline-surface: #0c0c0c;        /* card surface — barely lifts off black */
+  --deline-surface-2: #161616;      /* raised / hover surface */
+  --deline-text: #f4f4f2;           /* crisp near-white text */
+  --deline-text-2: #8c8c8c;         /* secondary grey */
+  --deline-gold: #f4f4f2;           /* "accent" now reads as light ink (mono) */
+  --deline-gold-button: #ffffff;    /* solid white pill fill */
+  --deline-divider: rgba(244, 244, 242, 0.14);
+  --deline-rule: rgba(244, 244, 242, 0.3);
+  --deline-shadow: 0 18px 50px -24px rgba(0, 0, 0, 0.9);
 
   /* ---- Legacy aliases (referenced across components) ---- */
   --deline-navy: var(--deline-bg);
@@ -71,34 +76,36 @@
    DARK THEME (explicit)
    ============================================================ */
 [data-theme="dark"] {
-  --deline-bg: #161b22;
-  --deline-bg-2: #131820;
-  --deline-surface: #1f2630;
-  --deline-surface-2: #232b36;
-  --deline-text: #ece8e0;
-  --deline-text-2: #b5aea3;
-  --deline-gold: #c6a875;
-  --deline-gold-button: #b8956a;
-  --deline-divider: rgba(236, 232, 224, 0.12);
-  --deline-rule: rgba(198, 168, 117, 0.32);
-  --deline-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
+  --deline-bg: #000000;
+  --deline-bg-2: #0a0a0a;
+  --deline-surface: #0c0c0c;
+  --deline-surface-2: #161616;
+  --deline-text: #f4f4f2;
+  --deline-text-2: #8c8c8c;
+  --deline-gold: #f4f4f2;
+  --deline-gold-button: #ffffff;
+  --deline-on-gold: #000000;
+  --deline-divider: rgba(244, 244, 242, 0.14);
+  --deline-rule: rgba(244, 244, 242, 0.3);
+  --deline-shadow: 0 18px 50px -24px rgba(0, 0, 0, 0.9);
 }
 
 /* ============================================================
    LIGHT THEME — cream-dominant, luxury-architectural
    ============================================================ */
 [data-theme="light"] {
-  --deline-bg: #f4f0e9;             /* cream canvas */
-  --deline-bg-2: #ece6db;           /* sunken fields */
-  --deline-surface: #fbf9f5;        /* card surface, a hair lighter than canvas */
-  --deline-surface-2: #f7f3ec;      /* hover surface */
-  --deline-text: #23201c;           /* warm ink (not pure black) */
-  --deline-text-2: #6b6256;         /* secondary warm gray */
-  --deline-gold: #8a6b40;           /* darker gold — AA on cream */
-  --deline-gold-button: #a17a45;    /* gold button fill (dark ink on top) */
-  --deline-divider: rgba(35, 32, 28, 0.14);
-  --deline-rule: rgba(138, 107, 64, 0.4);
-  --deline-shadow: 0 18px 40px -28px rgba(35, 32, 28, 0.28);
+  --deline-bg: #ffffff;             /* inverted EINAR — white canvas */
+  --deline-bg-2: #f3f3f1;           /* sunken fields */
+  --deline-surface: #fafafa;        /* card surface */
+  --deline-surface-2: #f1f1ef;      /* hover surface */
+  --deline-text: #0a0a0a;           /* near-black ink */
+  --deline-text-2: #6b6b6b;         /* secondary grey */
+  --deline-gold: #0a0a0a;           /* "accent" reads as black ink (mono) */
+  --deline-gold-button: #0a0a0a;    /* solid black pill fill */
+  --deline-on-gold: #ffffff;        /* white text on the black pill */
+  --deline-divider: rgba(10, 10, 10, 0.14);
+  --deline-rule: rgba(10, 10, 10, 0.3);
+  --deline-shadow: 0 18px 40px -28px rgba(10, 10, 10, 0.18);
 }
 
 /* ============================================================
@@ -108,82 +115,88 @@
    "current" needs no block — it uses the base values above.
    ============================================================ */
 
-/* --- A · Warm espresso --- */
+/* --- A · Carbon — warm near-black --- */
 [data-palette="espresso"][data-theme="dark"] {
-  --deline-bg: #1a1613;
-  --deline-bg-2: #14110e;
-  --deline-surface: #251f19;
-  --deline-surface-2: #2d2620;
-  --deline-text: #efe9df;
-  --deline-text-2: #b3a899;
-  --deline-gold: #cca877;
-  --deline-gold-button: #bd9560;
-  --deline-rule: rgba(204, 168, 119, 0.32);
-  --deline-on-gold: #1a1613;
+  --deline-bg: #0b0a09;
+  --deline-bg-2: #131110;
+  --deline-surface: #141210;
+  --deline-surface-2: #1d1a17;
+  --deline-text: #f3f1ec;
+  --deline-text-2: #908a82;
+  --deline-gold: #f3f1ec;
+  --deline-gold-button: #ffffff;
+  --deline-divider: rgba(243, 241, 236, 0.14);
+  --deline-rule: rgba(243, 241, 236, 0.3);
+  --deline-on-gold: #0b0a09;
 }
 [data-palette="espresso"][data-theme="light"] {
-  --deline-bg: #f5efe5;
-  --deline-bg-2: #ece4d6;
-  --deline-surface: #fbf8f2;
-  --deline-surface-2: #f6f0e7;
-  --deline-text: #221e19;
-  --deline-text-2: #6b6155;
-  --deline-gold: #936e3c;
-  --deline-gold-button: #a87c44;
-  --deline-rule: rgba(147, 110, 60, 0.4);
-  --deline-on-gold: #f5efe5;
+  --deline-bg: #faf8f4;
+  --deline-bg-2: #efece6;
+  --deline-surface: #f4f1ec;
+  --deline-surface-2: #ebe7e0;
+  --deline-text: #14110d;
+  --deline-text-2: #6f675c;
+  --deline-gold: #14110d;
+  --deline-gold-button: #14110d;
+  --deline-divider: rgba(20, 17, 13, 0.14);
+  --deline-rule: rgba(20, 17, 13, 0.3);
+  --deline-on-gold: #faf8f4;
 }
 
-/* --- B · Forest & brass --- */
+/* --- B · Graphite — cool charcoal --- */
 [data-palette="forest"][data-theme="dark"] {
-  --deline-bg: #18211d;
-  --deline-bg-2: #121a16;
-  --deline-surface: #202b26;
-  --deline-surface-2: #27332e;
-  --deline-text: #ece9e1;
-  --deline-text-2: #a7afa6;
-  --deline-gold: #c4a25f;
-  --deline-gold-button: #b08f50;
-  --deline-rule: rgba(196, 162, 95, 0.34);
-  --deline-on-gold: #16201c;
+  --deline-bg: #0d0f10;
+  --deline-bg-2: #141618;
+  --deline-surface: #16191b;
+  --deline-surface-2: #1f2225;
+  --deline-text: #eef1f2;
+  --deline-text-2: #899093;
+  --deline-gold: #eef1f2;
+  --deline-gold-button: #ffffff;
+  --deline-divider: rgba(238, 241, 242, 0.14);
+  --deline-rule: rgba(238, 241, 242, 0.3);
+  --deline-on-gold: #0d0f10;
 }
 [data-palette="forest"][data-theme="light"] {
-  --deline-bg: #eef1ea;
-  --deline-bg-2: #e3e8df;
-  --deline-surface: #f8faf5;
-  --deline-surface-2: #f1f4ec;
-  --deline-text: #1f2620;
-  --deline-text-2: #5f655b;
-  --deline-gold: #715f30;
-  --deline-gold-button: #87703b;
-  --deline-rule: rgba(113, 95, 48, 0.4);
-  --deline-on-gold: #eef1ea;
+  --deline-bg: #f6f7f8;
+  --deline-bg-2: #eaecee;
+  --deline-surface: #f0f2f3;
+  --deline-surface-2: #e6e9eb;
+  --deline-text: #0c0e0f;
+  --deline-text-2: #636a6d;
+  --deline-gold: #0c0e0f;
+  --deline-gold-button: #0c0e0f;
+  --deline-divider: rgba(12, 14, 15, 0.14);
+  --deline-rule: rgba(12, 14, 15, 0.3);
+  --deline-on-gold: #f6f7f8;
 }
 
-/* --- C · Charcoal & champagne --- */
+/* --- C · Slate — deep blue-grey black --- */
 [data-palette="champagne"][data-theme="dark"] {
-  --deline-bg: #1b1a1c;
-  --deline-bg-2: #161517;
-  --deline-surface: #262528;
-  --deline-surface-2: #2d2c30;
-  --deline-text: #eceae6;
-  --deline-text-2: #b0aeaa;
-  --deline-gold: #cdb78f;
-  --deline-gold-button: #bfa97e;
-  --deline-rule: rgba(205, 183, 143, 0.32);
-  --deline-on-gold: #1b1a1c;
+  --deline-bg: #0a0c0f;
+  --deline-bg-2: #11141a;
+  --deline-surface: #13161c;
+  --deline-surface-2: #1c2027;
+  --deline-text: #eef0f3;
+  --deline-text-2: #868c95;
+  --deline-gold: #eef0f3;
+  --deline-gold-button: #ffffff;
+  --deline-divider: rgba(238, 240, 243, 0.14);
+  --deline-rule: rgba(238, 240, 243, 0.3);
+  --deline-on-gold: #0a0c0f;
 }
 [data-palette="champagne"][data-theme="light"] {
-  --deline-bg: #f1efeb;
-  --deline-bg-2: #e8e5df;
-  --deline-surface: #faf9f6;
-  --deline-surface-2: #f4f2ed;
-  --deline-text: #211f1c;
-  --deline-text-2: #67635c;
-  --deline-gold: #8a7349;
-  --deline-gold-button: #a08550;
-  --deline-rule: rgba(138, 115, 73, 0.4);
-  --deline-on-gold: #f1efeb;
+  --deline-bg: #f5f6f8;
+  --deline-bg-2: #e9ebef;
+  --deline-surface: #eff1f4;
+  --deline-surface-2: #e5e8ed;
+  --deline-text: #0a0c0f;
+  --deline-text-2: #61656d;
+  --deline-gold: #0a0c0f;
+  --deline-gold-button: #0a0c0f;
+  --deline-divider: rgba(10, 12, 15, 0.14);
+  --deline-rule: rgba(10, 12, 15, 0.3);
+  --deline-on-gold: #f5f6f8;
 }
 
 @theme inline {

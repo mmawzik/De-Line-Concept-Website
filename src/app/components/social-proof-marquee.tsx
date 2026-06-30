@@ -14,7 +14,7 @@ export function SocialProofMarquee() {
       <Container>
         <style>{marqueeCss}</style>
         <div className="dl-stack" style={{ maxWidth: "none", marginBottom: "clamp(28px,4vw,44px)", gap: 16, alignItems: "center", textAlign: "center" }}>
-          <SectionHeading style={{ maxWidth: "none", whiteSpace: "nowrap" }}>{t.social.heading}</SectionHeading>
+          <SectionHeading style={{ maxWidth: "18ch" }}>{t.social.heading}</SectionHeading>
           <Lead style={{ maxWidth: "60ch" }}>{t.social.lead}</Lead>
         </div>
       </Container>
