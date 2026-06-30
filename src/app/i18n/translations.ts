@@ -9,9 +9,9 @@ const en = {
     tagline: "Every project starts with De Line",
     links: [
       { label: "Presence", href: "#foshan" },
+      { label: "Team", href: "#team" },
       { label: "Process", href: "#journey" },
       { label: "Portfolio", href: "#portfolio" },
-      { label: "Team", href: "#team" },
       { label: "Contact", href: "#contact" },
     ],
     cta: "Start project",
@@ -260,9 +260,9 @@ const ru: typeof en = {
     tagline: "Каждый проект начинается с De Line",
     links: [
       { label: "Присутствие", href: "#foshan" },
+      { label: "Команда", href: "#team" },
       { label: "Процесс", href: "#journey" },
       { label: "Портфолио", href: "#portfolio" },
-      { label: "Команда", href: "#team" },
       { label: "Контакты", href: "#contact" },
     ],
     cta: "Начать проект",
@@ -511,9 +511,9 @@ const zh: typeof en = {
     tagline: "每个项目，都始于 De Line",
     links: [
       { label: "据点", href: "#foshan" },
+      { label: "团队", href: "#team" },
       { label: "流程", href: "#journey" },
       { label: "案例", href: "#portfolio" },
-      { label: "团队", href: "#team" },
       { label: "联系", href: "#contact" },
     ],
     cta: "启动项目",
