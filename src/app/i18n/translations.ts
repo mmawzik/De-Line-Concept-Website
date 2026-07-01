@@ -228,6 +228,7 @@ const en = {
     privacyLink: "Privacy Policy",
     successTitle: "Thanks — we’ll be in touch.",
     successBody: "We respond within three business days.",
+    error: "Something went wrong. Please try again, or email us directly.",
   },
 
   footer: {
@@ -477,6 +478,7 @@ const ru: typeof en = {
     privacyLink: "Политикой конфиденциальности",
     successTitle: "Спасибо — мы свяжемся с вами.",
     successBody: "Отвечаем в течение трёх рабочих дней.",
+    error: "Что-то пошло не так. Попробуйте ещё раз или напишите нам на почту.",
   },
 
   footer: {
@@ -726,6 +728,7 @@ const zh: typeof en = {
     privacyLink: "隐私政策",
     successTitle: "谢谢 — 我们会尽快联系您。",
     successBody: "我们将在三个工作日内回复。",
+    error: "出了点问题。请重试，或直接给我们发邮件。",
   },
 
   footer: {

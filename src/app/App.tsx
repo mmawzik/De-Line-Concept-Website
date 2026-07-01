@@ -9,6 +9,7 @@ import { Team } from "./components/team";
 import { SocialProofMarquee } from "./components/social-proof-marquee";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
+import { PrivacyOverlay } from "./components/privacy";
 
 export default function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <PrivacyOverlay />
       </div>
     </AppProviders>
   );
