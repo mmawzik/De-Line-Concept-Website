@@ -3,12 +3,12 @@ html {
   scroll-padding-top: 96px;
 }
 
-/* Present the site a notch smaller (like viewing at 80% zoom). Scoped to
+/* Present the site a notch smaller (like viewing at 90% zoom). Scoped to
    wider viewports so phones keep their native, readable layout — `zoom`
    enlarges the effective CSS viewport, which would otherwise trip the
    mobile breakpoints. */
 @media (min-width: 1024px) {
-  body { zoom: 0.8; }
+  body { zoom: 0.9; }
 }
 
 html, body {
