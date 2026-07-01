@@ -249,6 +249,119 @@ const en = {
   common: {
     imagePlaceholder: "Image to be added",
   },
+
+  privacy: {
+    title: "Privacy Policy",
+    updated: "Last updated · July 2026",
+    back: "← Back to site",
+    email: "hello@deline.studio",
+    intro:
+      "De Line Concept (“De Line”, “we”, “us”) coordinates custom furniture manufacturing and sourcing from Foshan, China, for clients worldwide. This policy explains what personal information we collect when you contact us or use de-line.co, how we use it, and the choices you have. We only ask for what a project actually requires.",
+    sections: [
+      {
+        h: "1. Information we collect",
+        p: [
+          "**Information you give us.** When you submit the inquiry form or email us, we collect your name, email address, and the project details you choose to share (scope, type, timeline, references). If a project proceeds, we may also collect the billing, shipping, and contact details needed to deliver it.",
+          "**Information collected automatically.** Our hosting provider and any analytics we use may record limited technical data such as IP address, browser type, and pages viewed, to keep the site secure and understand traffic. The site also stores your language and theme preferences locally in your browser — these never leave your device.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "2. How we use your information",
+        p: ["We use it to:"],
+        list: [
+          "Respond to your inquiry and prepare quotes or feasibility assessments.",
+          "Plan, manufacture, inspect, and deliver your project.",
+          "Communicate with you about your project and, where relevant, our services.",
+          "Keep records and meet our legal, tax, and accounting obligations, and prevent fraud or abuse.",
+        ],
+        pAfter: [
+          "We do not sell your personal information, and we do not use it for automated decision-making that produces legal effects on you.",
+        ],
+      },
+      {
+        h: "3. Who we share it with",
+        p: [
+          "**Logistics and freight partners.** We do not operate our own logistics. To move and deliver your order, we share the details a carrier needs — such as delivery address, contact, and shipment specifications — with independent freight, customs, and installation partners.",
+          "**Service providers.** We use third parties to run this website (hosting) and to process form submissions and email so your inquiry reaches us. They act on our instructions and only for these purposes.",
+          "**Legal and safety.** We may disclose information where required by law, or to protect our rights, safety, or the integrity of a transaction.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "4. Our supply chain is confidential",
+        p: [
+          "Protecting our manufacturing network is core to how we work. We do not disclose the identity of the factories, workshops, or suppliers in our network to clients or third parties — that information is our confidential business information, and your relationship and contract are with De Line. In turn, we treat your designs, drawings, and specifications as confidential and share them with a manufacturer only to the extent needed to build your project.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "5. International transfers",
+        p: [
+          "De Line operates in China and serves clients globally, and our service providers may be located in other countries. Your information may therefore be processed or stored outside your country of residence, including in China. Where required, we take steps to keep your information protected when it is transferred.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "6. How long we keep it",
+        p: [
+          "We keep inquiry information for as long as needed to respond and to pursue a potential project, and project information for as long as needed to fulfil the engagement and meet our legal, tax, and accounting obligations. When it is no longer needed, we delete or anonymise it.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "7. Security",
+        p: [
+          "We use reasonable technical and organisational measures to protect your information. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "8. Your rights",
+        p: [
+          "Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal information, to object to or restrict certain processing, and to withdraw consent. To exercise any of these, email us at hello@deline.studio. EU/UK residents may also lodge a complaint with their local data-protection authority.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "9. Cookies and local storage",
+        p: [
+          "We keep cookies to a minimum. The site uses essential local storage for your language and theme preferences. Any analytics we use is limited to understanding aggregate traffic and site performance.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "10. Children",
+        p: [
+          "This site and our services are intended for businesses and professionals and are not directed to children under 16. We do not knowingly collect their information.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "11. Changes to this policy",
+        p: [
+          "We may update this policy from time to time. The “last updated” date above reflects the latest version; material changes will be reflected on this page.",
+        ],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+      {
+        h: "12. Contact",
+        p: ["Questions about this policy or your information? Email us at hello@deline.studio."],
+        list: [] as string[],
+        pAfter: [] as string[],
+      },
+    ],
+  },
 };
 
 const ru: typeof en = {
@@ -499,6 +612,119 @@ const ru: typeof en = {
   common: {
     imagePlaceholder: "Изображение будет добавлено",
   },
+
+  privacy: {
+    title: "Политика конфиденциальности",
+    updated: "Последнее обновление · июль 2026",
+    back: "← Назад на сайт",
+    email: "hello@deline.studio",
+    intro:
+      "De Line Concept («De Line», «мы», «нас») организует изготовление и поставку мебели на заказ из Фошаня (Китай) для клиентов по всему миру. Эта политика объясняет, какие персональные данные мы собираем, когда вы связываетесь с нами или пользуетесь сайтом de-line.co, как мы их используем и какие у вас есть права. Мы запрашиваем только то, что действительно необходимо для проекта.",
+    sections: [
+      {
+        h: "1. Какие данные мы собираем",
+        p: [
+          "**Данные, которые вы предоставляете.** Когда вы отправляете форму запроса или пишете нам, мы собираем ваше имя, адрес электронной почты и сведения о проекте, которыми вы решите поделиться (объём, тип, сроки, референсы). Если проект переходит в работу, мы также можем собирать платёжные, отгрузочные и контактные данные, необходимые для его выполнения.",
+          "**Данные, собираемые автоматически.** Наш хостинг-провайдер и используемая аналитика могут фиксировать ограниченные технические данные — IP-адрес, тип браузера, просмотренные страницы — для безопасности сайта и понимания трафика. Сайт также хранит ваши настройки языка и темы локально в браузере — они не покидают ваше устройство.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "2. Как мы используем ваши данные",
+        p: ["Мы используем их, чтобы:"],
+        list: [
+          "Ответить на ваш запрос и подготовить расчёт или оценку осуществимости.",
+          "Спланировать, произвести, проверить и поставить ваш проект.",
+          "Общаться с вами по вашему проекту и, при необходимости, о наших услугах.",
+          "Вести учёт, выполнять юридические, налоговые и бухгалтерские обязательства и предотвращать мошенничество.",
+        ],
+        pAfter: [
+          "Мы не продаём ваши персональные данные и не используем их для автоматизированного принятия решений, влекущего для вас юридические последствия.",
+        ],
+      },
+      {
+        h: "3. С кем мы делимся данными",
+        p: [
+          "**Логистические и транспортные партнёры.** Мы не занимаемся логистикой сами. Чтобы отгрузить и доставить ваш заказ, мы передаём необходимые перевозчику сведения — адрес доставки, контакт и параметры отгрузки — независимым транспортным, таможенным и монтажным партнёрам.",
+          "**Поставщики услуг.** Мы привлекаем третьих лиц для работы сайта (хостинг) и обработки заявок и почты, чтобы ваш запрос дошёл до нас. Они действуют по нашим инструкциям и только для этих целей.",
+          "**Закон и безопасность.** Мы можем раскрыть данные, если этого требует закон, либо для защиты наших прав, безопасности или целостности сделки.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "4. Наша производственная сеть конфиденциальна",
+        p: [
+          "Защита нашей производственной сети — основа нашей работы. Мы не раскрываем клиентам и третьим лицам, какие фабрики, цеха и поставщики входят в нашу сеть, — это наша конфиденциальная деловая информация, а ваши отношения и договор — с De Line. В свою очередь, мы считаем ваши дизайны, чертежи и спецификации конфиденциальными и передаём их производителю только в объёме, необходимом для изготовления вашего проекта.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "5. Международная передача данных",
+        p: [
+          "De Line работает в Китае и обслуживает клиентов по всему миру, а наши поставщики услуг могут находиться в других странах. Поэтому ваши данные могут обрабатываться или храниться за пределами страны вашего проживания, в том числе в Китае. При необходимости мы принимаем меры для защиты ваших данных при передаче.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "6. Сколько мы храним данные",
+        p: [
+          "Мы храним данные запроса столько, сколько нужно, чтобы ответить и проработать возможный проект, а данные по проекту — столько, сколько нужно для его выполнения и соблюдения юридических, налоговых и бухгалтерских обязательств. Когда данные больше не нужны, мы удаляем или обезличиваем их.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "7. Безопасность",
+        p: [
+          "Мы применяем разумные технические и организационные меры для защиты ваших данных. Ни один способ передачи или хранения не является полностью безопасным, поэтому мы не можем гарантировать абсолютную защиту.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "8. Ваши права",
+        p: [
+          "В зависимости от страны проживания вы можете иметь право получить доступ к своим персональным данным, исправить, удалить или получить их копию, возразить против обработки или ограничить её, а также отозвать согласие. Чтобы воспользоваться этими правами, напишите нам на hello@deline.studio. Жители ЕС/Великобритании также могут подать жалобу в местный орган по защите данных.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "9. Файлы cookie и локальное хранилище",
+        p: [
+          "Мы сводим использование cookie к минимуму. Сайт использует необходимое локальное хранилище для настроек языка и темы. Любая используемая аналитика ограничивается пониманием совокупного трафика и работы сайта.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "10. Дети",
+        p: [
+          "Этот сайт и наши услуги предназначены для бизнеса и специалистов и не адресованы детям младше 16 лет. Мы сознательно не собираем их данные.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "11. Изменения в политике",
+        p: [
+          "Мы можем время от времени обновлять эту политику. Дата «последнее обновление» выше отражает актуальную версию; существенные изменения будут отражены на этой странице.",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "12. Контакты",
+        p: ["Вопросы об этой политике или ваших данных? Напишите нам на hello@deline.studio."],
+        list: [],
+        pAfter: [],
+      },
+    ],
+  },
 };
 
 const zh: typeof en = {
@@ -748,6 +974,117 @@ const zh: typeof en = {
 
   common: {
     imagePlaceholder: "图片待添加",
+  },
+
+  privacy: {
+    title: "隐私政策",
+    updated: "最后更新 · 2026年7月",
+    back: "← 返回网站",
+    email: "hello@deline.studio",
+    intro:
+      "De Line Concept（以下称“De Line”“我们”）为全球客户在中国佛山协调定制家具的生产与采购。本政策说明当您联系我们或使用 de-line.co 时，我们会收集哪些个人信息、如何使用，以及您拥有的选择。我们只会索取项目真正需要的信息。",
+    sections: [
+      {
+        h: "1. 我们收集的信息",
+        p: [
+          "**您提供的信息。**当您提交咨询表单或给我们发邮件时，我们会收集您的姓名、电子邮箱，以及您选择分享的项目信息（规模、类型、时间安排、参考资料）。若项目继续推进，我们还可能收集交付所需的账单、收货和联系信息。",
+          "**自动收集的信息。**我们的托管服务商及所用的分析工具可能记录有限的技术数据，如 IP 地址、浏览器类型和浏览的页面，用于保障网站安全和了解访问情况。网站还会将您的语言和主题偏好保存在您的浏览器本地——这些数据不会离开您的设备。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "2. 我们如何使用您的信息",
+        p: ["我们将其用于："],
+        list: [
+          "回复您的咨询，并准备报价或可行性评估。",
+          "规划、生产、检验并交付您的项目。",
+          "就您的项目与您沟通，并在相关时介绍我们的服务。",
+          "保存记录，履行法律、税务和会计义务，并防范欺诈或滥用。",
+        ],
+        pAfter: ["我们不会出售您的个人信息，也不会将其用于对您产生法律效果的自动化决策。"],
+      },
+      {
+        h: "3. 我们与谁共享信息",
+        p: [
+          "**物流与货运合作伙伴。**我们不自行经营物流。为运输和交付您的订单，我们会将承运方所需的信息——如收货地址、联系人和货物规格——共享给独立的货运、报关和安装合作伙伴。",
+          "**服务提供商。**我们借助第三方来运行本网站（托管）并处理表单提交和邮件，以便您的咨询送达我们。他们仅按我们的指示、为上述目的处理信息。",
+          "**法律与安全。**在法律要求时，或为保护我们的权利、安全或交易的完整性，我们可能披露信息。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "4. 我们的供应链是保密的",
+        p: [
+          "保护我们的生产网络是我们工作方式的核心。我们不会向客户或第三方披露我们网络中工厂、车间或供应商的身份——这属于我们的商业机密信息，您的合作与合同关系是与 De Line 建立的。同样，我们将您的设计、图纸和规格视为机密，仅在制造您的项目所需范围内提供给生产方。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "5. 跨境数据传输",
+        p: [
+          "De Line 在中国运营并服务全球客户，我们的服务提供商可能位于其他国家或地区。因此，您的信息可能在您居住国以外（包括中国）处理或存储。在必要时，我们会采取措施在传输过程中保护您的信息。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "6. 我们保存多久",
+        p: [
+          "我们会在回复及推进潜在项目所需的期间内保存咨询信息；对于项目信息，则保存至完成合作并满足法律、税务和会计义务所需的期限。当不再需要时，我们会删除或匿名化处理。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "7. 安全",
+        p: [
+          "我们采取合理的技术和组织措施保护您的信息。任何传输或存储方式都无法做到完全安全，因此我们无法保证绝对安全。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "8. 您的权利",
+        p: [
+          "视您所在地区而定，您可能有权访问、更正、删除或获取您个人信息的副本，反对或限制某些处理，以及撤回同意。如需行使上述权利，请发邮件至 hello@deline.studio。欧盟/英国居民还可向当地数据保护机构投诉。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "9. Cookie 与本地存储",
+        p: [
+          "我们尽量减少 Cookie 的使用。网站会使用必要的本地存储来保存您的语言和主题偏好。我们所用的任何分析仅限于了解整体访问量和网站性能。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "10. 未成年人",
+        p: [
+          "本网站及我们的服务面向企业和专业人士，并非面向 16 岁以下的儿童。我们不会有意收集其信息。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "11. 政策的变更",
+        p: [
+          "我们可能会不时更新本政策。上方的“最后更新”日期反映最新版本；重大变更将在本页面体现。",
+        ],
+        list: [],
+        pAfter: [],
+      },
+      {
+        h: "12. 联系我们",
+        p: ["对本政策或您的信息有疑问？请发邮件至 hello@deline.studio。"],
+        list: [],
+        pAfter: [],
+      },
+    ],
   },
 };
 
