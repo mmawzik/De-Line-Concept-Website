@@ -13,7 +13,7 @@ import { PrivacyOverlay } from "./components/privacy";
 
 export default function App() {
   useEffect(() => {
-    document.title = "De Line — Custom Furniture Sourcing & Manufacturing | Foshan";
+    document.title = "De Line Concept";
   }, []);
 
   return (
