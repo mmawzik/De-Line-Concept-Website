@@ -10,19 +10,15 @@
     <meta name="theme-color" content="#f4f0e9" media="(prefers-color-scheme: light)" />
     <style>html, body { height: 100%; margin: 0; } #root { min-height: 100%; }</style>
     <script>
-      // Set theme + language before paint to avoid a flash of the wrong theme.
+      // Brand-locked appearance: always dark theme + Forest palette.
+      // Set before paint (plus the visitor's saved language) to avoid a flash.
       (function () {
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-palette", "forest");
         try {
-          var t = localStorage.getItem("deline-theme");
-          if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          }
-          document.documentElement.setAttribute("data-theme", t);
           var l = localStorage.getItem("deline-lang");
-          document.documentElement.setAttribute("lang", l === "ru" ? "ru" : "en");
-        } catch (e) {
-          document.documentElement.setAttribute("data-theme", "dark");
-        }
+          document.documentElement.setAttribute("lang", l === "ru" || l === "zh" ? l : "en");
+        } catch (e) {}
       })();
     </script>
   </head>

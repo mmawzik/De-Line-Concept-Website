@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/modern", "destination": "/", "permanent": false },
+    { "source": "/modern/:path*", "destination": "/", "permanent": false }
+  ]
 }

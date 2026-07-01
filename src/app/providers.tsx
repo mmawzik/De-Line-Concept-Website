@@ -8,14 +8,8 @@ const THEME_KEY = "deline-theme";
 const LANG_KEY = "deline-lang";
 const PALETTE_KEY = "deline-palette";
 
+// Brand-locked: the site ships in a single dark theme (no user toggle).
 function getInitialTheme(): Theme {
-  if (typeof document !== "undefined") {
-    const attr = document.documentElement.getAttribute("data-theme");
-    if (attr === "light" || attr === "dark") return attr;
-  }
-  if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) {
-    return "light";
-  }
   return "dark";
 }
 
@@ -31,14 +25,9 @@ function getInitialLang(): Lang {
   return "en";
 }
 
+// Brand-locked: the site ships in the Forest palette (no user switcher).
 function getInitialPalette(): Palette {
-  try {
-    const stored = localStorage.getItem(PALETTE_KEY);
-    if (stored === "espresso" || stored === "forest" || stored === "champagne" || stored === "current") {
-      return stored;
-    }
-  } catch { /* ignore */ }
-  return "current";
+  return "forest";
 }
 
 type ThemeCtx = { theme: Theme; toggleTheme: () => void };
